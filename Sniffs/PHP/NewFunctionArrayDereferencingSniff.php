@@ -43,6 +43,9 @@ class PHPCompatibility_Sniffs_PHP_NewFunctionArrayDereferencingSniff extends PHP
 
         $tokens = $phpcsFile->getTokens();
 
+        // @todo TRANSLATE the new code to the new functions
+        // if ($this->isFunctionCall($phpcsFile, $stackPtr) === false ) {
+
         // Next non-empty token should be the open parenthesis.
         $openParenthesis = $phpcsFile->findNext(PHP_CodeSniffer_Tokens::$emptyTokens, ($stackPtr + 1), null, true, null, true);
         if ($openParenthesis === false || $tokens[$openParenthesis]['code'] !== T_OPEN_PARENTHESIS) {

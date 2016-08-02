@@ -366,35 +366,8 @@ class PHPCompatibility_Sniffs_PHP_RemovedExtensionsSniff extends PHPCompatibilit
     {
         $tokens = $phpcsFile->getTokens();
 
-        // Find the next non-empty token.
-        $openBracket = $phpcsFile->findNext(PHP_CodeSniffer_Tokens::$emptyTokens, ($stackPtr + 1), null, true);
-
-        if ($tokens[$openBracket]['code'] !== T_OPEN_PARENTHESIS) {
-            // Not a function call.
-            return;
-        }
-
-        if (isset($tokens[$openBracket]['parenthesis_closer']) === false) {
-            // Not a function call.
-            return;
-        }
-
-        // Find the previous non-empty token.
-        $search   = PHP_CodeSniffer_Tokens::$emptyTokens;
-        $search[] = T_BITWISE_AND;
-        $previous = $phpcsFile->findPrevious($search, ($stackPtr - 1), null, true);
-        if ($tokens[$previous]['code'] === T_FUNCTION) {
-            // It's a function definition, not a function call.
-            return;
-        }
-
-        if ($tokens[$previous]['code'] === T_NEW) {
-            // We are creating an object, not calling a function.
-            return;
-        }
-
-        if ( $tokens[$previous]['code'] === T_OBJECT_OPERATOR ) {
-            // We are calling a method of an object
+        if ($this->isFunctionCall($phpcsFile, $stackPtr) === false ) {
+            // Not a call to a PHP function.
             return;
         }
 

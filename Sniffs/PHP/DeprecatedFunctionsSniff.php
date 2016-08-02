@@ -666,17 +666,7 @@ class PHPCompatibility_Sniffs_PHP_DeprecatedFunctionsSniff extends PHPCompatibil
     {
         $tokens = $phpcsFile->getTokens();
 
-        $ignore = array(
-                T_DOUBLE_COLON,
-                T_OBJECT_OPERATOR,
-                T_FUNCTION,
-                T_CONST,
-                T_USE,
-                T_NS_SEPARATOR,
-        );
-
-        $prevToken = $phpcsFile->findPrevious(T_WHITESPACE, ($stackPtr - 1), null, true);
-        if (in_array($tokens[$prevToken]['code'], $ignore) === true) {
+        if ($this->isFunctionCall($phpcsFile, $stackPtr) === false ) {
             // Not a call to a PHP function.
             return;
         }
