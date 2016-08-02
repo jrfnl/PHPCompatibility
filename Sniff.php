@@ -107,6 +107,130 @@ abstract class PHPCompatibility_Sniff implements PHP_CodeSniffer_Sniff
             return false;
         }
     }//end supportsBelow()
+    
+    public function isFunctionCall($phpcsFile, $stackPtr)
+    {
+        $tokens = $phpcsFile->getTokens();
+        
+        if ($tokens[$stackPtr]['code'] !== T_STRING) {
+            return false;
+        }
+        
+        if (isset($tokens[($stackPtr - 1)]) === false ) {
+            return true;
+        }
+        
+        if ($this->isFunctionDefinition($phpcsFile, $stackPtr) === true) {
+            return false;
+        }
+
+        if ($this->isMethodCall($phpcsFile, $stackPtr) === true) {
+            return false;
+        }
+
+        if ($this->isNamespacedFunctionCall($phpcsFile, $stackPtr) === true) {
+            return false;
+        }
+
+        $ignore = array(
+//                T_DOUBLE_COLON,
+//                T_OBJECT_OPERATOR,
+//                T_FUNCTION,
+                T_CONST,
+                T_USE,
+//                T_NS_SEPARATOR,
+        );
+
+        $prevToken = $phpcsFile->findPrevious(T_WHITESPACE, ($stackPtr - 1), null, true);
+        if (in_array($tokens[$prevToken]['code'], $ignore) === true) {
+            // Not a call to a PHP function.
+            return false;
+        }
+        
+        return true;
+/*
+        // Find the next non-empty token.
+        $openBracket = $phpcsFile->findNext(PHP_CodeSniffer_Tokens::$emptyTokens, ($stackPtr + 1), null, true);
+
+        if ($tokens[$openBracket]['code'] !== T_OPEN_PARENTHESIS) {
+            // Not a function call.
+            return;
+        }
+
+        if (isset($tokens[$openBracket]['parenthesis_closer']) === false) {
+            // Not a function call.
+            return;
+        }
+
+        // Find the previous non-empty token.
+        $search   = PHP_CodeSniffer_Tokens::$emptyTokens;
+        $search[] = T_BITWISE_AND;
+        $previous = $phpcsFile->findPrevious($search, ($stackPtr - 1), null, true);
+        if ($tokens[$previous]['code'] === T_FUNCTION) {
+            // It's a function definition, not a function call.
+            return;
+        }
+
+        if ($tokens[$previous]['code'] === T_NEW) {
+            // We are creating an object, not calling a function.
+            return;
+        }
+
+        if ( $tokens[$previous]['code'] === T_OBJECT_OPERATOR ) {
+            // We are calling a method of an object
+            return;
+        }
+*/
+    }
+
+
+    function isNamespacedFunctionCall($phpcsFile, $stackPtr)
+    {
+        $tokens = $phpcsFile->getTokens();
+
+        if ($tokens[$stackPtr]['code'] !== T_STRING) {
+            return false;
+        }
+
+        $prev = $phpcsFile->findPrevious(T_WHITESPACE, ($stackPtr - 1), null, true);
+
+        if ($prev !== false) {
+            // Is this a namespaced function ?, ie: \foo\bar() not \bar().
+            $pprev = $phpcsFile->findPrevious(T_WHITESPACE, ($prev - 1), null, true);
+            return ($pprev !== false && $tokens[$prev]['code'] === T_NS_SEPARATOR && $tokens[$pprev]['code'] === T_STRING);
+        }
+
+        return false;
+    }
+
+
+    function isMethodCall($phpcsFile, $stackPtr)
+    {
+        $tokens = $phpcsFile->getTokens();
+
+        if ($tokens[$stackPtr]['code'] !== T_STRING) {
+            return false;
+        }
+
+        $prev = $phpcsFile->findPrevious(T_WHITESPACE, ($stackPtr - 1), null, true);
+
+        return ($prev !== false && in_array($tokens[$prev]['code'], array(T_DOUBLE_COLON, T_OBJECT_OPERATOR), true));
+    }
+
+
+    function isFunctionDefinition($phpcsFile, $stackPtr)
+    {
+        $tokens = $phpcsFile->getTokens();
+
+        if ($tokens[$stackPtr]['code'] !== T_STRING) {
+            return false;
+        }
+
+        $prev = $phpcsFile->findPrevious(T_WHITESPACE, ($stackPtr - 1), null, true);
+
+        return ($prev !== false && $tokens[$prev]['code'] === T_FUNCTION);
+    }
+
 
 
     /**
