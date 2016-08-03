@@ -14,8 +14,9 @@
  * @package   PHPCompatibility
  * @author    Wim Godden <wim.godden@cu.be>
  */
-class PHPCompatibility_Sniffs_PHP_NewFunctionParametersSniff extends PHPCompatibility_Sniff
+class PHPCompatibility_Sniffs_PHP_NewFunctionParametersSniff extends PHPCompatibility_AbstractFunctionsSniff
 {
+
     /**
      * A list of new functions, not present in older versions.
      *
@@ -706,25 +707,13 @@ class PHPCompatibility_Sniffs_PHP_NewFunctionParametersSniff extends PHPCompatib
 
 
     /**
-     *
-     * @var array
-     */
-    private $newFunctionParametersNames;
-
-
-    /**
-     * Returns an array of tokens this test wants to listen for.
+     * Retrieve the information on the functions this sniff deals with.
      *
      * @return array
      */
-    public function register()
-    {
-        // Everyone has had a chance to figure out what forbidden functions
-        // they want to check for, so now we can cache out the list.
-        $this->newFunctionParametersNames = array_keys($this->newFunctionParameters);
-
-        return array(T_STRING);
-    }//end register()
+    public function getFunctionInfo() {
+        return $this->newFunctionParameters;
+    }
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -746,7 +735,7 @@ class PHPCompatibility_Sniffs_PHP_NewFunctionParametersSniff extends PHPCompatib
 
         $function = strtolower($tokens[$stackPtr]['content']);
 
-        if (in_array($function, $this->newFunctionParametersNames) === false) {
+        if (in_array($function, $this->functionNames) === false) {
             return;
         }
 

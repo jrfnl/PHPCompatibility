@@ -14,8 +14,9 @@
  * @package   PHPCompatibility
  * @author    Wim Godden <wim.godden@cu.be>
  */
-class PHPCompatibility_Sniffs_PHP_NewFunctionsSniff extends PHPCompatibility_Sniff
+class PHPCompatibility_Sniffs_PHP_NewFunctionsSniff extends PHPCompatibility_AbstractFunctionsSniff
 {
+
     /**
      * A list of new functions, not present in older versions.
      *
@@ -1209,28 +1210,16 @@ class PHPCompatibility_Sniffs_PHP_NewFunctionsSniff extends PHPCompatibility_Sni
 
 
     /**
-     *
-     * @var array
-     */
-    private $forbiddenFunctionNames;
-
-
-    /**
-     * Returns an array of tokens this test wants to listen for.
+     * Retrieve the information on the functions this sniff deals with.
      *
      * @return array
      */
-    public function register()
-    {
-        // Everyone has had a chance to figure out what forbidden functions
-        // they want to check for, so now we can cache out the list.
-        $this->forbiddenFunctionNames = array_keys($this->forbiddenFunctions);
-        $this->forbiddenFunctionNames = array_map('strtolower', $this->forbiddenFunctionNames);
-        $this->forbiddenFunctions     = array_combine($this->forbiddenFunctionNames, $this->forbiddenFunctions);
-
-        return array(T_STRING);
-
-    }//end register()
+    public function getFunctionInfo() {
+        return $this->forbiddenFunctions;
+        //$this->forbiddenFunctionNames = array_keys($this->forbiddenFunctions);
+        //$this->forbiddenFunctionNames = array_map('strtolower', $this->forbiddenFunctionNames);
+        //$this->forbiddenFunctions     = array_combine($this->forbiddenFunctionNames, $this->forbiddenFunctions);
+    }
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -1256,7 +1245,7 @@ class PHPCompatibility_Sniffs_PHP_NewFunctionsSniff extends PHPCompatibility_Sni
 
         $function = strtolower($tokens[$stackPtr]['content']);
 
-        if (in_array($function, $this->forbiddenFunctionNames) === false) {
+        if (in_array($function, $this->functionNames) === false) {
             return;
         }
 
