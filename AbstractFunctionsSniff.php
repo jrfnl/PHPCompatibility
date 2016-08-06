@@ -53,7 +53,7 @@ abstract class PHPCompatibility_AbstractFunctionsSniff extends PHPCompatibility_
      */
     public function register()
     {
-		$this->functionInfo = $this->getFunctions();
+		$this->functionInfo = $this->getFunctionInfo();
 
         // Everyone has had a chance to figure out what forbidden functions
         // they want to check for, so now we can cache out the list.
