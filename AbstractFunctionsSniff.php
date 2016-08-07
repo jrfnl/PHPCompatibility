@@ -53,7 +53,7 @@ abstract class PHPCompatibility_AbstractFunctionsSniff extends PHPCompatibility_
      */
     public function register()
     {
-		$this->functionInfo = $this->getFunctionInfo();
+        $this->functionInfo = $this->getFunctionInfo();
 
         // Everyone has had a chance to figure out what forbidden functions
         // they want to check for, so now we can cache out the list.
@@ -177,18 +177,18 @@ abstract class PHPCompatibility_AbstractFunctionsSniff extends PHPCompatibility_
             }
         }
         if (strlen($error) > 0) {
-            $error = 'The use of function ' . $function . ' is ' . $error;
+            $error = 'The use of function %s is ' . $error;
             $error = substr($error, 0, strlen($error) - 5);
+            $data  = array(
+                      $function,
+                     );
 
             if ($this->forbiddenFunctions[$pattern]['alternative'] !== null) {
-                $error .= '; use ' . $this->forbiddenFunctions[$pattern]['alternative'] . ' instead';
+                $error .= '; use %s instead';
+                $data[] = $this->forbiddenFunctions[$pattern]['alternative'];
             }
 
-            if ($isError === true) {
-                $phpcsFile->addError($error, $stackPtr);
-            } else {
-                $phpcsFile->addWarning($error, $stackPtr);
-            }
+            $this->addMessage($phpcsFile, $error, $stackPtr, $isError, 'Found', $data);
         }
 
     }//end addError()
