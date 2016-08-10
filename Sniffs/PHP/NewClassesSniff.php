@@ -225,6 +225,8 @@ class PHPCompatibility_Sniffs_PHP_NewClassesSniff extends PHPCompatibility_Sniff
         else if ($tokens[$stackPtr]['type'] === 'T_DOUBLE_COLON') {
             $FQClassName = $this->getFQClassNameFromDoubleColonToken($phpcsFile, $stackPtr);
         }
+        // @todo Add check for static calls to class method/property/constant ...::...
+        // @todo Prevent error on namespaced class of the same name
 
         if ($FQClassName === '') {
             return;

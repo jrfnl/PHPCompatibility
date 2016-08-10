@@ -107,19 +107,19 @@ abstract class PHPCompatibility_Sniff implements PHP_CodeSniffer_Sniff
             return false;
         }
     }//end supportsBelow()
-    
+
     public function isFunctionCall($phpcsFile, $stackPtr)
     {
         $tokens = $phpcsFile->getTokens();
-        
+
         if ($tokens[$stackPtr]['code'] !== T_STRING) {
             return false;
         }
-        
+
         if (isset($tokens[($stackPtr - 1)]) === false ) {
             return true;
         }
-        
+
         if ($this->isFunctionDefinition($phpcsFile, $stackPtr) === true) {
             return false;
         }
@@ -146,7 +146,7 @@ abstract class PHPCompatibility_Sniff implements PHP_CodeSniffer_Sniff
             // Not a call to a PHP function.
             return false;
         }
-        
+
         return true;
 /*
         // Find the next non-empty token.
