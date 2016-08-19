@@ -14,7 +14,7 @@
  * @package   PHPCompatibility
  * @author    Wim Godden <wim.godden@cu.be>
  */
-class PHPCompatibility_Sniffs_PHP_NewFunctionParametersSniff extends PHPCompatibility_AbstractFunctionsSniff
+class PHPCompatibility_Sniffs_PHP_NewFunctionParametersSniff extends PHPCompatibility_AbstractFunctionCallSniff
 {
 
     /**

@@ -1,6 +1,6 @@
 <?php
 /**
- * PHPCompatibility_AbstractFunctionsSniff.
+ * PHPCompatibility_AbstractFunctionCallSniff.
  *
  * PHP version 7.0
  *
@@ -10,16 +10,18 @@
  */
 
 /**
- * PHPCompatibility_AbstractFunctionsSniff.
+ * PHPCompatibility_AbstractFunctionCallSniff.
  *
  * @category  PHP
  * @package   PHPCompatibility
  * @author    Wim Godden <wim.godden@cu.be>
  */
-abstract class PHPCompatibility_AbstractFunctionsSniff extends PHPCompatibility_Sniff
+abstract class PHPCompatibility_AbstractFunctionCallSniff extends PHPCompatibility_Sniff
 {
 
     /**
+     * @todo DOCUMENT PROPERLY - DO WE NEED THIS ? IS THIS USED ?
+     *
      * If true, forbidden functions will be considered regular expressions.
      *
      * @var bool
@@ -27,6 +29,8 @@ abstract class PHPCompatibility_AbstractFunctionsSniff extends PHPCompatibility_
     protected $patternMatch = false;
 
     /**
+     * @todo DOCUMENT PROPERLY
+     *
      * A list of deprecated/forbidden functions with their alternatives.
      *
      * The array lists : version number with 0 (deprecated) or 1 (forbidden) and an alternative function.
@@ -36,11 +40,20 @@ abstract class PHPCompatibility_AbstractFunctionsSniff extends PHPCompatibility_
      */
     //protected $forbiddenFunctions = array();
 
+	/**
+     * @todo DOCUMENT PROPERLY
+     */
     private $functionInfo  = array();
+
+	/**
+     * @todo DOCUMENT PROPERLY
+     */
     protected $functionNames = array();
 
     /**
-     * Retrieve the information on the functions this sniff deals with.
+     * Retrieve the information on the function calls this sniff wants to listen for.
+     *
+     * Keys are expected to be the function names, values arbitrary function information.
      *
      * @return array
      */
@@ -48,6 +61,8 @@ abstract class PHPCompatibility_AbstractFunctionsSniff extends PHPCompatibility_
 
     /**
      * Returns an array of tokens this test wants to listen for.
+     *
+     * @todo Refactor
      *
      * @return array
      */
@@ -92,6 +107,28 @@ abstract class PHPCompatibility_AbstractFunctionsSniff extends PHPCompatibility_
     }//end register()
 
 
+	/**
+	 *
+	 */
+    public function process(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
+    {
+        $tokens = $phpcsFile->getTokens();
+
+        if ($this->isFunctionCall($phpcsFile, $stackPtr) === false ) {
+            // Not a call to a PHP function.
+            return;
+        }
+
+        $function = strtolower($tokens[$stackPtr]['content']);
+        
+        if (in_array($function, $this->functionNames, true) === false) {
+            return;
+        }
+
+		// Ok, we have a function call for a function this sniff wants to examine.
+		$this->processFunctionCall($phpcsFile, $stackPtr, $function);
+	}
+
     /**
      * Processes this test, when one of its tokens is encountered.
      *
@@ -101,7 +138,7 @@ abstract class PHPCompatibility_AbstractFunctionsSniff extends PHPCompatibility_
      *
      * @return void
      */
-    public function process(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
+    public function processFunctionCall(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
     {
         $tokens = $phpcsFile->getTokens();
 
@@ -180,8 +217,8 @@ abstract class PHPCompatibility_AbstractFunctionsSniff extends PHPCompatibility_
             $error = 'The use of function %s is ' . $error;
             $error = substr($error, 0, strlen($error) - 5);
             $data  = array(
-                      $function,
-                     );
+                $function,
+            );
 
             if ($this->forbiddenFunctions[$pattern]['alternative'] !== null) {
                 $error .= '; use %s instead';

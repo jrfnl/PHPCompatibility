@@ -108,6 +108,10 @@ abstract class PHPCompatibility_Sniff implements PHP_CodeSniffer_Sniff
         }
     }//end supportsBelow()
 
+
+	/**
+	 * TO BE DOCUMENTED
+	 */
     public function isFunctionCall($phpcsFile, $stackPtr)
     {
         $tokens = $phpcsFile->getTokens();
@@ -184,6 +188,9 @@ abstract class PHPCompatibility_Sniff implements PHP_CodeSniffer_Sniff
     }
 
 
+	/**
+	 * TO BE DOCUMENTED
+	 */
     function isNamespacedFunctionCall($phpcsFile, $stackPtr)
     {
         $tokens = $phpcsFile->getTokens();
@@ -204,6 +211,9 @@ abstract class PHPCompatibility_Sniff implements PHP_CodeSniffer_Sniff
     }
 
 
+	/**
+	 * TO BE DOCUMENTED
+	 */
     function isMethodCall($phpcsFile, $stackPtr)
     {
         $tokens = $phpcsFile->getTokens();
@@ -218,6 +228,9 @@ abstract class PHPCompatibility_Sniff implements PHP_CodeSniffer_Sniff
     }
 
 
+	/**
+	 * TO BE DOCUMENTED
+	 */
     function isFunctionDefinition($phpcsFile, $stackPtr)
     {
         $tokens = $phpcsFile->getTokens();

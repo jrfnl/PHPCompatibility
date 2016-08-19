@@ -20,7 +20,7 @@
  * @author    Wim Godden <wim.godden@cu.be>
  * @copyright 2012 Cu.be Solutions bvba
  */
-class PHPCompatibility_Sniffs_PHP_DeprecatedIniDirectivesSniff extends PHPCompatibility_Sniff
+class PHPCompatibility_Sniffs_PHP_DeprecatedIniDirectivesSniff extends PHPCompatibility_AbstractFunctionCallSniff
 {
     /**
      * A list of deprecated INI directives.
@@ -183,15 +183,17 @@ class PHPCompatibility_Sniffs_PHP_DeprecatedIniDirectivesSniff extends PHPCompat
     );
 
     /**
-     * Returns an array of tokens this test wants to listen for.
+     * Returns an array of information on the function calls this test wants to listen for.
      *
      * @return array
      */
-    public function register()
+    public function getFunctionInfo()
     {
-        return array(T_STRING);
-
-    }//end register()
+        return array(
+            'ini_set'  => true,
+            'ini_get'  => true,
+        );
+    }
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -202,21 +204,11 @@ class PHPCompatibility_Sniffs_PHP_DeprecatedIniDirectivesSniff extends PHPCompat
      *
      * @return void
      */
-    public function process(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
+    public function processFunctionCall(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
     {
         $tokens = $phpcsFile->getTokens();
 
         $isError = false;
-
-        if ($this->isFunctionCall($phpcsFile, $stackPtr) === false ) {
-            // Not a call to a PHP function.
-            return;
-        }
-
-        $function = strtolower($tokens[$stackPtr]['content']);
-        if ($function !== 'ini_get' && $function !== 'ini_set') {
-            return;
-        }
 
         $iniToken = $this->getFunctionCallParameter($phpcsFile, $stackPtr, 1);
         if ($iniToken === false) {

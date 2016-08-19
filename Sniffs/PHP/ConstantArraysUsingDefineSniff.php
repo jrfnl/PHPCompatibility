@@ -20,17 +20,19 @@
  * @package   PHPCompatibility
  * @author    Wim Godden <wim@cu.be>
  */
-class PHPCompatibility_Sniffs_PHP_ConstantArraysUsingDefineSniff extends PHPCompatibility_Sniff
+class PHPCompatibility_Sniffs_PHP_ConstantArraysUsingDefineSniff extends PHPCompatibility_AbstractFunctionCallSniff
 {
 
     /**
-     * Returns an array of tokens this test wants to listen for.
+     * Returns an array of information on the function call this test wants to listen for.
      *
      * @return array
      */
-    public function register()
+    public function getFunctionInfo()
     {
-        return array(T_STRING);
+        return array(
+            'define'  => true,
+        );
     }
 
     /**
@@ -42,7 +44,7 @@ class PHPCompatibility_Sniffs_PHP_ConstantArraysUsingDefineSniff extends PHPComp
      *
      * @return void
      */
-    public function process(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
+    public function processFunctionCall(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
     {
         if ($this->supportsBelow('5.6') !== true) {
             return;
@@ -50,16 +52,17 @@ class PHPCompatibility_Sniffs_PHP_ConstantArraysUsingDefineSniff extends PHPComp
 
         $tokens = $phpcsFile->getTokens();
 
-        if ($this->isFunctionCall($phpcsFile, $stackPtr) === false ) {
+//        if ($this->isFunctionCall($phpcsFile, $stackPtr) === false ) {
 
             // Not a call to a PHP function.
-            return;
-        }
+//            return;
+//        }
 
-        $function = strtolower($tokens[$stackPtr]['content']);
-        if ($function !== 'define') {
-            return;
-        }
+//        $function = strtolower($tokens[$stackPtr]['content']);
+
+//        if ($function === 'define') {
+//            return;
+//        }
 
         $secondParam = $this->getFunctionCallParameter($phpcsFile, $stackPtr, 2);
         if (isset($secondParam['start'], $secondParam['end']) === false) {

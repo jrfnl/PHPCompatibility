@@ -16,7 +16,7 @@
  * @package   PHPCompatibility
  * @author    Wim Godden <wim.godden@cu.be>
  */
-class PHPCompatibility_Sniffs_PHP_DeprecatedFunctionsSniff extends PHPCompatibility_AbstractFunctionsSniff
+class PHPCompatibility_Sniffs_PHP_DeprecatedFunctionsSniff extends PHPCompatibility_AbstractFunctionCallSniff
 {
 
     /**
@@ -656,7 +656,7 @@ class PHPCompatibility_Sniffs_PHP_DeprecatedFunctionsSniff extends PHPCompatibil
      *
      * @return void
      */
-    public function process(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
+    public function processFunctionCall(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
     {
         $tokens = $phpcsFile->getTokens();
 
