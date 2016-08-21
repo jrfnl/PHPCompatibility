@@ -4,7 +4,7 @@
 
 filter:
     excluded_paths:
-        - 'Tests/sniff-examples/*'
+        - 'Tests/*'
 
 tools:
     php_sim: true
