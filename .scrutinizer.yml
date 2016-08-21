@@ -1,3 +1,7 @@
+# language: php
+
+# tests: true
+
 filter:
     excluded_paths:
         - 'Tests/sniff-examples/*'
