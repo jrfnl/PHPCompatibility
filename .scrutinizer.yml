@@ -19,4 +19,7 @@ build:
     tests:
         override:
             -
-                command: phpunit
+                command: phpunit --configuration phpunit-travis.xml --coverage-clover=logs/clover.xml
+                coverage:
+                    file: logs/clover.xml
+                    format: php-clover
