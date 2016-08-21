@@ -14,3 +14,9 @@ tools:
 
 checks:
     php: true
+
+build:
+    tests:
+        override:
+            -
+                command: phpunit
