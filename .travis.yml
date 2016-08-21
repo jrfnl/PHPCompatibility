@@ -57,7 +57,7 @@ install:
   - if [[ $TRAVIS_PHP_VERSION < "5.3" ]]; then $PHPCS_BIN --config-set installed_paths $(pwd); fi
 
 script:
-  - if [[ $TRAVIS_PHP_VERSION > "5.2" ]]; then ln -s `pwd` vendor/squizlabs/php_codesniffer/CodeSniffer/Standards/PHPCompatibility/PHPCompatibility; fi
+  - if [[ $TRAVIS_PHP_VERSION > "5.2" ]]; then ln -s `pwd` vendor/squizlabs/php_codesniffer/CodeSniffer/Standards/PHPCompatibility; fi
   - mkdir -p build/logs
   - find -L . -path ./Tests/sniff-examples -prune -o -path ./vendor -prune -o -name '*.php' -print0 | xargs -0 -n 1 -P 4 php -l
   - phpunit --configuration phpunit-travis.xml --coverage-clover build/logs/clover.xml
