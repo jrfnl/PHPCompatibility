@@ -109,10 +109,62 @@ abstract class PHPCompatibility_Sniff implements PHP_CodeSniffer_Sniff
     }//end supportsBelow()
 
 
+
+
+    /**
+     * Returns the fully qualified function name for a function call.
+     *
+     * NOTE: In reality this can't be done as function when not found in the namespace
+     * will fall through to the global namespace and use a global function if
+     * available!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+     *
+     * CAN'T even be done for function definitions as how to pass it on ?
+     * \MyNamespace\ClassName::functionName() ?
+     *
+     * Returns an empty string if the function name could not be reliably inferred.
+     *
+     * @param PHP_CodeSniffer_File $phpcsFile The file being scanned.
+     * @param int                  $stackPtr  The position of a T_NEW token.
+     *
+     * @return string
+     */
+/*
+    public function getFQFunctionNameFromFunctionToken(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
+    {
+        $tokens = $phpcsFile->getTokens();
+
+        // Check for the existence of the token.
+        if (isset($tokens[$stackPtr]) === false) {
+            return '';
+        }
+
+        if ($tokens[$stackPtr]['code'] !== T_FUNCTION) {
+            return '';
+        }
+
+        $find = array(
+                 T_NS_SEPARATOR,
+                 T_STRING,
+                 T_NAMESPACE,
+                 T_WHITESPACE,
+                );
+
+        $start     = $phpcsFile->findNext(PHP_CodeSniffer_Tokens::$emptyTokens, $stackPtr + 1, null, true, null, true);
+        $end       = $phpcsFile->findNext($find, ($start + 1), null, true, null, true);
+        $className = $phpcsFile->getTokensAsString($start, ($end - $start));
+        $className = trim($className);
+
+        return $this->getFQName($phpcsFile, $stackPtr, $className);
+    }
+*/
+
 	/**
 	 * TO BE DOCUMENTED
+	 *
+	 * @param bool $strict Whether to return true only on function calls or also on method calls and namespaced function calls.
+	 *                     Defaults to true: only pure function calls.
 	 */
-    public function isFunctionCall($phpcsFile, $stackPtr)
+    public function isFunctionCall($phpcsFile, $stackPtr, $strict = true)
     {
         $tokens = $phpcsFile->getTokens();
 
@@ -124,15 +176,25 @@ abstract class PHPCompatibility_Sniff implements PHP_CodeSniffer_Sniff
             return true;
         }
 
+        // Next non-empty token should be the open parenthesis.
+        $openParenthesis = $phpcsFile->findNext(PHP_CodeSniffer_Tokens::$emptyTokens, $stackPtr + 1, null, true, null, true);
+        if ($openParenthesis === false || $tokens[$openParenthesis]['code'] !== T_OPEN_PARENTHESIS) {
+            return false;
+        }
+
         if ($this->isFunctionDefinition($phpcsFile, $stackPtr) === true) {
             return false;
         }
 
-        if ($this->isMethodCall($phpcsFile, $stackPtr) === true) {
+        if ($this->isClassDeclaration($phpcsFile, $stackPtr, false) === true) {
+			return false;
+		}
+
+        if ($strict === true && $this->isMethodCall($phpcsFile, $stackPtr) === true) {
             return false;
         }
 
-        if ($this->isNamespacedFunctionCall($phpcsFile, $stackPtr) === true) {
+        if ($strict === true && $this->isNamespacedFunctionCall($phpcsFile, $stackPtr) === true) {
             return false;
         }
 
@@ -142,49 +204,17 @@ abstract class PHPCompatibility_Sniff implements PHP_CodeSniffer_Sniff
 //                T_FUNCTION,
                 T_CONST,
                 T_USE,
+                T_NEW,
 //                T_NS_SEPARATOR,
         );
 
-        $prevToken = $phpcsFile->findPrevious(T_WHITESPACE, ($stackPtr - 1), null, true);
+        $prevToken = $phpcsFile->findPrevious(PHP_CodeSniffer_Tokens::$emptyTokens, ($stackPtr - 1), null, true);
         if (in_array($tokens[$prevToken]['code'], $ignore) === true) {
             // Not a call to a PHP function.
             return false;
         }
 
         return true;
-/*
-        // Find the next non-empty token.
-        $openBracket = $phpcsFile->findNext(PHP_CodeSniffer_Tokens::$emptyTokens, ($stackPtr + 1), null, true);
-
-        if ($tokens[$openBracket]['code'] !== T_OPEN_PARENTHESIS) {
-            // Not a function call.
-            return;
-        }
-
-        if (isset($tokens[$openBracket]['parenthesis_closer']) === false) {
-            // Not a function call.
-            return;
-        }
-
-        // Find the previous non-empty token.
-        $search   = PHP_CodeSniffer_Tokens::$emptyTokens;
-        $search[] = T_BITWISE_AND;
-        $previous = $phpcsFile->findPrevious($search, ($stackPtr - 1), null, true);
-        if ($tokens[$previous]['code'] === T_FUNCTION) {
-            // It's a function definition, not a function call.
-            return;
-        }
-
-        if ($tokens[$previous]['code'] === T_NEW) {
-            // We are creating an object, not calling a function.
-            return;
-        }
-
-        if ( $tokens[$previous]['code'] === T_OBJECT_OPERATOR ) {
-            // We are calling a method of an object
-            return;
-        }
-*/
     }
 
 
@@ -222,7 +252,7 @@ abstract class PHPCompatibility_Sniff implements PHP_CodeSniffer_Sniff
             return false;
         }
 
-        $prev = $phpcsFile->findPrevious(T_WHITESPACE, ($stackPtr - 1), null, true);
+        $prev = $phpcsFile->findPrevious(PHP_CodeSniffer_Tokens::$emptyTokens, ($stackPtr - 1), null, true);
 
         return ($prev !== false && in_array($tokens[$prev]['code'], array(T_DOUBLE_COLON, T_OBJECT_OPERATOR), true));
     }
@@ -239,9 +269,57 @@ abstract class PHPCompatibility_Sniff implements PHP_CodeSniffer_Sniff
             return false;
         }
 
-        $prev = $phpcsFile->findPrevious(T_WHITESPACE, ($stackPtr - 1), null, true);
+        // Previous non-empty token should be function token.
+        $extendedWhitespaceTokens   = PHP_CodeSniffer_Tokens::$emptyTokens;
+        $extendedWhitespaceTokens[] = T_BITWISE_AND; // Allow for function &bar() {} syntax.
+
+        $prev = $phpcsFile->findPrevious($extendedWhitespaceTokens, ($stackPtr - 1), null, true);
 
         return ($prev !== false && $tokens[$prev]['code'] === T_FUNCTION);
+    }
+
+
+	/**
+	 * TO BE DOCUMENTED
+	 *
+	 * @todo Think off better name for this as the function might not really be global, but namespaced ?
+	 * or maybe we should also check that the function definition is not within a namespace ?
+	 */
+    function isGlobalFunctionDefinition($phpcsFile, $stackPtr)
+    {
+		return ($this->isFunctionDefinition($phpcsFile, $stackPtr) && $this->inClassScope($phpcsFile, $stackPtr, false) === false);
+    }
+
+
+	/**
+	 * TO BE DOCUMENTED
+	 */
+    function isMethodDefinition($phpcsFile, $stackPtr)
+    {
+		return ($this->isFunctionDefinition($phpcsFile, $stackPtr) && $this->inClassScope($phpcsFile, $stackPtr, false));
+    }
+
+
+	/**
+	 * TO BE DOCUMENTED
+	 */
+    function isClassDeclaration($phpcsFile, $stackPtr, $strict = true)
+    {
+        $tokens = $phpcsFile->getTokens();
+
+        if ($tokens[$stackPtr]['code'] !== T_STRING) {
+            return false;
+        }
+
+        $prev = $phpcsFile->findPrevious(PHP_CodeSniffer_Tokens::$emptyTokens, ($stackPtr - 1), null, true);
+
+        $classTokens = array(T_CLASS);
+        if ($strict === false) {
+            $classTokens[] = T_INTERFACE;
+            $classTokens[] = T_TRAIT;
+        }
+
+        return ($prev !== false && in_array($tokens[$prev]['code'], $classTokens, true));
     }
 
 
