@@ -58,9 +58,9 @@ install:
 
 script:
   - if [[ $TRAVIS_PHP_VERSION > "5.2" ]]; then ln -s `pwd` vendor/squizlabs/php_codesniffer/CodeSniffer/Standards/PHPCompatibility; fi
-  - mkdir -p build/logs
+  - mkdir -p logs
   - find -L . -path ./Tests/sniff-examples -prune -o -path ./vendor -prune -o -name '*.php' -print0 | xargs -0 -n 1 -P 4 php -l
-  - phpunit --configuration phpunit-travis.xml --coverage-clover build/logs/clover.xml
+  - phpunit --configuration phpunit-travis.xml --coverage-clover logs/clover.xml
 
 after_script:
-  - php vendor/bin/coveralls -v -x build/logs/clover.xml
+  - php vendor/bin/coveralls -v -x logs/clover.xml
