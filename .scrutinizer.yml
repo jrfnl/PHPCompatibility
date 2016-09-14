@@ -1,3 +1,7 @@
+# language: php
+
+# tests: true
+
 filter:
     excluded_paths:
         - 'Tests/sniff-examples/*'
@@ -10,3 +14,12 @@ tools:
 
 checks:
     php: true
+
+build:
+    tests:
+        override:
+            -
+                command: phpunit --configuration phpunit-scrutinizer.xml --coverage-clover=logs/clover.xml
+                coverage:
+                    file: logs/clover.xml
+                    format: clover
