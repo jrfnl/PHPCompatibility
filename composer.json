@@ -17,7 +17,7 @@
     }
   },
   "scripts": {
-    "pre-autoload-dump": "sh ./post-install.sh",
+    "pre-autoload-dump": "sh ./post-install.sh"
   },
   "type" : "phpcodesniffer-standard",
   "support" : {
