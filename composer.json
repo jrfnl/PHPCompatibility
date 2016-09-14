@@ -13,12 +13,11 @@
   "keywords" : [ "compatibility", "phpcs", "standards" ],
   "autoload" : {
     "psr-4" : {
-      "PHPCompatibility\\" : ""
+      "PHPCompatibility\\" : "PHPCompatibility/"
     }
   },
   "scripts": {
-    "post-install-cmd": "sh ./post-install.sh",
-    "post-update-cmd": "sh ./post-install.sh"
+    "pre-autoload-dump": "sh ./post-install.sh",
   },
   "type" : "phpcodesniffer-standard",
   "support" : {
