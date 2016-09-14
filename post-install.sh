@@ -19,7 +19,7 @@ mkdir -v PHPCompatibility
 #echo ""
 #echo "Moving new files"
 mv -f Sniff.php ./PHPCompatibility/Sniff.php
-mv -f Sniffs/* ./PHPCompatibility/Sniffs/*
+mv -f Sniffs/* ./PHPCompatibility/Sniffs/
 
 echo ""
 echo "Setting PHPCS installed_paths"
