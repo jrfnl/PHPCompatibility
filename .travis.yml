@@ -7,47 +7,47 @@ matrix:
   include:
 
     - php: 5.2
-      env: COVERALLS_VERSION="~1.0" PHPCS_VERSION="1.5.6"
+      env: PHPCS_VERSION="1.5.6"
     - php: 5.2
-      env: COVERALLS_VERSION="~1.0" PHPCS_VERSION="master"
+      env: PHPCS_VERSION="master"
 
     - php: 5.3
-      env: COVERALLS_VERSION="~1.0" PHPCS_VERSION=">=1.5.1,<2.0"
+      env: PHPCS_VERSION=">=1.5.1,<2.0"
     - php: 5.3
-      env: COVERALLS_VERSION="~1.0" PHPCS_VERSION=">=2.0"
+      env: PHPCS_VERSION=">=2.0"
 
     - php: 5.4
-      env: COVERALLS_VERSION="~1.0" PHPCS_VERSION=">=1.5.1,<2.0"
+      env: PHPCS_VERSION=">=1.5.1,<2.0"
     - php: 5.4
-      env: COVERALLS_VERSION="~1.0" PHPCS_VERSION=">=2.0"
+      env: PHPCS_VERSION=">=2.0"
 
     - php: 5.5
-      env: COVERALLS_VERSION="~1.0" PHPCS_VERSION=">=1.5.1,<2.0"
+      env: PHPCS_VERSION=">=1.5.1,<2.0"
     - php: 5.5
-      env: COVERALLS_VERSION="~1.0" PHPCS_VERSION=">=2.0"
+      env: PHPCS_VERSION=">=2.0"
     - php: 5.5
-      env: COVERALLS_VERSION="dev-master" PHPCS_VERSION="dev-master"
+      env: PHPCS_VERSION="dev-master"
 
     - php: 5.6
-      env: COVERALLS_VERSION="~1.0" PHPCS_VERSION=">=1.5.1,<2.0"
+      env: PHPCS_VERSION=">=1.5.1,<2.0"
     - php: 5.6
-      env: COVERALLS_VERSION="~1.0" PHPCS_VERSION=">=2.0"
+      env: PHPCS_VERSION=">=2.0"
     - php: 5.6
-      env: COVERALLS_VERSION="dev-master" PHPCS_VERSION="dev-master"
+      env: PHPCS_VERSION="dev-master"
 
     - php: 7.0
-      env: COVERALLS_VERSION="~1.0" PHPCS_VERSION=">=1.5.1,<2.0"
+      env: PHPCS_VERSION=">=1.5.1,<2.0"
     - php: 7.0
-      env: COVERALLS_VERSION="~1.0" PHPCS_VERSION=">=2.0"
+      env: PHPCS_VERSION=">=2.0"
     - php: 7.0
-      env: COVERALLS_VERSION="dev-master" PHPCS_VERSION="dev-master"
+      env: PHPCS_VERSION="dev-master"
 
     - php: 7.1
-      env: COVERALLS_VERSION="~1.0" PHPCS_VERSION=">=1.5.1,<2.0"
+      env: PHPCS_VERSION=">=1.5.1,<2.0"
     - php: 7.1
-      env: COVERALLS_VERSION="~1.0" PHPCS_VERSION=">=2.0"
+      env: PHPCS_VERSION=">=2.0"
     - php: 7.1
-      env: COVERALLS_VERSION="dev-master" PHPCS_VERSION="dev-master"
+      env: PHPCS_VERSION="dev-master"
 
 
 before_script:
@@ -55,7 +55,6 @@ before_script:
 
 install:
   - if [[ $TRAVIS_PHP_VERSION > "5.2" ]]; then composer self-update; fi
-  - if [[ $TRAVIS_PHP_VERSION > "5.2" ]]; then composer require --dev satooshi/php-coveralls:${COVERALLS_VERSION}; fi
   - if [[ $TRAVIS_PHP_VERSION > "5.2" ]]; then composer require squizlabs/php_codesniffer:${PHPCS_VERSION}; fi
   - if [[ $TRAVIS_PHP_VERSION > "5.2" ]]; then composer install; fi
   - if [[ $TRAVIS_PHP_VERSION < "5.3" ]]; then export PHPCS_DIR=/tmp/phpcs; fi
@@ -64,10 +63,6 @@ install:
   - if [[ $TRAVIS_PHP_VERSION < "5.3" ]]; then $PHPCS_BIN --config-set installed_paths $(pwd); fi
 
 script:
-  - if [[ $TRAVIS_PHP_VERSION > "5.2" ]]; then ln -s `pwd` vendor/squizlabs/php_codesniffer/CodeSniffer/Standards/PHPCompatibility; fi
-  - mkdir -p build/logs
+  - find -L ./PHPCompatibility -name '*.php' -print0 | xargs -0 -n 1 -P 4 php -l
   - find -L . -path ./Tests/sniff-examples -prune -o -path ./vendor -prune -o -name '*.php' -print0 | xargs -0 -n 1 -P 4 php -l
-  - phpunit --configuration phpunit-travis.xml --coverage-clover build/logs/clover.xml
-
-after_script:
-  - php vendor/bin/coveralls -v -x build/logs/clover.xml
+  - phpunit --configuration phpunit.xml

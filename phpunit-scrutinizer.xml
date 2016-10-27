@@ -8,9 +8,10 @@
     </testsuites>
     <filter>
         <whitelist addUncoveredFilesFromWhitelist="true">
-            <directory>./Sniffs/</directory>
+        	<!-- No need to toggle between Composer/PEAR setup as we know Scrutinizer uses Composer. -->
+            <directory>./PHPCompatibility/Sniffs/</directory>
         </whitelist>
     </filter>
-    <log type="coverage-clover" target="build/logs/clover.xml"/>
+    <log type="coverage-clover" target="logs/clover.xml"/>
 </phpunit>
 
