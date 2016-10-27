@@ -32,6 +32,13 @@ class BaseSniffTest extends PHPUnit_Framework_TestCase
     public static $sniffFiles = array();
 
     /**
+     * The path to the directory in which the sniffs are installed.
+     *
+     * @var string
+     */
+    public static $sniffInstallDir = '';
+
+    /**
      * Sets up this unit test.
      *
      * @return void
@@ -39,6 +46,15 @@ class BaseSniffTest extends PHPUnit_Framework_TestCase
     public static function setUpBeforeClass()
     {
         self::$sniffFiles = array();
+
+        // Determine the path to the sniff install directory.
+        if (file_exists(dirname( __FILE__ ) . '/../PHPCompatibility/')) {
+            // Composer install
+            self::$sniffInstallDir = dirname( __FILE__ ) . '/../PHPCompatibility/';
+        } else {
+            // Pear install
+            self::$sniffInstallDir = dirname( __FILE__ ) . '/../';
+        }
     }
 
     /**
@@ -57,7 +73,7 @@ class BaseSniffTest extends PHPUnit_Framework_TestCase
             self::$phpcs->cli->setCommandLineValues(array('-pq', '--colors'));
         }
 
-        self::$phpcs->process(array(), dirname( __FILE__ ) . '/../');
+        self::$phpcs->process(array(), self::$sniffInstallDir);
         self::$phpcs->setIgnorePatterns(array());
     }
 

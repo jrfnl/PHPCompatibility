@@ -6,7 +6,18 @@
  */
 
 if (class_exists('PHPCompatibility_Sniff', true) === false) {
-    require_once dirname(dirname(dirname(__FILE__))) . '/Sniff.php';
+    $pathComposerInstall = dirname(__FILE__) . '/../../PHPCompatibility/Sniff.php';
+    $pathPearInstall     = dirname(__FILE__) . '/../../Sniff.php';
+
+    if (file_exists($pathComposerInstall)) {
+        require_once $pathComposerInstall;
+    }
+    else if (file_exists($pathPearInstall)) {
+        require_once $pathPearInstall;
+    }
+    else {
+        throw new Exception('File containing the class PHPCompatibility_Sniff cannot be found.');
+    }
 }
 
 /**

@@ -1,0 +1,19 @@
+#!/usr/bin/env php
+<?php
+
+$autoloadPath = dirname(dirname($argv[0])). '/autoload.php';
+
+if (!file_exists($autoloadPath)) {
+    $autoloadPath = dirname(dirname(dirname(dirname($argv[0])))) . '/autoload.php';
+}
+
+require($autoloadPath);
+
+// Move the Sniff files.
+PHPCompatibility_Scripts_Install::enable();
+
+// Rebuild the class map.
+passthru('composer dump-autoload');
+
+// Make sure that the path to the standard is registered with PHPCS.
+PHPCompatibility_Scripts_Register::update();

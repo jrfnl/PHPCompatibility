@@ -24,14 +24,11 @@ class BaseClass_FunctionsTest extends PHPUnit_Framework_TestCase
     protected $helperClass;
 
 
-    public static function setUpBeforeClass()
-    {
-        require_once dirname(__FILE__) . '/TestHelperPHPCompatibility.php';
-    }
-
     protected function setUp()
     {
         parent::setUp();
+
+        require_once dirname(__FILE__) . '/TestHelperPHPCompatibility.php';
 
         $this->helperClass = new BaseClass_TestHelperPHPCompatibility;
     }
