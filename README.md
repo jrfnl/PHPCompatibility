@@ -39,17 +39,59 @@ Installation (method 1)
 Installation in Composer project (method 2)
 -------------------------------------------
 
-* in your app dir
+* In your app dir
 ```bash
 # install with composer
 composer require --dev wimg/php-compatibility
-# enable (this does file copy and register)
-./vendor/bin/phpcompat_enable 
+# enable
+./vendor/bin/phpcompat_enable
 # enjoy :)
 ./vendor/bin/phpcs --standard=PHPCompatibility src/
 ```
 
-* After a `composer update`, please do `./vendor/bin/phpcompat_disable ; ./vendor/bin/phpcompat_enable`
+To save you having to manually run a script each time you update, add the following lines to your `composer.json` file:
+```json
+  "scripts": {
+    "pre-autoload-dump": "PHPCompatibility_Scripts_Install::update",
+    "post-install-cmd": "PHPCompatibility_Scripts_Register::update",
+    "post-update-cmd": "PHPCompatibility_Scripts_Register::update"
+  },
+```
+
+Alternatively, if you prefer not to add these scripts to your `composer.json` file, the following command are available in the `./vendor/bin/` directory of your project for your convenience:
+
+```bash
+# Important: All scripts should be run from the root of your project!
+
+# phpcompat_enable - this is only intended to be used when after the initial install of project.
+# This command will copy the library files to a subdirectory and register the path with PHPCS.
+./vendor/bin/phpcompat_enable
+
+# phpcompat_update - this script should be run each time you update the PHPCompatibility dependency, i.e. after every `composer update`.
+# This command will update the library files in the subdirectory and verify that the path is still registered with PHPCS.
+./vendor/bin/phpcompat_update
+
+# phpcompat_disable - this script should be run **before** you removed the library as a dependency for your project.
+# This command will remove the standard from PHPCS.
+./vendor/bin/phpcompat_disable
+composer remove wimg/php-compatibility
+```
+
+
+Installation via Composer as a stand-alone project (method 3)
+-------------------------------------------
+
+* In your target dir:
+```bash
+# install with composer
+composer install wimg/php-compatibility
+# enjoy :)
+./vendor/bin/phpcs --standard=PHPCompatibility /path/to/project/you/want/to/check/
+```
+
+You may even want to install it globally to make it easily available to all your projects using `composer global install wimg/php-compatibility`.
+
+No need to run the scripts mentioned above. Composer will run them automatically.
 
 
 Using the compatibility sniffs

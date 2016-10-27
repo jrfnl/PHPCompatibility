@@ -9,4 +9,5 @@ if (!file_exists($autoloadPath)) {
 
 require($autoloadPath);
 
-PHPCompatibility_Install::enable();
+// Remove the standard from the PHPCS installed-standards.
+PHPCompatibility_Scripts_Register::disable();
