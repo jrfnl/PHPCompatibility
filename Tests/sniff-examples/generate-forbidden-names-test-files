@@ -76,7 +76,6 @@ $tests = array(
     'use' => function($name) { return "use $name;\n"; },
     'use-as' => function($name) { return "use Foobar as $name;\n"; },
     'class' => function($name) { return "class $name {}\n"; },
-    'class-extends' => function($name) { return "class Foobar extends $name {}\n"; },
     'class-use-trait' => function($name) { return "class Foobar { use $name }\n"; },
     'class-use-trait-const' => function($name) { return "class Foobar { use const $name }\n"; },
     'class-use-trait-function' => function($name) { return "class Foobar { use function $name }\n"; },
@@ -93,7 +92,6 @@ $tests = array(
     'class-const' => function($name) { if ($name === 'class') { return ''; } else { $name = strtoupper($name); return "class Foobar { const $name = 1; }\n"; } }, // Only pre-PHP 7!
     'define' => function($name) { return "define('$name', 1);\n"; },
     'interface' => function($name) { return "interface $name {}\n"; },
-    'interface-extends' => function($name) { return "interface Foobar extends $name {}\n"; },
 );
 
 $path = realpath(__DIR__) . DIRECTORY_SEPARATOR . 'forbidden-names';

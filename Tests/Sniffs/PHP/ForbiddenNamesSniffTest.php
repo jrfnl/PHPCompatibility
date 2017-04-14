@@ -71,7 +71,6 @@ class ForbiddenNamesSniffTest extends BaseSniffTest
             array('use'),
             array('use-as'),
             array('class'),
-            array('class-extends'),
             array('class-use-trait'),
             array('class-use-trait-const'),
             array('class-use-trait-function'),
@@ -88,7 +87,6 @@ class ForbiddenNamesSniffTest extends BaseSniffTest
             array('class-const'),
             array('define'),
             array('interface'),
-            array('interface-extends'),
         );
     }
 

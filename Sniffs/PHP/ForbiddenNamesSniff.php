@@ -128,7 +128,6 @@ class PHPCompatibility_Sniffs_PHP_ForbiddenNamesSniff extends PHPCompatibility_S
         T_CONST,
         T_USE,
         T_AS,
-        T_EXTENDS,
         T_TRAIT,
         T_INTERFACE,
     );
