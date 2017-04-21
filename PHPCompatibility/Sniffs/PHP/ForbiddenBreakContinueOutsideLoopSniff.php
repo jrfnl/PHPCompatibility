@@ -140,6 +140,7 @@ class ForbiddenBreakContinueOutsideLoopSniff extends Sniff
 
                 if (isset($this->controlStructures[$tokens[$ptr]['code']]) === false) {
                     // Ok, encountered a non-valid scoped non-loop structure.
+                    // It may still contain a non-scoped valid control structure, but we'll check for that later.
                     break;
                 }
             }
