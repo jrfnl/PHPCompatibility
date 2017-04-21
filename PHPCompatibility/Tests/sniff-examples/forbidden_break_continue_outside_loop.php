@@ -129,3 +129,15 @@ function testFunctionB() {
 }
 
 continue;
+
+/*
+ * Prevent false negatives for break/continue within scoped non-control structures within control structures.
+ */
+while ($whileExample < 10) {
+	$a = function() {
+	    if ($whileExample === 5) {
+			// This should throw an error as the closure is a fixed scope in which we did not find a loop structure.
+	        continue;
+	    }
+	}
+}

@@ -28,17 +28,50 @@ class ForbiddenBreakContinueOutsideLoopSniff extends Sniff
 {
 
     /**
-     * Token codes of control structure in which usage of break/continue is valid.
+     * Token codes of control structures in which usage of break/continue is valid.
      *
      * @var array
      */
-    protected $validLoopStructures = array(
-        T_FOR     => true,
-        T_FOREACH => true,
-        T_WHILE   => true,
-        T_DO      => true,
-        T_SWITCH  => true,
+    protected $validLoopTokens = array(
+        T_FOR     => T_FOR,
+        T_FOREACH => T_FOREACH,
+        T_WHILE   => T_WHILE,
+        T_DO      => T_DO,
+        T_SWITCH  => T_SWITCH,
     );
+
+    /**
+     * Token codes of control structures in which usage of break/continue is *not* valid,
+     * but which can be nested within control structures in which it *is* valid, without
+     * invalidating the break/continue.
+     *
+     * Sounds more complicated than it is, but comes down to this:
+     * - a `break` within a closure within a loop would not be valid.
+     * - a `continue` within a try/catch within a loop *would* be valid.
+     *
+     * This array is used to distinguish between those cases.
+     *
+     * @var array
+     */
+    protected $otherAllowedTokens = array(
+        T_IF      => T_IF,
+        T_ELSE    => T_ELSE,
+        T_ELSEIF  => T_ELSEIF,
+        T_TRY     => T_TRY,
+        T_CATCH   => T_CATCH,
+        T_FINALLY => T_FINALLY,
+        T_CASE    => T_CASE,
+        T_DEFAULT => T_DEFAULT,
+    );
+
+    /**
+     * All control structure tokens to use when checking for non-scoped control structures.
+     *
+     * Set from within the register method().
+     *
+     * @var array
+     */
+    protected $controlStructures = array();
 
     /**
      * Token codes which did not correctly get a condition assigned in older PHPCS versions.
@@ -57,6 +90,9 @@ class ForbiddenBreakContinueOutsideLoopSniff extends Sniff
      */
     public function register()
     {
+        // Set the $controlStructures property only once and keep the array keys.
+        $this->controlStructures = $this->validLoopTokens + $this->otherAllowedTokens;
+
         return array(
             T_BREAK,
             T_CONTINUE,
@@ -78,13 +114,36 @@ class ForbiddenBreakContinueOutsideLoopSniff extends Sniff
         $tokens = $phpcsFile->getTokens();
         $token  = $tokens[$stackPtr];
 
-        // Check if the break/continue is within a valid loop structure.
-        if (empty($token['conditions']) === false) {
-            foreach ($token['conditions'] as $tokenCode) {
-                if (isset($this->validLoopStructures[$tokenCode]) === true) {
+
+        /*
+         * Check if the break/continue is within a valid scoped loop structure.
+         */
+        if ($phpcsFile->hasCondition($stackPtr, $this->validLoopTokens) === true) {
+
+            // Walk up the conditions to make sure the loop structure does not contain
+            // a nested scoped non-control structure.
+            $conditions = array_keys($tokens[$stackPtr]['conditions']);
+
+            while (empty($conditions) === false) {
+                $ptr = array_pop($conditions);
+
+                if (isset($tokens[$ptr]) === false) {
+                    // Shouldn't happen, but ignore if it does.
+                    continue;
+                }
+
+                if (isset($this->validLoopTokens[$tokens[$ptr]['code']]) === true) {
+                    // Ok, reached the valid scope condition without encountering non valid ones.
+                    // I.e. this break/continue is fine.
                     return;
                 }
+
+                if (isset($this->controlStructures[$tokens[$ptr]['code']]) === false) {
+                    // Ok, encountered a non-valid scoped non-loop structure.
+                    break;
+                }
             }
+            unset($ptr, $conditions);
         } else {
             // Deal with older PHPCS versions.
             if (isset($token['scope_condition']) === true && isset($this->backCompat[$tokens[$token['scope_condition']]['code']]) === true) {
