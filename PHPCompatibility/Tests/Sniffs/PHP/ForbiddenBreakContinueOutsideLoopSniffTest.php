@@ -63,6 +63,8 @@ class ForbiddenBreakContinueOutsideLoopSniffTest extends BaseSniffTest
             array(128, 'break'),
             array(131, 'continue'),
             array(140, 'continue'),
+            array(242, 'break'),
+            array(247, 'continue'),
         );
     }
 

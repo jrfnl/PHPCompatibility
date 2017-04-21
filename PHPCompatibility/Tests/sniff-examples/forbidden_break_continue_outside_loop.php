@@ -1,6 +1,6 @@
 <?php
 
-/**
+/*
  * Valid examples - none of these should trigger an error.
  */
 for ($i = 0; $i < 10; $i++) {
@@ -109,7 +109,7 @@ function testingScope() {
 }
 
 
-/**
+/*
  * Invalid examples - these should all trigger an error.
  */
 if ( $a === $b ) {
@@ -141,3 +141,6 @@ while ($whileExample < 10) {
 	    }
 	}
 }
+
+
+
