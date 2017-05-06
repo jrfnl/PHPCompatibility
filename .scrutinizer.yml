@@ -1,3 +1,7 @@
+# language: php
+
+# tests: true
+
 filter:
     excluded_paths:
         - 'PHPCompatibility/Tests/*'
@@ -10,3 +14,21 @@ tools:
 
 checks:
     php: true
+
+build:
+    tests:
+        override:
+            -
+                command: phpunit --configuration phpunit-scrutinizer.xml --coverage-clover=logs/clover.xml
+                coverage:
+                    file: logs/clover.xml
+                    format: clover
+
+build_failure_conditions:
+    - 'issues.severity(>= MAJOR).new.exists'       # New issues of major or higher severity
+
+    - 'project.metric("scrutinizer.quality", < 7.5)' # Code Quality Rating drops below 7.5
+    - 'project.metric("scrutinizer.test_coverage", < 0.90)' # Code Coverage drops below 90%
+
+    # Code Coverage decreased from previous inspection by more than 1%
+    - 'project.metric_change("scrutinizer.test_coverage", < -0.01)'
