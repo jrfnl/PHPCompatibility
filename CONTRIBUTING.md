@@ -53,12 +53,9 @@ on the sniffs, the following installation steps are required.
 
         $ export PATH=~/.composer/vendor/bin:$PATH
 
-4. Be sure that the `PHPCompatibility` directory is symlinked into
-   `PHP_Codesniffer`'s standards directory:
+4. Ensure that the `PHPCompatibility` standard is recognized by PHP CodeSniffer by following the instructions in the [README](https://github.com/wimg/PHPCompatibility/blob/master/README.md#installation-in-composer-project-method-1).
 
-        $ ln -s /path/to/PHPCompatibility ~/.composer/vendor/squizlabs/php_codesniffer/CodeSniffer/Standards/PHPCompatibility
-
-5. Verify standard is available with `phpcs -i`. The output should include
+5. Verify the standard is available with `phpcs -i`. The output should include
    `PHPCompatibility`
 
 6. Run the tests by running `phpunit` in the root directory of

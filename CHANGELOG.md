@@ -13,6 +13,35 @@ The `patch` version numbers are specific to this library.
 _Nothing yet._
 
 
+## [7.1.5] - 2017-xx-xx
+
+**IMPORTANT**: This release contains a **breaking change**. Please read this carefully!
+
+The directory layout of the PHPCompatibility standard has been changed for improved compatibility with Composer.
+This means that the PHPCompatibility standard no longer extends from the root directory of the repository, but now lives in its own subdirectory `/PHPCompatibility`.
+
+* If you are using a PEAR install of PHP_CodeSniffer and had PHPCompatibility checked out to the `PHP/CodeSniffer/Standards/PHPCompatibility` directory, you will now need to **_add_** the `PHP/CodeSniffer/Standards/PHPCompatibility` directory to the PHPCS `installed_paths`. This is a one-time-only action.
+    - Check the currently registered paths by running `phpcs --config-show`.
+    - Run `phpcs --config-set installed_paths ...` and include all previously installed paths and add the path for the PHPCompatibility standard.
+        For example, if the previous value of `installed_paths` was `/path/to/MyStandard`, you should now set it to `phpcs --config-set installed_paths /path/to/MyStandard,/path/to/PHPCompatibility`.
+* If you are using a PEAR/phar/git install of PHP_CodeSniffer with PHPCompatibility in an arbitrary secundary directory, you will have previously run the `phpcs --config-set installed_paths ...` command.
+    You will need to run the command again for the changed directory layout. This is a one-time-only action.
+    - Check the currently registered paths by running `phpcs --config-show`.
+    - Run `phpcs --config-set installed_paths ...` and include all previously installed paths including the _adjusted_ path for the PHPCompatibility standard.
+        For example, if the previous value of `installed_paths` was `/path/to/MyStandard,/path/to/dir/abovePHPCompatibility`, you should now set it to `phpcs --config-set installed_paths /path/to/MyStandard,/path/to/PHPCompatibility`.
+* If you are using a Composer installation with PHPCompatibility installed globally and have run the `installed_paths` command previously to get PHP_CodeSniffer to recognize the PHPCompatibility standard, you will need to verify the `installed_paths` after the upgrade using `phpcs --config-set`.
+    **Note**: The `composer.json` for PHPCompatibility contains the necessary scripts to set the `installed_paths`, however this may be problematic if you have several standards installed globally via Composer.
+* If you are using a Composer installation with the PHPCompatibility installed globally and have the standard symlinked into the PHP_CodeSniffer `Standards` directory, you can remove the symlink as PHPCompatibility will register itself with PHPCS through the `installed_paths` command.
+* If you are using a project-based Composer installation and you have previously added scripts to your own `composer.json` in your project root to symlink or move the standard, or to set the `installed_paths`, these scripts will need to be adjusted accordingly.
+    Alternatively - and strongly recommended -, you can remove your own scripts and use one of the - as of yet unofficial - Composer plugins for PHPCS to handle this for you. For some suggestions, see the [README](https://github.com/wimg/PHPCompatibility/blob/master/README.md).
+
+To check that the PHPCompatibility standard is recognized correctly by PHP_CodeSniffer after you've made these changes, run `phpcs -i` and verify that `PHPCompatibility` is listed.
+
+**Side-note**: If you had previously forked this repository to solve this issue, you may want to consider reverting your fork to the official version.
+
+
+
+
 ## [7.1.4] - 2017-05-06
 
 See all related issues and PRs in the [7.1.4 milestone].

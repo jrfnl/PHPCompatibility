@@ -9,12 +9,19 @@
   "require-dev" : {
     "satooshi/php-coveralls" : "dev-master"
   },
+  "suggest" : {
+    "dealerdirect/phpcodesniffer-composer-installer": "*"
+  },
   "license" : "LGPL-3.0",
   "keywords" : [ "compatibility", "phpcs", "standards" ],
   "autoload" : {
     "psr-4" : {
       "PHPCompatibility\\" : "PHPCompatibility/"
     }
+  },
+  "scripts" : {
+    "post-install-cmd": "\"vendor/bin/phpcs\" --config-set installed_paths ../../..",
+    "post-update-cmd" : "\"vendor/bin/phpcs\" --config-set installed_paths ../../.."
   },
   "type" : "phpcodesniffer-standard",
   "support" : {

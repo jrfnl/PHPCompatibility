@@ -79,7 +79,6 @@ before_script:
 
 script:
   # Lint all PHP files against parse errors.
-  - if [[ $TRAVIS_PHP_VERSION > "5.2" ]]; then ln -s `pwd` vendor/squizlabs/php_codesniffer/CodeSniffer/Standards/PHPCompatibility; fi
   - if [[ $TRAVIS_PHP_VERSION > "5.2" ]]; then find -L . -path ./PHPCompatibility/Tests/sniff-examples -prune -o -path ./vendor -prune -o -name '*.php' -print0 | xargs -0 -n 1 -P 4 php -l; fi
   - if [[ $TRAVIS_PHP_VERSION < "5.3" ]]; then find -L . -path ./PHPCompatibility/Tests/sniff-examples -prune -o -path ./PHPCompatibility/Tests/PHPUnit6Compat.php -prune -o -path ./vendor -prune -o -name '*.php' -print0 | xargs -0 -n 1 -P 4 php -l; fi
   # Check the code style of the code base.

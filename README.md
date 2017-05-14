@@ -36,51 +36,67 @@ Thanks to all contributors for their valuable contributions.
 Thanks to [WP Engine](https://wpengine.com) for their support on the PHP 7.0 sniffs.
 
 
-Installation using PEAR (method 1)
------------------------
+Important Upgrade Notice
+--------
+As of version 7.1.5, the installation instructions have changed. For most users, this means they will have to run a one-time-only extra command or make a change to their Composer configuration.
 
-* Install [PHP_CodeSniffer](http://pear.php.net/PHP_CodeSniffer) with `pear install PHP_CodeSniffer-2.9.0`.
-* Checkout the latest release from https://github.com/wimg/PHPCompatibility/releases into the `PHP/CodeSniffer/Standards/PHPCompatibility` directory.
+Please read the changelog for version [7.1.5](https://github.com/wimg/PHPCompatibility/releases/tag/7.1.5) for more details.
 
 
-Installation in Composer project (method 2)
+Installation in Composer project (method 1)
 -------------------------------------------
 
-* Add the following lines to the `require-dev` section of your composer.json file.
-
-```json
-"require-dev": {
-   "squizlabs/php_codesniffer": "^2.0",
-   "wimg/php-compatibility": "*",
-   "simplyadmire/composer-plugins" : "@dev"
-},
-"prefer-stable" : true
-
+* Add the following lines to the `require-dev` section of your `composer.json` file.
+    ```json
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^2.0",
+        "wimg/php-compatibility": "*"
+    },
+    "prefer-stable" : true
 ```
-* Run `composer update --lock` to install both phpcs and PHPCompatibility coding standard.
+* Next, PHPCS has to be informed of the location of the standard.
+    - If you use just one external PHPCS standard, you can add the following to your `composer.json` file to automatically run the necessary command:
+        ```json
+        "scripts": {
+            "post-install-cmd": "\"vendor/bin/phpcs\" --config-set installed_paths /vendor/wimg/php-compatibility",
+            "post-update-cmd" : "\"vendor/bin/phpcs\" --config-set installed_paths /vendor/wimg/php-compatibility"
+        }
+        ```
+    - Alternatively - and **_strongly recommended_** if you use more than one external PHPCS standard - you can use any of the following Composer plugins to handle this for you.
+	   Add the Composer plugin you prefer to the `require-dev` section of your `composer.json` file.
+            * [DealerDirect/phpcodesniffer-composer-installer](https://github.com/DealerDirect/phpcodesniffer-composer-installer)
+            * [higidi/composer-phpcodesniffer-standards-plugin](https://github.com/higidi/composer-phpcodesniffer-standards-plugin)
+            * [SimplyAdmire/ComposerPlugins](https://github.com/SimplyAdmire/ComposerPlugins)
+    - As a last alternative in case you use a custom ruleset, _and only if you use PHPCS version 2.6.0 or higher_, you can tell PHP_CodeSniffer the path to the PHPCompatibility standard by adding the following snippet to your custom ruleset:
+        ```xml
+        <config name="installed_paths" value="/vendor/wimg/php-compatibility" />
+        ```
+* Run `composer update --lock` to install both PHP CodeSniffer, the PHPCompatibility coding standard and - optionally - the Composer plugin.
+* Verify that the PHPCompatibility standard is registered correctly by running `phpcs -i`. PHPCompatibility should be listed as one of the available standards.
 * Use the coding standard with `./vendor/bin/phpcs --standard=PHPCompatibility`
 
 
-Installation via a git check-out to an arbitrary directory (method 3)
+Installation via a git check-out to an arbitrary directory (method 2)
 -----------------------
 
-* Install the latest `2.x` version of [PHP_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer) via [your preferred method](https://github.com/squizlabs/PHP_CodeSniffer#installation) (Composer, PEAR, Phar file, Git checkout).
-* Checkout the latest release from https://github.com/wimg/PHPCompatibility/releases into an arbitrary directory.
-* Add the path to the directory **_above_** the directory in which you cloned the PHPCompability repo to the PHPCS configuration using the below command.
+* Install the latest `2.x` version of [PHP_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer) via [your preferred method](https://github.com/squizlabs/PHP_CodeSniffer#installation) (Composer, [PEAR](http://pear.php.net/PHP_CodeSniffer), Phar file, Git checkout).
+* Checkout the [latest PHPCompatibility release](https://github.com/wimg/PHPCompatibility/releases) into an arbitrary directory.
+* Add the path to the directory in which you cloned the PHPCompatibility repo to the PHPCS configuration using the below command.
    ```bash
-   phpcs --config-set installed_paths /path/to/dir/above
+   phpcs --config-set installed_paths /path/to/PHPCompatibility
    ```
-   I.e. if you cloned the `PHPCompatibility` repository to the `/my/custom/standards/PHPCompatibility` directory, you will need to add the `/my/custom/standards` directory to the PHPCS [`installed_paths` configuration variable](https://github.com/squizlabs/PHP_CodeSniffer/wiki/Configuration-Options#setting-the-installed-standard-paths).
+   I.e. if you cloned the `PHPCompatibility` repository to the `/my/custom/standards/PHPCompatibility` directory, you will need to add that directory to the PHPCS [`installed_paths` configuration variable](https://github.com/squizlabs/PHP_CodeSniffer/wiki/Configuration-Options#setting-the-installed-standard-paths).
 
    **Pro-tip:** Alternatively, _and only if you use PHPCS version 2.6.0 or higher_, you can tell PHP_CodeSniffer the path to the PHPCompatibility standard by adding the following snippet to your custom ruleset:
    ```xml
-   <config name="installed_paths" value="/path/to/dir/above" />
+   <config name="installed_paths" value="/path/to/PHPCompatibility" />
    ```
-
-
-Using the compatibility sniffs
-------------------------------
+* Verify that the PHPCompatibility standard is registered correctly by running `phpcs -i`. PHPCompatibility should be listed as one of the available standards.
 * Use the coding standard with `phpcs --standard=PHPCompatibility`
+
+
+Sniffing your code for compatibility with specific PHP version
+------------------------------
 * You can specify which PHP version you want to test against by specifying `--runtime-set testVersion 5.5`.
 * You can also specify a range of PHP versions that your code needs to support.  In this situation, compatibility issues that affect any of the PHP versions in that range will be reported:
 `--runtime-set testVersion 5.3-5.5`.  You can omit one or other part of the range if you want to support everything above/below a particular version (e.g. `--runtime-set testVersion 7.0-` to support PHP 7 and above).
