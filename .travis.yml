@@ -12,34 +12,34 @@ matrix:
       env: PHPCS_VERSION="2.9"
 
     - php: 5.3
-      env: PHPCS_VERSION=">=1.5.1,<2.0" COVERALLS_VERSION="~1.0"
+      env: PHPCS_VERSION=">=1.5.1,<2.0"
     - php: 5.3
-      env: PHPCS_VERSION="2.9.x-dev" COVERALLS_VERSION="~1.0"
+      env: PHPCS_VERSION="2.9.x-dev"
 
     - php: 5.4
-      env: PHPCS_VERSION=">=1.5.1,<2.0" COVERALLS_VERSION="~1.0"
+      env: PHPCS_VERSION=">=1.5.1,<2.0"
     - php: 5.4
-      env: PHPCS_VERSION="2.9.x-dev" COVERALLS_VERSION="~1.0"
+      env: PHPCS_VERSION="2.9.x-dev"
 
     - php: 5.5
-      env: PHPCS_VERSION=">=1.5.1,<2.0" COVERALLS_VERSION="dev-master"
+      env: PHPCS_VERSION=">=1.5.1,<2.0"
     - php: 5.5
-      env: PHPCS_VERSION="2.9.x-dev" COVERALLS_VERSION="dev-master"
+      env: PHPCS_VERSION="2.9.x-dev"
 
     - php: 5.6
-      env: PHPCS_VERSION=">=1.5.1,<2.0" COVERALLS_VERSION="dev-master"
+      env: PHPCS_VERSION=">=1.5.1,<2.0"
     - php: 5.6
-      env: PHPCS_VERSION="2.9.x-dev" COVERALLS_VERSION="dev-master"
+      env: PHPCS_VERSION="2.9.x-dev"
 
     - php: 7.0
-      env: PHPCS_VERSION=">=1.5.1,<2.0" COVERALLS_VERSION="dev-master"
+      env: PHPCS_VERSION=">=1.5.1,<2.0"
     - php: 7.0
-      env: PHPCS_VERSION="2.9.x-dev" SNIFF=1 COVERALLS_VERSION="dev-master"
+      env: PHPCS_VERSION="2.9.x-dev" SNIFF=1
 
     - php: 7.1
-      env: PHPCS_VERSION=">=1.5.1,<2.0" COVERALLS_VERSION="dev-master"
+      env: PHPCS_VERSION=">=1.5.1,<2.0"
     - php: 7.1
-      env: PHPCS_VERSION="2.9.x-dev" COVERALLS_VERSION="dev-master"
+      env: PHPCS_VERSION="2.9.x-dev"
 
     - php: nightly
       env: PHPCS_VERSION=">=1.5.1,<2.0"
@@ -125,7 +125,7 @@ before_install:
   - if [[ $TRAVIS_PHP_VERSION > "5.2" && $COVERALLS_VERSION ]]; then composer require --dev satooshi/php-coveralls:${COVERALLS_VERSION};fi
   - if [[ $TRAVIS_PHP_VERSION > "5.2" ]]; then composer require squizlabs/php_codesniffer:${PHPCS_VERSION}; fi
   - if [[ $TRAVIS_PHP_VERSION == hhv* ]]; then composer require phpunit/phpunit:~4.0; fi
-  - if [[ $TRAVIS_PHP_VERSION > "5.2" ]]; then composer install; fi
+  - if [[ $TRAVIS_PHP_VERSION > "5.2" ]]; then composer install --no-dev; fi
   # PHP 5.2: set up test environment using git cloning.
   - if [[ $TRAVIS_PHP_VERSION < "5.3" ]]; then export PHPCS_DIR=/tmp/phpcs; fi
   - if [[ $TRAVIS_PHP_VERSION < "5.3" ]]; then export PHPCS_BIN=$PHPCS_DIR/scripts/phpcs; fi
