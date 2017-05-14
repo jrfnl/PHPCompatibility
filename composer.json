@@ -13,7 +13,7 @@
   "keywords" : [ "compatibility", "phpcs", "standards" ],
   "autoload" : {
     "psr-4" : {
-      "PHPCompatibility\\" : ""
+      "PHPCompatibility\\" : "PHPCompatibility/"
     }
   },
   "type" : "phpcodesniffer-standard",
