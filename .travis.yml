@@ -122,7 +122,6 @@ before_install:
   - export XMLLINT_INDENT="    "
   # PHP 5.3+: set up test environment using Composer.
   - if [[ $TRAVIS_PHP_VERSION > "5.2" ]]; then composer self-update; fi
-  - if [[ $TRAVIS_PHP_VERSION > "5.2" && $COVERALLS_VERSION ]]; then composer require --dev satooshi/php-coveralls:${COVERALLS_VERSION};fi
   - if [[ $TRAVIS_PHP_VERSION > "5.2" ]]; then composer require squizlabs/php_codesniffer:${PHPCS_VERSION}; fi
   - if [[ $TRAVIS_PHP_VERSION == hhv* ]]; then composer require phpunit/phpunit:~4.0; fi
   - if [[ $TRAVIS_PHP_VERSION > "5.2" ]]; then composer install --no-dev; fi
