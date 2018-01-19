@@ -61,7 +61,7 @@ before_script:
 script:
   # Lint all PHP files against parse errors.
   # Run the unit tests.
-  - if [[ $PHPUNIT_VERSION == "travis" && $COVERALLS_VERSION != "notset" && $TRAVIS_PHP_VERSION == "7.2" ]]; then php -d auto_preprend_file=$(pwd)/.xdebug_filter.php phpunit --configuration phpunit-travis.xml --coverage-clover build/logs/clover.xml; fi
+  - if [[ $PHPUNIT_VERSION == "travis" && $COVERALLS_VERSION != "notset" && $TRAVIS_PHP_VERSION == "7.2" ]]; then php -dauto_preprend_file=$(pwd)/.xdebug_filter.php phpunit --configuration phpunit-travis.xml --coverage-clover build/logs/clover.xml; fi
   - if [[ $PHPUNIT_VERSION == "travis" && $COVERALLS_VERSION != "notset" && $TRAVIS_PHP_VERSION != "7.2" ]]; then phpunit --configuration phpunit-travis.xml --coverage-clover build/logs/clover.xml; fi
   - if [[ $PHPUNIT_VERSION != "travis" && $COVERALLS_VERSION != "notset" ]]; then vendor/bin/phpunit --configuration phpunit-travis.xml --coverage-clover build/logs/clover.xml; fi
   - if [[ $PHPUNIT_VERSION == "travis" && $COVERALLS_VERSION == "notset" ]]; then phpunit; fi
