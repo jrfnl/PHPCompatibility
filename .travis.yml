@@ -65,7 +65,7 @@ before_install:
 before_script:
   - if [[ $COVERALLS_VERSION != "notset" ]]; then mkdir -p build/logs; fi
   - phpenv rehash
-  - if [[ $COVERALLS_VERSION != "notset" && $TRAVIS_PHP_VERSION == "7.2" ]]; then echo "<?php xdebug_set_filter(XDEBUG_FILTER_CODE_COVERAGE, XDEBUG_PATH_WHITELIST, [ '$(pwd)/src' ]);" > .xdebug_filter.php; fi
+  - if [[ $COVERALLS_VERSION != "notset" && $TRAVIS_PHP_VERSION == "7.2" ]]; then echo "<?php xdebug_set_filter(XDEBUG_FILTER_CODE_COVERAGE, XDEBUG_PATH_WHITELIST, [ '$(pwd)/PHPCompatibility/Sniffs/' ]);" > .xdebug_filter.php; fi
 
 script:
   # Lint all PHP files against parse errors.
