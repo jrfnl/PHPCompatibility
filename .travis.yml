@@ -56,13 +56,11 @@ before_install:
 before_script:
   - if [[ $COVERALLS_VERSION != "notset" ]]; then mkdir -p build/logs; fi
   - phpenv rehash
-  - if [[ $COVERALLS_VERSION != "notset" && $TRAVIS_PHP_VERSION == "7.2" ]]; then echo "<?php xdebug_set_filter(XDEBUG_FILTER_CODE_COVERAGE, XDEBUG_PATH_WHITELIST, [ '$(pwd)/PHPCompatibility/Sniffs/' ]);" > .xdebug_filter.php; fi
 
 script:
   # Lint all PHP files against parse errors.
   # Run the unit tests.
-  - if [[ $PHPUNIT_VERSION == "travis" && $COVERALLS_VERSION != "notset" && $TRAVIS_PHP_VERSION == "7.2" ]]; then php -dauto_preprend_file=$(pwd)/.xdebug_filter.php phpunit --configuration phpunit-travis.xml --coverage-clover build/logs/clover.xml; fi
-  - if [[ $PHPUNIT_VERSION == "travis" && $COVERALLS_VERSION != "notset" && $TRAVIS_PHP_VERSION != "7.2" ]]; then phpunit --configuration phpunit-travis.xml --coverage-clover build/logs/clover.xml; fi
+  - if [[ $PHPUNIT_VERSION == "travis" && $COVERALLS_VERSION != "notset" ]]; then phpunit --configuration phpunit-travis.xml --coverage-clover build/logs/clover.xml; fi
   - if [[ $PHPUNIT_VERSION != "travis" && $COVERALLS_VERSION != "notset" ]]; then vendor/bin/phpunit --configuration phpunit-travis.xml --coverage-clover build/logs/clover.xml; fi
   - if [[ $PHPUNIT_VERSION == "travis" && $COVERALLS_VERSION == "notset" ]]; then phpunit; fi
   - if [[ $PHPUNIT_VERSION != "travis" && $COVERALLS_VERSION == "notset" ]]; then vendor/bin/phpunit; fi

@@ -5,6 +5,19 @@
  * @package PHPCompatibility
  */
 
+// When possible let Xdebug handle code coverage file filtering.
+$testingCodeCoverage = getenv('COVERALLS_VERSION');
+if ($testingCodeCoverage !== false && $testingCodeCoverage !== 'notset') {
+	$xdebugVersion = phpversion('xdebug');
+	if (version_compare($xdebugVersion, '2.5.99', '>') === true) {
+		xdebug_set_filter(
+			XDEBUG_FILTER_CODE_COVERAGE,
+			XDEBUG_PATH_WHITELIST,
+			array(dirname(__DIR__) . '/Sniffs')
+		);
+	}
+}
+
 if (defined('PHP_CODESNIFFER_IN_TESTS') === false) {
     define('PHP_CODESNIFFER_IN_TESTS', true);
 }
