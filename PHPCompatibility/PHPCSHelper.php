@@ -38,6 +38,8 @@ class PHPCSHelper
     /**
      * Get the PHPCS version number.
      *
+     * @since 8.0.0
+     *
      * @return string
      */
     public static function getVersion()
@@ -80,6 +82,8 @@ class PHPCSHelper
     /**
      * Get the value of a single PHPCS config key.
      *
+     * @since 8.0.0
+     *
      * @param string $key The name of the config value.
      *
      * @return string|null
@@ -101,6 +105,8 @@ class PHPCSHelper
      *
      * This config key can be set in the `CodeSniffer.conf` file, on the
      * command-line or in a ruleset.
+     *
+     * @since 8.2.0
      *
      * @param \PHP_CodeSniffer_File $phpcsFile The file being scanned.
      * @param string                $key       The name of the config value.
@@ -218,6 +224,8 @@ class PHPCSHelper
      *
      * Last synced with PHPCS version: PHPCS 3.3.0-alpha at commit f5d899dcb5c534a1c3cca34668624517856ba823}}
      *
+     * @since 8.2.0
+     *
      * @param \PHP_CodeSniffer_File $phpcsFile Instance of phpcsFile.
      * @param int                   $start     The position to start searching from in the token stack.
      * @param int|array             $ignore    Token types that should not be considered stop points.
@@ -317,6 +325,9 @@ class PHPCSHelper
      *
      * Last synced with PHPCS version: PHPCS 3.1.0-alpha at commit a9efcc9b0703f3f9f4a900623d4e97128a6aafc6}}
      *
+     * @since 7.1.4
+     * @since 8.2.0 Moved from the `Sniff` class to this class.
+     *
      * @param \PHP_CodeSniffer_File $phpcsFile Instance of phpcsFile.
      * @param int                   $stackPtr  The position of the class token in the stack.
      *
@@ -381,6 +392,9 @@ class PHPCSHelper
      * Once the minimum supported PHPCS version for this sniff library goes beyond
      * that, this method can be removed and calls to it replaced with
      * `$phpcsFile->findImplementedInterfaceNames($stackPtr)` calls.}}
+     *
+     * @since 7.0.3
+     * @since 8.2.0 Moved from the `Sniff` class to this class.
      *
      * @param \PHP_CodeSniffer_File $phpcsFile The file being scanned.
      * @param int                   $stackPtr  The position of the class token.
@@ -463,6 +477,9 @@ class PHPCSHelper
      * class.
      *
      * Last synced with PHPCS version: PHPCS 3.3.0-alpha at commit 53a28408d345044c0360c2c1b4a2aaebf4a3b8c9}}
+     *
+     * @since 7.0.3
+     * @since 8.2.0 Moved from the `Sniff` class to this class.
      *
      * @param \PHP_CodeSniffer_File $phpcsFile Instance of phpcsFile.
      * @param int                   $stackPtr  The position in the stack of the

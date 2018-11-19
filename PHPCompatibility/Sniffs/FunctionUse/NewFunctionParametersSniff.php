@@ -30,6 +30,9 @@ class NewFunctionParametersSniff extends AbstractNewFeatureSniff
      * The index is the location of the parameter in the parameter list, starting at 0 !
      * If's sufficient to list the first version where the function appears.
      *
+     * @since 7.0.0
+     * @since 7.0.2 Visibility changed from public to protected.
+     *
      * @var array
      */
     protected $newFunctionParameters = array(
@@ -938,6 +941,8 @@ class NewFunctionParametersSniff extends AbstractNewFeatureSniff
     /**
      * Returns an array of tokens this test wants to listen for.
      *
+     * @since 7.0.0
+     *
      * @return array
      */
     public function register()
@@ -950,6 +955,8 @@ class NewFunctionParametersSniff extends AbstractNewFeatureSniff
 
     /**
      * Processes this test, when one of its tokens is encountered.
+     *
+     * @since 7.0.0
      *
      * @param \PHP_CodeSniffer_File $phpcsFile The file being scanned.
      * @param int                   $stackPtr  The position of the current token in
@@ -1006,6 +1013,8 @@ class NewFunctionParametersSniff extends AbstractNewFeatureSniff
     /**
      * Get the relevant sub-array for a specific item from a multi-dimensional array.
      *
+     * @since 7.1.0
+     *
      * @param array $itemInfo Base information about the item.
      *
      * @return array Version and other information about the item.
@@ -1019,6 +1028,8 @@ class NewFunctionParametersSniff extends AbstractNewFeatureSniff
     /**
      * Get an array of the non-PHP-version array keys used in a sub-array.
      *
+     * @since 7.1.0
+     *
      * @return array
      */
     protected function getNonVersionArrayKeys()
@@ -1029,6 +1040,8 @@ class NewFunctionParametersSniff extends AbstractNewFeatureSniff
 
     /**
      * Retrieve the relevant detail (version) information for use in an error message.
+     *
+     * @since 7.1.0
      *
      * @param array $itemArray Version and other information about the item.
      * @param array $itemInfo  Base information about the item.
@@ -1047,6 +1060,8 @@ class NewFunctionParametersSniff extends AbstractNewFeatureSniff
     /**
      * Get the item name to be used for the creation of the error code.
      *
+     * @since 7.1.0
+     *
      * @param array $itemInfo  Base information about the item.
      * @param array $errorInfo Detail information about an item.
      *
@@ -1061,6 +1076,8 @@ class NewFunctionParametersSniff extends AbstractNewFeatureSniff
     /**
      * Get the error message template for this sniff.
      *
+     * @since 7.1.0
+     *
      * @return string
      */
     protected function getErrorMsgTemplate()
@@ -1071,6 +1088,8 @@ class NewFunctionParametersSniff extends AbstractNewFeatureSniff
 
     /**
      * Allow for concrete child classes to filter the error data before it's passed to PHPCS.
+     *
+     * @since 7.1.0
      *
      * @param array $data      The error data array which was created.
      * @param array $itemInfo  Base information about the item this error message applies to.

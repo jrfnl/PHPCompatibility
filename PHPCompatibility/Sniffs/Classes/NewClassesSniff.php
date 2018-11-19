@@ -30,6 +30,8 @@ class NewClassesSniff extends AbstractNewFeatureSniff
      * The array lists : version number with false (not present) or true (present).
      * If's sufficient to list the first version where the class appears.
      *
+     * @since 5.5
+     *
      * @var array(string => array(string => bool))
      */
     protected $newClasses = array(
@@ -400,6 +402,8 @@ class NewClassesSniff extends AbstractNewFeatureSniff
      *
      * {@internal Helper to update this list: https://3v4l.org/MhlUp}}
      *
+     * @since 7.1.4
+     *
      * @var array(string => array(string => bool))
      */
     protected $newExceptions = array(
@@ -580,6 +584,17 @@ class NewClassesSniff extends AbstractNewFeatureSniff
     /**
      * Returns an array of tokens this test wants to listen for.
      *
+     * @since 5.5
+     * @since 7.0.3 - Now also targets the class keyword to detect extended classes.
+     *              - Now also targets double colons to detect static class use.
+     * @since 7.1.4 - Now also targets anonymous classes to detect extended classes.
+     *              - Now also targets functions/closures to detect new classes used
+     *                as parameter type declarations.
+     *              - Now also targets the catch control structure to detect new
+     *                exception classes being caught.
+     * @since 8.2.0 Now also targets the T_RETURN_TYPE token to detect new classes used
+     *              as return type declarations.
+     *
      * @return array
      */
     public function register()
@@ -614,6 +629,8 @@ class NewClassesSniff extends AbstractNewFeatureSniff
 
     /**
      * Processes this test, when one of its tokens is encountered.
+     *
+     * @since 5.5
      *
      * @param \PHP_CodeSniffer_File $phpcsFile The file being scanned.
      * @param int                   $stackPtr  The position of the current token in
@@ -655,6 +672,8 @@ class NewClassesSniff extends AbstractNewFeatureSniff
 
     /**
      * Processes this test for when a token resulting in a singular class name is encountered.
+     *
+     * @since 7.1.4
      *
      * @param \PHP_CodeSniffer_File $phpcsFile The file being scanned.
      * @param int                   $stackPtr  The position of the current token in

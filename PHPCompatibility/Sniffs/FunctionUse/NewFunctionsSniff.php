@@ -28,6 +28,13 @@ class NewFunctionsSniff extends AbstractNewFeatureSniff
      * The array lists : version number with false (not present) or true (present).
      * If's sufficient to list the first version where the function appears.
      *
+     * @since 5.5
+     * @since 5.6   Visibility changed from protected to public.
+     * @since 7.0.2 Visibility changed back from public to protected.
+     *              The earlier change was made to be in line with the upstream sniff,
+     *              but that sniff is no longer being extended.
+     * @since 7.0.8 Renamed from `$forbiddenFunctions` to the more descriptive `$newFunctions`.
+     *
      * @var array(string => array(string => int|string|null))
      */
     protected $newFunctions = array(
@@ -1910,6 +1917,8 @@ class NewFunctionsSniff extends AbstractNewFeatureSniff
     /**
      * Returns an array of tokens this test wants to listen for.
      *
+     * @since 5.6
+     *
      * @return array
      */
     public function register()
@@ -1922,6 +1931,8 @@ class NewFunctionsSniff extends AbstractNewFeatureSniff
 
     /**
      * Processes this test, when one of its tokens is encountered.
+     *
+     * @since 5.5
      *
      * @param \PHP_CodeSniffer_File $phpcsFile The file being scanned.
      * @param int                   $stackPtr  The position of the current token in
@@ -1968,6 +1979,8 @@ class NewFunctionsSniff extends AbstractNewFeatureSniff
     /**
      * Get the relevant sub-array for a specific item from a multi-dimensional array.
      *
+     * @since 7.1.0
+     *
      * @param array $itemInfo Base information about the item.
      *
      * @return array Version and other information about the item.
@@ -1980,6 +1993,8 @@ class NewFunctionsSniff extends AbstractNewFeatureSniff
 
     /**
      * Get the error message template for this sniff.
+     *
+     * @since 7.1.0
      *
      * @return string
      */

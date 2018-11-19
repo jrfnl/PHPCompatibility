@@ -32,6 +32,8 @@ class NewAnonymousClassesSniff extends Sniff
      * The dedicated anonymous class token is added from the `register()`
      * method if the token is available.
      *
+     * @since 7.1.2
+     *
      * @var array
      */
     private $indicators = array(
@@ -40,6 +42,8 @@ class NewAnonymousClassesSniff extends Sniff
 
     /**
      * Returns an array of tokens this test wants to listen for.
+     *
+     * @since 7.0.0
      *
      * @return array
      */
@@ -55,6 +59,8 @@ class NewAnonymousClassesSniff extends Sniff
 
     /**
      * Processes this test, when one of its tokens is encountered.
+     *
+     * @since 7.0.0
      *
      * @param \PHP_CodeSniffer_File $phpcsFile The file being scanned.
      * @param int                   $stackPtr  The position of the current token in the

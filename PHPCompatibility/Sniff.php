@@ -31,6 +31,9 @@ abstract class Sniff implements PHPCS_Sniff
      *
      * Used by the ParameterShadowSuperGlobals and ForbiddenClosureUseVariableNames sniffs.
      *
+     * @since 7.0.0
+     * @since 7.1.4 Moved from the ForbiddenParameterShadowSuperGlobalsSniff to the base sniff class.
+     *
      * @var array
      */
     protected $superglobals = array(
@@ -51,6 +54,9 @@ abstract class Sniff implements PHPCS_Sniff
      * Used by the new/removed hash algorithm sniffs.
      * Key is the function name, value is the 1-based parameter position in the function call.
      *
+     * @since 5.5
+     * @since 7.0.7 Moved from the RemovedHashAlgorithmsSniff to the base sniff class.
+     *
      * @var array
      */
     protected $hashAlgoFunctions = array(
@@ -68,6 +74,8 @@ abstract class Sniff implements PHPCS_Sniff
      *
      * Used by the new/removed ini directives sniffs.
      * Key is the function name, value is the 1-based parameter position in the function call.
+     *
+     * @since 7.1.0
      *
      * @var array
      */
@@ -94,6 +102,9 @@ abstract class Sniff implements PHPCS_Sniff
      *    all versions up to PHP 5.6, and "7.0-" means all versions above PHP 7.0.
      * PHP version numbers should always be in Major.Minor format.  Both "5", "5.3.2"
      * would be treated as invalid, and ignored.
+     *
+     * @since 7.0.0
+     * @since 7.1.3 Now allows for partial ranges such as `5.2-`.
      *
      * @return array $arrTestVersions will hold an array containing min/max version
      *               of PHP that we are checking against (see above).  If only a
@@ -164,6 +175,8 @@ abstract class Sniff implements PHPCS_Sniff
      *
      * Should be used when sniffing for *old* PHP features (deprecated/removed).
      *
+     * @since 5.6
+     *
      * @param string $phpVersion A PHP version number in 'major.minor' format.
      *
      * @return bool True if testVersion has not been provided or if the PHP version
@@ -191,6 +204,8 @@ abstract class Sniff implements PHPCS_Sniff
      *
      * Should be used when sniffing for *new* PHP features.
      *
+     * @since 5.6
+     *
      * @param string $phpVersion A PHP version number in 'major.minor' format.
      *
      * @return bool True if the PHP version is equal to or lower than the lowest
@@ -214,6 +229,8 @@ abstract class Sniff implements PHPCS_Sniff
 
     /**
      * Add a PHPCS message to the output stack as either a warning or an error.
+     *
+     * @since 7.1.0
      *
      * @param \PHP_CodeSniffer_File $phpcsFile The file the message applies to.
      * @param string                $message   The message.
@@ -243,6 +260,8 @@ abstract class Sniff implements PHPCS_Sniff
      *
      * Pre-empt issues with arbitrary strings being used as error codes in XML and PHP.
      *
+     * @since 7.1.0
+     *
      * @param string $baseString Arbitrary string.
      *
      * @return string
@@ -258,6 +277,8 @@ abstract class Sniff implements PHPCS_Sniff
      *
      * Intended for use with the contents of a T_CONSTANT_ENCAPSED_STRING / T_DOUBLE_QUOTED_STRING.
      *
+     * @since 7.0.6
+     *
      * @param string $string The raw string.
      *
      * @return string String without quotes around it.
@@ -272,6 +293,8 @@ abstract class Sniff implements PHPCS_Sniff
      * Strip variables from an arbitrary double quoted string.
      *
      * Intended for use with the contents of a T_DOUBLE_QUOTED_STRING.
+     *
+     * @since 7.1.2
      *
      * @param string $string The raw string.
      *
@@ -289,6 +312,8 @@ abstract class Sniff implements PHPCS_Sniff
 
     /**
      * Make all top level array keys in an array lowercase.
+     *
+     * @since 7.1.0
      *
      * @param array $array Initial array.
      *
@@ -311,6 +336,8 @@ abstract class Sniff implements PHPCS_Sniff
      *
      * @link https://github.com/PHPCompatibility/PHPCompatibility/issues/120
      * @link https://github.com/PHPCompatibility/PHPCompatibility/issues/152
+     *
+     * @since 7.0.3
      *
      * @param \PHP_CodeSniffer_File $phpcsFile The file being scanned.
      * @param int                   $stackPtr  The position of the function call token.
@@ -382,6 +409,8 @@ abstract class Sniff implements PHPCS_Sniff
      * @link https://github.com/PHPCompatibility/PHPCompatibility/issues/114
      * @link https://github.com/PHPCompatibility/PHPCompatibility/issues/151
      *
+     * @since 7.0.3
+     *
      * @param \PHP_CodeSniffer_File $phpcsFile The file being scanned.
      * @param int                   $stackPtr  The position of the function call token.
      *
@@ -409,6 +438,8 @@ abstract class Sniff implements PHPCS_Sniff
      *
      * Extra feature: If passed an T_ARRAY or T_OPEN_SHORT_ARRAY stack pointer,
      * it will tokenize the values / key/value pairs contained in the array call.
+     *
+     * @since 7.0.5 Split off from the getFunctionCallParameterCount() method.
      *
      * @param \PHP_CodeSniffer_File $phpcsFile The file being scanned.
      * @param int                   $stackPtr  The position of the function call token.
@@ -516,6 +547,8 @@ abstract class Sniff implements PHPCS_Sniff
      * of the parameter at a specific offset.
      * If the specified parameter is not found, will return false.
      *
+     * @since 7.0.5
+     *
      * @param \PHP_CodeSniffer_File $phpcsFile   The file being scanned.
      * @param int                   $stackPtr    The position of the function call token.
      * @param int                   $paramOffset The 1-based index position of the parameter to retrieve.
@@ -540,6 +573,8 @@ abstract class Sniff implements PHPCS_Sniff
      * If the optional $validScopes parameter has been passed, the function
      * will check that the token has at least one condition which is of a
      * type defined in $validScopes.
+     *
+     * @since 7.0.5 Largely split off from the inClassScope() method.
      *
      * @param \PHP_CodeSniffer_File $phpcsFile   The file being scanned.
      * @param int                   $stackPtr    The position of the token.
@@ -578,6 +613,8 @@ abstract class Sniff implements PHPCS_Sniff
     /**
      * Verify whether a token is within a class scope.
      *
+     * @since 7.0.3
+     *
      * @param \PHP_CodeSniffer_File $phpcsFile The file being scanned.
      * @param int                   $stackPtr  The position of the token.
      * @param bool                  $strict    Whether to strictly check for the T_CLASS
@@ -606,6 +643,8 @@ abstract class Sniff implements PHPCS_Sniff
      * Returns the fully qualified class name for a new class instantiation.
      *
      * Returns an empty string if the class name could not be reliably inferred.
+     *
+     * @since 7.0.3
      *
      * @param \PHP_CodeSniffer_File $phpcsFile The file being scanned.
      * @param int                   $stackPtr  The position of a T_NEW token.
@@ -661,6 +700,8 @@ abstract class Sniff implements PHPCS_Sniff
      * Returns an empty string if the class does not extend another class or if
      * the class name could not be reliably inferred.
      *
+     * @since 7.0.3
+     *
      * @param \PHP_CodeSniffer_File $phpcsFile The file being scanned.
      * @param int                   $stackPtr  The position of a T_CLASS token.
      *
@@ -696,6 +737,8 @@ abstract class Sniff implements PHPCS_Sniff
      * This can be a call to a method, the use of a property or constant.
      *
      * Returns an empty string if the class name could not be reliably inferred.
+     *
+     * @since 7.0.3
      *
      * @param \PHP_CodeSniffer_File $phpcsFile The file being scanned.
      * @param int                   $stackPtr  The position of a T_NEW token.
@@ -761,6 +804,8 @@ abstract class Sniff implements PHPCS_Sniff
      * Checks if a class/function/constant name is already fully qualified and
      * if not, enrich it with the relevant namespace information.
      *
+     * @since 7.0.3
+     *
      * @param \PHP_CodeSniffer_File $phpcsFile The file being scanned.
      * @param int                   $stackPtr  The position of the token.
      * @param string                $name      The class / function / constant name.
@@ -792,6 +837,8 @@ abstract class Sniff implements PHPCS_Sniff
     /**
      * Is the class/function/constant name namespaced or global ?
      *
+     * @since 7.0.3
+     *
      * @param string $FQName Fully Qualified name of a class, function etc.
      *                       I.e. should always start with a `\`.
      *
@@ -809,6 +856,8 @@ abstract class Sniff implements PHPCS_Sniff
 
     /**
      * Determine the namespace name an arbitrary token lives in.
+     *
+     * @since 7.0.3
      *
      * @param \PHP_CodeSniffer_File $phpcsFile Instance of phpcsFile.
      * @param int                   $stackPtr  The token position for which to determine the namespace.
@@ -873,6 +922,8 @@ abstract class Sniff implements PHPCS_Sniff
      * For hierarchical namespaces, the name will be composed of several tokens,
      * i.e. MyProject\Sub\Level which will be returned together as one string.
      *
+     * @since 7.0.3
+     *
      * @param \PHP_CodeSniffer_File $phpcsFile Instance of phpcsFile.
      * @param int|bool              $stackPtr  The position of a T_NAMESPACE token.
      *
@@ -928,6 +979,8 @@ abstract class Sniff implements PHPCS_Sniff
      * return type hints correctly.
      *
      * Expects to be passed T_RETURN_TYPE, T_FUNCTION or T_CLOSURE token.
+     *
+     * @since 7.1.2
      *
      * @param \PHP_CodeSniffer_File $phpcsFile The file being scanned.
      * @param int                   $stackPtr  The position of the token.
@@ -1010,6 +1063,8 @@ abstract class Sniff implements PHPCS_Sniff
      * Expects to be passed a T_RETURN_TYPE token or the return value from a call to
      * the Sniff::getReturnTypeHintToken() method.
      *
+     * @since 8.2.0
+     *
      * @param \PHP_CodeSniffer_File $phpcsFile The file being scanned.
      * @param int                   $stackPtr  The position of the return type token.
      *
@@ -1060,6 +1115,8 @@ abstract class Sniff implements PHPCS_Sniff
      * anonymous classes. Along the same lines, the`getMemberProperties()`
      * method does not support the `var` prefix.
      *
+     * @since 7.1.4
+     *
      * @param \PHP_CodeSniffer_File $phpcsFile Instance of phpcsFile.
      * @param int                   $stackPtr  The position in the stack of the
      *                                         T_VARIABLE token to verify.
@@ -1105,6 +1162,8 @@ abstract class Sniff implements PHPCS_Sniff
     /**
      * Check whether a T_CONST token is a class constant declaration.
      *
+     * @since 7.1.4
+     *
      * @param \PHP_CodeSniffer_File $phpcsFile Instance of phpcsFile.
      * @param int                   $stackPtr  The position in the stack of the
      *                                         T_CONST token to verify.
@@ -1138,6 +1197,8 @@ abstract class Sniff implements PHPCS_Sniff
      * acceptable tokens.
      *
      * Used to check, for instance, if a T_CONST is a class constant.
+     *
+     * @since 7.1.4
      *
      * @param \PHP_CodeSniffer_File $phpcsFile   Instance of phpcsFile.
      * @param int                   $stackPtr    The position in the stack of the
@@ -1182,6 +1243,8 @@ abstract class Sniff implements PHPCS_Sniff
      *
      * Strips potential nullable indicator and potential global namespace
      * indicator from the type hints before returning them.
+     *
+     * @since 7.1.4
      *
      * @param \PHP_CodeSniffer_File $phpcsFile The file being scanned.
      * @param int                   $stackPtr  The position of the token.
@@ -1229,6 +1292,8 @@ abstract class Sniff implements PHPCS_Sniff
     /**
      * Get the hash algorithm name from the parameter in a hash function call.
      *
+     * @since 7.0.7 Logic was originally contained in the RemovedHashAlgorithmsSniff.
+     *
      * @param \PHP_CodeSniffer_File $phpcsFile Instance of phpcsFile.
      * @param int                   $stackPtr  The position of the T_STRING function token.
      *
@@ -1272,6 +1337,8 @@ abstract class Sniff implements PHPCS_Sniff
 
     /**
      * Determine whether an arbitrary T_STRING token is the use of a global constant.
+     *
+     * @since 8.1.0
      *
      * @param \PHP_CodeSniffer_File $phpcsFile The file being scanned.
      * @param int                   $stackPtr  The position of the T_STRING token.
@@ -1405,6 +1472,8 @@ abstract class Sniff implements PHPCS_Sniff
      *
      * Note: Zero is *not* regarded as a positive number.
      *
+     * @since 8.2.0
+     *
      * @param \PHP_CodeSniffer_File $phpcsFile   The file being scanned.
      * @param int                   $start       Start of the snippet (inclusive), i.e. this
      *                                           token will be examined as part of the snippet.
@@ -1436,6 +1505,8 @@ abstract class Sniff implements PHPCS_Sniff
      * "undetermined".
      *
      * Note: Zero is *not* regarded as a negative number.
+     *
+     * @since 8.2.0
      *
      * @param \PHP_CodeSniffer_File $phpcsFile   The file being scanned.
      * @param int                   $start       Start of the snippet (inclusive), i.e. this
@@ -1470,6 +1541,8 @@ abstract class Sniff implements PHPCS_Sniff
      *
      * Mainly intended for examining variable assignments, function call parameters, array values
      * where the start and end of the snippet to examine is very clear.
+     *
+     * @since 8.2.0
      *
      * @param \PHP_CodeSniffer_File $phpcsFile   The file being scanned.
      * @param int                   $start       Start of the snippet (inclusive), i.e. this
@@ -1645,6 +1718,8 @@ abstract class Sniff implements PHPCS_Sniff
      * Mainly intended for examining variable assignments, function call parameters, array values
      * where the start and end of the snippet to examine is very clear.
      *
+     * @since 9.0.0
+     *
      * @param \PHP_CodeSniffer_File $phpcsFile The file being scanned.
      * @param int                   $start     Start of the snippet (inclusive), i.e. this
      *                                         token will be examined as part of the snippet.
@@ -1766,6 +1841,8 @@ abstract class Sniff implements PHPCS_Sniff
      *
      * Note: A variety of PHPCS versions have bugs in the tokenizing of short arrays.
      * In that case, the tokens are identified as T_OPEN/CLOSE_SQUARE_BRACKET.
+     *
+     * @since 8.2.0
      *
      * @param \PHP_CodeSniffer_File $phpcsFile The file being scanned.
      * @param int                   $stackPtr  The position of the function call token.
@@ -1909,6 +1986,8 @@ abstract class Sniff implements PHPCS_Sniff
 
     /**
      * Determine whether the tokens between $start and $end could together represent a variable.
+     *
+     * @since 9.0.0
      *
      * @param \PHP_CodeSniffer_File $phpcsFile          The file being scanned.
      * @param int                   $start              Starting point stack pointer. Inclusive.
