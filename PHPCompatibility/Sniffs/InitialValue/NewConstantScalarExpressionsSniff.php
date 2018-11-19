@@ -81,7 +81,7 @@ class NewConstantScalarExpressionsSniff extends Sniff
         \T_METHOD_C                 => \T_METHOD_C,
         \T_NS_C                     => \T_NS_C,
 
-        // Special cases:
+        // Special cases.
         \T_NS_SEPARATOR             => \T_NS_SEPARATOR,
         /*
          * This can be neigh anything, but for any usage except constants,
