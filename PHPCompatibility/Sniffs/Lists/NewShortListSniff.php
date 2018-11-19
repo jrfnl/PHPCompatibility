@@ -14,7 +14,7 @@ use PHPCompatibility\Sniff;
 use PHP_CodeSniffer_File as File;
 
 /**
- * \PHPCompatibility\Sniffs\Lists\NewShortListSniff.
+ * Detect short list syntax for symmetric array destructuring.
  *
  * "The shorthand array syntax ([]) may now be used to destructure arrays for
  * assignments (including within foreach), as an alternative to the existing
@@ -22,9 +22,9 @@ use PHP_CodeSniffer_File as File;
  *
  * PHP version 7.1
  *
- * @category PHP
- * @package  PHPCompatibility
- * @author   Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * @link https://wiki.php.net/rfc/short_list_syntax
+ *
+ * @since 9.0.0
  */
 class NewShortListSniff extends Sniff
 {

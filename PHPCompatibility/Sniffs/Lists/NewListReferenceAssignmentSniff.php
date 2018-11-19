@@ -18,9 +18,9 @@ use PHP_CodeSniffer_File as File;
  *
  * PHP version 7.3
  *
- * @category PHP
- * @package  PHPCompatibility
- * @author   Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * @link https://wiki.php.net/rfc/list_reference_assignment
+ *
+ * @since 9.0.0
  */
 class NewListReferenceAssignmentSniff extends NewKeyedListSniff
 {

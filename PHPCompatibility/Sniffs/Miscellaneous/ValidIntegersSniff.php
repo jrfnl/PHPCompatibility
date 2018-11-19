@@ -14,11 +14,21 @@ use PHPCompatibility\Sniff;
 use PHP_CodeSniffer_File as File;
 
 /**
- * \PHPCompatibility\Sniffs\Miscellaneous\ValidIntegersSniff.
+ * Check for valid integer types and values.
  *
- * @category PHP
- * @package  PHPCompatibility
- * @author   Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * Checks:
+ * - PHP 5.4 introduced binary integers.
+ * - PHP 7.0 removed tolerance for invalid octals. These were truncated prior to PHP 7
+ *   and give a parse error since PHP 7.
+ * - PHP 7.0 removed support for recognizing hexadecimal numeric strings as numeric.
+ *   Type juggling and recognition was inconsistent prior to PHP 7. As of PHP 7, they
+ *   are no longer treated as numeric.
+ *
+ * @link https://wiki.php.net/rfc/binnotation4ints
+ * @link https://wiki.php.net/rfc/remove_hex_support_in_numeric_strings
+ *
+ * @since 7.0.3
+ * @since 7.0.8 This sniff now throws a warning instead of an error for invalid binary integers.
  */
 class ValidIntegersSniff extends Sniff
 {

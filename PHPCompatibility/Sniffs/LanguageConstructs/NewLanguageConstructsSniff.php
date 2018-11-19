@@ -14,12 +14,14 @@ use PHPCompatibility\AbstractNewFeatureSniff;
 use PHP_CodeSniffer_File as File;
 
 /**
- * \PHPCompatibility\Sniffs\LanguageConstructs\NewLanguageConstructsSniff.
+ * Detect usage of new PHP language constructs.
  *
- * @category  PHP
- * @package   PHPCompatibility
- * @author    Wim Godden <wim.godden@cu.be>
- * @copyright 2013 Cu.be Solutions bvba
+ * @link https://wiki.php.net/rfc/variadics
+ * @link https://wiki.php.net/rfc/argument_unpacking
+ *
+ * @since 5.6
+ * @since 7.1.0 Now extends the AbstractNewFeatureSniff instead of the base Sniff class.
+ * @since 9.0.0 Detection for new operator tokens has been moved to the NewOperatorsSniff.
  */
 class NewLanguageConstructsSniff extends AbstractNewFeatureSniff
 {

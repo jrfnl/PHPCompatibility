@@ -22,9 +22,10 @@ use PHP_CodeSniffer_Tokens as Tokens;
  *
  * PHP version 7.0
  *
- * @category PHP
- * @package  PHPCompatibility
- * @author   Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * @link https://wiki.php.net/rfc/abstract_syntax_tree#changes_to_list
+ * @link http://php.net/manual/en/migration70.incompatible.php#migration70.incompatible.variable-handling.list.order
+ *
+ * @since 9.0.0
  */
 class AssignmentOrderSniff extends Sniff
 {

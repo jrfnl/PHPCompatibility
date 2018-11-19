@@ -15,15 +15,18 @@ use PHP_CodeSniffer_File as File;
 use PHP_CodeSniffer_Tokens as Tokens;
 
 /**
- * \PHPCompatibility\Sniffs\LanguageConstructs\NewEmptyNonVariableSniff.
- *
  * Verify that nothing but variables are passed to empty().
+ *
+ * Prior to PHP 5.5, empty() only supported variables; anything else resulted in a parse error.
  *
  * PHP version 5.5
  *
- * @category PHP
- * @package  PHPCompatibility
- * @author   Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * @link https://wiki.php.net/rfc/empty_isset_exprs
+ *
+ * @since 7.0.4
+ * @since 9.0.0 The "is the parameter a variable" determination has been abstracted out
+ *              and moved to a separate method Sniff::isVariable().
+ * @since 9.0.0 Renamed from `EmptyNonVariableSniff` to `NewEmptyNonVariableSniff`.
  */
 class NewEmptyNonVariableSniff extends Sniff
 {

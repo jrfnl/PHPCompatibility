@@ -14,15 +14,14 @@ use PHPCompatibility\Sniff;
 use PHP_CodeSniffer_File as File;
 
 /**
- * \PHPCompatibility\Sniffs\InitialValue\NewConstantArraysUsingDefineSniff.
- *
- * Constant arrays using define in PHP 7.0
+ * Detect constant arrays being declared using define() as introduced in PHP 7.0.
  *
  * PHP version 7.0
  *
- * @category PHP
- * @package  PHPCompatibility
- * @author   Wim Godden <wim@cu.be>
+ * @link http://php.net/manual/en/migration70.new-features.php#migration70.new-features.define-array
+ *
+ * @since 7.0.0
+ * @since 9.0.0 Renamed from `ConstantArraysUsingDefineSniff` to `NewConstantArraysUsingDefineSniff`.
  */
 class NewConstantArraysUsingDefineSniff extends Sniff
 {

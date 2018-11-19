@@ -15,15 +15,13 @@ use PHP_CodeSniffer_File as File;
 use PHP_CodeSniffer_Tokens as Tokens;
 
 /**
- * \PHPCompatibility\Sniffs\Lists\NewKeyedListSniff.
- *
- * "You can now specify keys in list(), or its new shorthand [] syntax. "
+ * Since PHP 7.1, you can specify keys in list(), or its new shorthand [] syntax.
  *
  * PHP version 7.1
  *
- * @category PHP
- * @package  PHPCompatibility
- * @author   Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * @link https://wiki.php.net/rfc/list_keys
+ *
+ * @since 9.0.0
  */
 class NewKeyedListSniff extends Sniff
 {
@@ -79,6 +77,8 @@ class NewKeyedListSniff extends Sniff
 
     /**
      * Prepare the $allTargets array only once.
+     *
+     * @since 9.0.0
      *
      * @return void
      */
