@@ -13,22 +13,20 @@ namespace PHPCompatibility\Tests\TypeCasts;
 use PHPCompatibility\Tests\BaseSniffTest;
 
 /**
- * Deprecated/Removed type casts sniff tests
+ * Deprecated/Removed type casts sniff tests.
  *
  * @group removedTypeCasts
  * @group typeCasts
  *
  * @covers \PHPCompatibility\Sniffs\TypeCasts\RemovedTypeCastsSniff
  *
- * @uses    \PHPCompatibility\Tests\BaseSniffTest
- * @package PHPCompatibility
- * @author  Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * @since 8.0.1
  */
 class RemovedTypeCastsUnitTest extends BaseSniffTest
 {
 
     /**
-     * testDeprecatedTypeCastWithAlternative
+     * testDeprecatedTypeCastWithAlternative.
      *
      * @dataProvider dataDeprecatedTypeCastWithAlternative
      *
@@ -74,7 +72,7 @@ class RemovedTypeCastsUnitTest extends BaseSniffTest
 
 
     /**
-     * testNoFalsePositives
+     * testNoFalsePositives.
      *
      * @dataProvider dataNoFalsePositives
      *

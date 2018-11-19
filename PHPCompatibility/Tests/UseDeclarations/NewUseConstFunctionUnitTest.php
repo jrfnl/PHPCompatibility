@@ -13,22 +13,20 @@ namespace PHPCompatibility\Tests\UseDeclarations;
 use PHPCompatibility\Tests\BaseSniffTest;
 
 /**
- * New use const function in PHP 5.6 sniff test file
+ * New use const function in PHP 5.6 sniff tests.
  *
  * @group newUseConstFunction
  * @group useDeclarations
  *
  * @covers \PHPCompatibility\Sniffs\UseDeclarations\NewUseConstFunctionSniff
  *
- * @uses    \PHPCompatibility\Tests\BaseSniffTest
- * @package PHPCompatibility
- * @author  Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * @since 7.1.4
  */
 class NewUseConstFunctionUnitTest extends BaseSniffTest
 {
 
     /**
-     * testNewUseConstFunction
+     * testNewUseConstFunction.
      *
      * @dataProvider dataNewUseConstFunction
      *
@@ -43,7 +41,7 @@ class NewUseConstFunctionUnitTest extends BaseSniffTest
     }
 
     /**
-     * Data provider dataNewUseConstFunction.
+     * Data provider.
      *
      * @see testNewUseConstFunction()
      *
@@ -65,7 +63,7 @@ class NewUseConstFunctionUnitTest extends BaseSniffTest
 
 
     /**
-     * testNoFalsePositives
+     * testNoFalsePositives.
      *
      * @dataProvider dataNoFalsePositives
      *

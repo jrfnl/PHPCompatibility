@@ -20,15 +20,13 @@ use PHPCompatibility\Tests\BaseSniffTest;
  *
  * @covers \PHPCompatibility\Sniffs\ParameterValues\ForbiddenGetClassNullSniff
  *
- * @uses    \PHPCompatibility\Tests\BaseSniffTest
- * @package PHPCompatibility
- * @author  Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * @since 9.0.0
  */
 class ForbiddenGetClassNullUnitTest extends BaseSniffTest
 {
 
     /**
-     * testGetClassNull
+     * testGetClassNull.
      *
      * @dataProvider dataGetClassNull
      *
@@ -43,7 +41,7 @@ class ForbiddenGetClassNullUnitTest extends BaseSniffTest
     }
 
     /**
-     * dataGetClassNull
+     * Data provider.
      *
      * @see testGetClassNull()
      *
@@ -58,7 +56,7 @@ class ForbiddenGetClassNullUnitTest extends BaseSniffTest
 
 
     /**
-     * testNoFalsePositives
+     * testNoFalsePositives.
      *
      * @return void
      */

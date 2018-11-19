@@ -20,15 +20,13 @@ use PHPCompatibility\Tests\BaseSniffTest;
  *
  * @covers \PHPCompatibility\Sniffs\Operators\ForbiddenNegativeBitshiftSniff
  *
- * @uses    \PHPCompatibility\Tests\BaseSniffTest
- * @package PHPCompatibility
- * @author  Wim Godden <wim@cu.be>
+ * @since 7.0.0
  */
 class ForbiddenNegativeBitshiftUnitTest extends BaseSniffTest
 {
 
     /**
-     * testForbiddenNegativeBitshift
+     * testForbiddenNegativeBitshift.
      *
      * @dataProvider dataForbiddenNegativeBitshift
      *
@@ -43,7 +41,7 @@ class ForbiddenNegativeBitshiftUnitTest extends BaseSniffTest
     }
 
     /**
-     * dataForbiddenNegativeBitshift
+     * Data provider.
      *
      * @see testForbiddenNegativeBitshift()
      *
@@ -62,7 +60,7 @@ class ForbiddenNegativeBitshiftUnitTest extends BaseSniffTest
 
 
     /**
-     * testNoFalsePositives
+     * testNoFalsePositives.
      *
      * @dataProvider dataNoFalsePositives
      *

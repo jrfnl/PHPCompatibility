@@ -13,22 +13,20 @@ namespace PHPCompatibility\Tests\TypeCasts;
 use PHPCompatibility\Tests\BaseSniffTest;
 
 /**
- * New type casts sniff tests
+ * New type casts sniff tests.
  *
  * @group newTypeCasts
  * @group typeCasts
  *
  * @covers \PHPCompatibility\Sniffs\TypeCasts\NewTypeCastsSniff
  *
- * @uses    \PHPCompatibility\Tests\BaseSniffTest
- * @package PHPCompatibility
- * @author  Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * @since 8.0.1
  */
 class NewTypeCastsUnitTest extends BaseSniffTest
 {
 
     /**
-     * testNewTypeCasts
+     * testNewTypeCasts.
      *
      * @dataProvider dataNewTypeCasts
      *

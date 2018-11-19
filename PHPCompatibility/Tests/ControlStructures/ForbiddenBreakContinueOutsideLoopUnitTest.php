@@ -15,22 +15,18 @@ use PHPCompatibility\Tests\BaseSniffTest;
 /**
  * Forbidden break and continue outside loop sniff test.
  *
- * Checks for using break and continue outside of a looping structure.
- *
  * @group forbiddenBreakContinueOutsideLoop
  * @group controlStructures
  *
  * @covers \PHPCompatibility\Sniffs\ControlStructures\ForbiddenBreakContinueOutsideLoopSniff
  *
- * @uses    \PHPCompatibility\Tests\BaseSniffTest
- * @package PHPCompatibility
- * @author  Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * @since 7.0.7
  */
 class ForbiddenBreakContinueOutsideLoopUnitTest extends BaseSniffTest
 {
 
     /**
-     * testForbiddenBreakContinueOutsideLoop
+     * testForbiddenBreakContinueOutsideLoop.
      *
      * @dataProvider dataBreakContinueOutsideLoop
      *
@@ -69,7 +65,7 @@ class ForbiddenBreakContinueOutsideLoopUnitTest extends BaseSniffTest
 
 
     /**
-     * testNoFalsePositives
+     * testNoFalsePositives.
      *
      * @dataProvider dataNoFalsePositives
      *

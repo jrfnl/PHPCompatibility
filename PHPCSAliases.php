@@ -8,6 +8,8 @@
  * @copyright 2012-2018 PHPCompatibility Contributors
  * @license   https://opensource.org/licenses/LGPL-3.0 LGPL3
  * @link      https://github.com/PHPCompatibility/PHPCompatibility
+ *
+ * @since 8.0.0
  */
 
 /*

@@ -15,11 +15,10 @@ use PHP_CodeSniffer_File as File;
 use PHP_CodeSniffer_Tokens as Tokens;
 
 /**
- * \PHPCompatibility\Sniffs\FunctionUse\RemovedFunctionParametersSniff.
+ * Detect usage of deprecated/removed function parameters in calls to native PHP functions.
  *
- * @category PHP
- * @package  PHPCompatibility
- * @author   Wim Godden <wim.godden@cu.be>
+ * @since 7.0.0
+ * @since 7.1.0 Now extends the AbstractRemovedFeatureSniff instead of the base Sniff class.
  */
 class RemovedFunctionParametersSniff extends AbstractRemovedFeatureSniff
 {

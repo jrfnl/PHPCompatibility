@@ -13,22 +13,20 @@ namespace PHPCompatibility\Tests\FunctionUse;
 use PHPCompatibility\Tests\BaseSniffTest;
 
 /**
- * Optional Required Parameter Sniff test file
+ * Optional To Required Function Parameter Sniff tests.
  *
  * @group optionalToRequiredFunctionParameters
  * @group functionUse
  *
  * @covers \PHPCompatibility\Sniffs\FunctionUse\OptionalToRequiredFunctionParametersSniff
  *
- * @uses    \PHPCompatibility\Tests\BaseSniffTest
- * @package PHPCompatibility
- * @author  Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * @since 8.1.0
  */
 class OptionalToRequiredFunctionParametersUnitTest extends BaseSniffTest
 {
 
     /**
-     * testOptionalRequiredParameterDeprecated
+     * testOptionalRequiredParameterDeprecated.
      *
      * @dataProvider dataOptionalRequiredParameterDeprecated
      *
@@ -70,7 +68,7 @@ class OptionalToRequiredFunctionParametersUnitTest extends BaseSniffTest
 
 
     /**
-     * testOptionalRecommendedParameter
+     * testOptionalRecommendedParameter.
      *
      * @dataProvider dataOptionalRecommendedParameter
      *
@@ -112,7 +110,7 @@ class OptionalToRequiredFunctionParametersUnitTest extends BaseSniffTest
 
 
     /**
-     * testNoFalsePositives
+     * testNoFalsePositives.
      *
      * @dataProvider dataNoFalsePositives
      *

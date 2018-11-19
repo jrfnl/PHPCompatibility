@@ -13,22 +13,20 @@ namespace PHPCompatibility\Tests\Classes;
 use PHPCompatibility\Tests\BaseSniffTest;
 
 /**
- * New Anonymous Classes Sniff tests
+ * Test the NewAnonymousClasses Sniff.
  *
  * @group newAnonymousClasses
  * @group classes
  *
  * @covers \PHPCompatibility\Sniffs\Classes\NewAnonymousClassesSniff
  *
- * @uses    \PHPCompatibility\Tests\BaseSniffTest
- * @package PHPCompatibility
- * @author  Wim Godden <wim@cu.be>
+ * @since 7.0.0
  */
 class NewAnonymousClassesUnitTest extends BaseSniffTest
 {
 
     /**
-     * Test anonymous classes
+     * Test anonymous classes.
      *
      * @return void
      */
@@ -40,7 +38,7 @@ class NewAnonymousClassesUnitTest extends BaseSniffTest
 
 
     /**
-     * testNoFalsePositives
+     * testNoFalsePositives.
      *
      * @return void
      */

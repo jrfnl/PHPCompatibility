@@ -15,11 +15,10 @@ use PHP_CodeSniffer_File as File;
 use PHP_CodeSniffer_Tokens as Tokens;
 
 /**
- * \PHPCompatibility\Sniffs\FunctionUse\newFunctionParametersSniff.
+ * Detect usage of new function parameters in calls to native PHP functions.
  *
- * @category PHP
- * @package  PHPCompatibility
- * @author   Wim Godden <wim.godden@cu.be>
+ * @since 7.0.0
+ * @since 7.1.0 Now extends the AbstractNewFeatureSniff instead of the base Sniff class.
  */
 class NewFunctionParametersSniff extends AbstractNewFeatureSniff
 {

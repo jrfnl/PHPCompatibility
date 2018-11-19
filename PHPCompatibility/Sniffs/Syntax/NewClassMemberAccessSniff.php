@@ -15,6 +15,8 @@ use PHP_CodeSniffer_File as File;
 use PHP_CodeSniffer_Tokens as Tokens;
 
 /**
+ * Detect class member access on object instantiation/cloning.
+ *
  * PHP 5.4: Class member access on instantiation has been added, e.g. (new Foo)->bar().
  * PHP 7.0: Class member access on cloning has been added, e.g. (clone $foo)->bar().
  *
@@ -30,6 +32,7 @@ use PHP_CodeSniffer_Tokens as Tokens;
  * @internal The reason for splitting the logic of this sniff into different methods is
  *           to allow re-use of the logic by the PHP 7.4 RemovedCurlyBraceArrayAccess sniff.
  *
+ * @since 8.2.0
  * @since 9.3.0 Now also detects class member access on instantiation using curly braces.
  */
 class NewClassMemberAccessSniff extends Sniff

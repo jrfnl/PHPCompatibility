@@ -13,22 +13,20 @@ namespace PHPCompatibility\Tests\Miscellaneous;
 use PHPCompatibility\Tests\BaseSniffTest;
 
 /**
- * Valid Integers Sniff tests
+ * Valid Integers Sniff tests.
  *
  * @group validIntegers
  * @group miscellaneous
  *
  * @covers \PHPCompatibility\Sniffs\Miscellaneous\ValidIntegersSniff
  *
- * @uses    \PHPCompatibility\Tests\BaseSniffTest
- * @package PHPCompatibility
- * @author  Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * @since 7.0.3
  */
 class ValidIntegersUnitTest extends BaseSniffTest
 {
 
     /**
-     * testBinaryInteger
+     * testBinaryInteger.
      *
      * @dataProvider dataBinaryInteger
      *
@@ -52,7 +50,7 @@ class ValidIntegersUnitTest extends BaseSniffTest
     }
 
     /**
-     * dataBinaryInteger
+     * Data provider.
      *
      * @see testBinaryInteger()
      *
@@ -68,7 +66,7 @@ class ValidIntegersUnitTest extends BaseSniffTest
 
 
     /**
-     * testInvalidBinaryInteger
+     * testInvalidBinaryInteger.
      *
      * @return void
      */
@@ -80,7 +78,7 @@ class ValidIntegersUnitTest extends BaseSniffTest
 
 
     /**
-     * testInvalidOctalInteger
+     * testInvalidOctalInteger.
      *
      * @dataProvider dataInvalidOctalInteger
      *
@@ -101,7 +99,7 @@ class ValidIntegersUnitTest extends BaseSniffTest
     }
 
     /**
-     * dataInvalidOctalInteger
+     * Data provider.
      *
      * @see testInvalidOctalInteger()
      *
@@ -118,7 +116,7 @@ class ValidIntegersUnitTest extends BaseSniffTest
 
 
     /**
-     * testValidOctalInteger
+     * testValidOctalInteger.
      *
      * @return void
      */
@@ -130,7 +128,7 @@ class ValidIntegersUnitTest extends BaseSniffTest
 
 
     /**
-     * testHexNumericString
+     * testHexNumericString.
      *
      * @return void
      */

@@ -22,9 +22,7 @@ use PHPCompatibility\PHPCSHelper;
  *
  * @covers \PHPCompatibility\Sniffs\FunctionNameRestrictions\NewMagicMethodsSniff
  *
- * @uses    \PHPCompatibility\Tests\BaseSniffTest
- * @package PHPCompatibility
- * @author  Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * @since 7.0.4
  */
 class NewMagicMethodsUnitTest extends BaseSniffTest
 {
@@ -82,7 +80,7 @@ class NewMagicMethodsUnitTest extends BaseSniffTest
 
 
     /**
-     * testNewMagicMethod
+     * testNewMagicMethod.
      *
      * @dataProvider dataNewMagicMethod
      *
@@ -153,7 +151,7 @@ class NewMagicMethodsUnitTest extends BaseSniffTest
 
 
     /**
-     * testChangedToStringMethod
+     * testChangedToStringMethod.
      *
      * @dataProvider dataChangedToStringMethod
      *
@@ -232,7 +230,7 @@ class NewMagicMethodsUnitTest extends BaseSniffTest
 
 
     /**
-     * testNoFalsePositives
+     * testNoFalsePositives.
      *
      * @dataProvider dataNoFalsePositives
      *

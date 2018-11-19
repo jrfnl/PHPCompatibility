@@ -13,22 +13,20 @@ namespace PHPCompatibility\Tests\FunctionUse;
 use PHPCompatibility\Tests\BaseSniffTest;
 
 /**
- * Removed functions sniff tests
+ * Removed functions sniff tests.
  *
  * @group removedFunctions
  * @group functionUse
  *
  * @covers \PHPCompatibility\Sniffs\FunctionUse\RemovedFunctionsSniff
  *
- * @uses    \PHPCompatibility\Tests\BaseSniffTest
- * @package PHPCompatibility
- * @author  Jansen Price <jansen.price@gmail.com>
+ * @since 5.5
  */
 class RemovedFunctionsUnitTest extends BaseSniffTest
 {
 
     /**
-     * testDeprecatedFunction
+     * testDeprecatedFunction.
      *
      * @dataProvider dataDeprecatedFunction
      *
@@ -80,7 +78,7 @@ class RemovedFunctionsUnitTest extends BaseSniffTest
 
 
     /**
-     * testDeprecatedFunctionWithAlternative
+     * testDeprecatedFunctionWithAlternative.
      *
      * @dataProvider dataDeprecatedFunctionWithAlternative
      *
@@ -202,7 +200,7 @@ class RemovedFunctionsUnitTest extends BaseSniffTest
 
 
     /**
-     * testRemovedFunction
+     * testRemovedFunction.
      *
      * @dataProvider dataRemovedFunction
      *
@@ -366,7 +364,7 @@ class RemovedFunctionsUnitTest extends BaseSniffTest
 
 
     /**
-     * testDeprecatedRemovedFunction
+     * testDeprecatedRemovedFunction.
      *
      * @dataProvider dataDeprecatedRemovedFunction
      *
@@ -430,7 +428,7 @@ class RemovedFunctionsUnitTest extends BaseSniffTest
 
 
     /**
-     * testDeprecatedRemovedFunctionWithAlternative
+     * testDeprecatedRemovedFunctionWithAlternative.
      *
      * @dataProvider dataDeprecatedRemovedFunctionWithAlternative
      *
@@ -541,7 +539,7 @@ class RemovedFunctionsUnitTest extends BaseSniffTest
 
 
     /**
-     * testNoFalsePositives
+     * testNoFalsePositives.
      *
      * @dataProvider dataNoFalsePositives
      *

@@ -14,14 +14,12 @@ use PHPCompatibility\PHPCSHelper;
 use PHPCompatibility\Util\Tests\CoreMethodTestFrame;
 
 /**
- * Token scope function tests
+ * Token scope function tests.
  *
  * @group utilityTokenScope
  * @group utilityFunctions
  *
- * @uses    \PHPCompatibility\Util\Tests\CoreMethodTestFrame
- * @package PHPCompatibility
- * @author  Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * @since 7.0.5
  */
 class TokenScopeUnitTest extends CoreMethodTestFrame
 {
@@ -72,7 +70,7 @@ class TokenScopeUnitTest extends CoreMethodTestFrame
     }
 
     /**
-     * dataTokenHasScope
+     * Data provider.
      *
      * @see testTokenHasScope()
      *
@@ -82,42 +80,42 @@ class TokenScopeUnitTest extends CoreMethodTestFrame
     {
         return array(
             // No scope.
-            array('/* Case 1 */', \T_VARIABLE, false), // $var
+            array('/* Case 1 */', \T_VARIABLE, false), // Variable $var.
 
             // Various scopes.
-            array('/* Case 2 */', \T_ECHO, true), // echo within if
-            array('/* Case 2 */', \T_ECHO, true, \T_IF), // echo within if
-            array('/* Case 2 */', \T_ECHO, false, array(\T_SWITCH) ), // echo within if
+            array('/* Case 2 */', \T_ECHO, true), // Echo within if.
+            array('/* Case 2 */', \T_ECHO, true, \T_IF), // Echo within if.
+            array('/* Case 2 */', \T_ECHO, false, array(\T_SWITCH) ), // Echo within if.
 
-            array('/* Case 3 */', \T_ECHO, true), // echo within else-if
-            array('/* Case 3 */', \T_ECHO, true, array(\T_ELSEIF)), // echo within else-if
-            array('/* Case 3 */', \T_ECHO, false, array(\T_IF)), // echo within else-if
+            array('/* Case 3 */', \T_ECHO, true), // Echo within else-if.
+            array('/* Case 3 */', \T_ECHO, true, array(\T_ELSEIF)), // Echo within else-if.
+            array('/* Case 3 */', \T_ECHO, false, array(\T_IF)), // Echo within else-if.
 
-            array('/* Case 4 */', \T_ECHO, true), // echo within else
-            array('/* Case 5 */', \T_ECHO, true), // echo within for
-            array('/* Case 6 */', \T_ECHO, true), // echo within foreach
+            array('/* Case 4 */', \T_ECHO, true), // Echo within else.
+            array('/* Case 5 */', \T_ECHO, true), // Echo within for.
+            array('/* Case 6 */', \T_ECHO, true), // Echo within foreach.
 
-            array('/* Case 7 */', \T_CASE, true), // case within switch
-            array('/* Case 7 */', \T_CASE, true, array(\T_SWITCH)), // case within switch
-            array('/* Case 7 */', \T_CASE, false, array(\T_CASE)), // case within switch
+            array('/* Case 7 */', \T_CASE, true), // Case within switch.
+            array('/* Case 7 */', \T_CASE, true, array(\T_SWITCH)), // Case within switch.
+            array('/* Case 7 */', \T_CASE, false, array(\T_CASE)), // Case within switch.
 
-            array('/* Case 8 */', \T_ECHO, true), // echo within case within switch
-            array('/* Case 8 */', \T_ECHO, true, array(\T_SWITCH)), // echo within case within switch
-            array('/* Case 8 */', \T_ECHO, true, \T_CASE), // echo within case within switch
-            array('/* Case 8 */', \T_ECHO, true, array(\T_SWITCH, \T_CASE)), // echo within case within switch
-            array('/* Case 8 */', \T_ECHO, true, array(\T_SWITCH, \T_IF)), // echo within case within switch
-            array('/* Case 8 */', \T_ECHO, false, array(\T_ELSEIF, \T_IF)), // echo within case within switch
+            array('/* Case 8 */', \T_ECHO, true), // Echo within case within switch.
+            array('/* Case 8 */', \T_ECHO, true, array(\T_SWITCH)), // Echo within case within switch.
+            array('/* Case 8 */', \T_ECHO, true, \T_CASE), // Echo within case within switch.
+            array('/* Case 8 */', \T_ECHO, true, array(\T_SWITCH, \T_CASE)), // Echo within case within switch.
+            array('/* Case 8 */', \T_ECHO, true, array(\T_SWITCH, \T_IF)), // Echo within case within switch.
+            array('/* Case 8 */', \T_ECHO, false, array(\T_ELSEIF, \T_IF)), // Echo within case within switch.
 
-            array('/* Case 9 */', \T_DEFAULT, true), // default within switch
-            array('/* Case 10 */', \T_ECHO, true), // echo within default within switch
+            array('/* Case 9 */', \T_DEFAULT, true), // Default within switch.
+            array('/* Case 10 */', \T_ECHO, true), // Echo within default within switch.
 
-            array('/* Case 11 */', \T_ECHO, true), // echo within function
-            array('/* Case 11 */', \T_ECHO, true, array(\T_FUNCTION)), // echo within function
+            array('/* Case 11 */', \T_ECHO, true), // Echo within function.
+            array('/* Case 11 */', \T_ECHO, true, array(\T_FUNCTION)), // Echo within function.
         );
     }
 
     /**
-     * testInClassScope
+     * testInClassScope.
      *
      * @dataProvider dataInClassScope
      *
@@ -144,7 +142,7 @@ class TokenScopeUnitTest extends CoreMethodTestFrame
     }
 
     /**
-     * dataInClassScope
+     * Data provider.
      *
      * @see testInClassScope()
      *
@@ -153,7 +151,7 @@ class TokenScopeUnitTest extends CoreMethodTestFrame
     public function dataInClassScope()
     {
         return array(
-            array('/* Case C1 */', \T_VARIABLE, true), // $property
+            array('/* Case C1 */', \T_VARIABLE, true), // Class $property.
             array('/* Case C2 */', \T_FUNCTION, true), // Function in class.
             array('/* Case C3 */', \T_FUNCTION, false), // Global function.
             array('/* Case C4 */', \T_FUNCTION, true), // Function in namespaced class.

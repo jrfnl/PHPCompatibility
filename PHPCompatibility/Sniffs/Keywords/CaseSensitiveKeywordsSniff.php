@@ -14,16 +14,14 @@ use PHPCompatibility\Sniff;
 use PHP_CodeSniffer_File as File;
 
 /**
- * \PHPCompatibility\Sniffs\Keywords\CaseSensitiveKeywordsSniff.
+ * Detect usage of self, parent and static and verify they are lowercase.
  *
  * Prior to PHP 5.5, cases existed where the self, parent, and static keywords
  * were treated in a case sensitive fashion.
  *
  * PHP version 5.5
  *
- * @category PHP
- * @package  PHPCompatibility
- * @author   Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * @since 7.1.4
  */
 class CaseSensitiveKeywordsSniff extends Sniff
 {

@@ -13,22 +13,20 @@ namespace PHPCompatibility\Tests\Constants;
 use PHPCompatibility\Tests\BaseSniffTest;
 
 /**
- * New magic ::class constant sniff test file.
+ * Test the NewMagicClassConstant Sniff.
  *
  * @group newMagicClassConstant
  * @group constants
  *
  * @covers \PHPCompatibility\Sniffs\Constants\NewMagicClassConstantSniff
  *
- * @uses    \PHPCompatibility\Tests\BaseSniffTest
- * @package PHPCompatibility
- * @author  Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * @since 7.1.4
  */
 class NewMagicClassConstantUnitTest extends BaseSniffTest
 {
 
     /**
-     * testNewMagicClassConstant
+     * testNewMagicClassConstant.
      *
      * @dataProvider dataNewMagicClassConstant
      *
@@ -43,7 +41,7 @@ class NewMagicClassConstantUnitTest extends BaseSniffTest
     }
 
     /**
-     * Data provider dataNewMagicClassConstant.
+     * Data provider.
      *
      * @see testNewMagicClassConstant()
      *
@@ -59,7 +57,7 @@ class NewMagicClassConstantUnitTest extends BaseSniffTest
 
 
     /**
-     * testNoFalsePositives
+     * testNoFalsePositives.
      *
      * @dataProvider dataNoFalsePositives
      *

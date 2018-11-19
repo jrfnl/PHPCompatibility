@@ -16,11 +16,13 @@ use PHPCompatibility\Util\Tests\TestHelperPHPCompatibility;
 use PHP_CodeSniffer_File as File;
 
 /**
+ * Base class to use when testing methods in the Sniff.php file.
+ *
  * Set up and Tear down methods for testing methods in the Sniff.php file.
  *
- * @uses    \PHPUnit_Framework_TestCase
- * @package PHPCompatibility
- * @author  Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * @since 7.0.3
+ * @since 7.0.5 Renamed from `BaseAbstractClassMethodTest` to `CoreMethodTestFrame`.
+ * @since 7.1.2 No longer extends the `BaseSniffTest` class.
  */
 abstract class CoreMethodTestFrame extends PHPUnit_TestCase
 {

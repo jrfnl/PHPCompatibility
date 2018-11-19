@@ -13,22 +13,20 @@ namespace PHPCompatibility\Tests\InitialValue;
 use PHPCompatibility\Tests\BaseSniffTest;
 
 /**
- * Constant arrays using define in PHP 7.0 sniff test file
+ * Constant arrays using define in PHP 7.0 sniff tests.
  *
  * @group newConstantArraysUsingDefine
  * @group initialValue
  *
  * @covers \PHPCompatibility\Sniffs\InitialValue\NewConstantArraysUsingDefineSniff
  *
- * @uses    \PHPCompatibility\Tests\BaseSniffTest
- * @package PHPCompatibility
- * @author  Wim Godden <wim@cu.be>
+ * @since 7.0.0
  */
 class NewConstantArraysUsingDefineUnitTest extends BaseSniffTest
 {
 
     /**
-     * testConstantArraysUsingDefine
+     * testConstantArraysUsingDefine.
      *
      * @dataProvider dataConstantArraysUsingDefine
      *
@@ -43,7 +41,7 @@ class NewConstantArraysUsingDefineUnitTest extends BaseSniffTest
     }
 
     /**
-     * Data provider dataConstantArraysUsingDefine.
+     * Data provider.
      *
      * @see testConstantArraysUsingDefine()
      *
@@ -59,7 +57,7 @@ class NewConstantArraysUsingDefineUnitTest extends BaseSniffTest
 
 
     /**
-     * testNoFalsePositives
+     * testNoFalsePositives.
      *
      * @dataProvider dataNoFalsePositives
      *

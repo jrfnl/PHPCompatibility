@@ -13,7 +13,7 @@ namespace PHPCompatibility\Tests\ParameterValues;
 use PHPCompatibility\Tests\BaseSniffTest;
 
 /**
- * preg_replace() /e modifier sniff tests
+ * preg_replace() /e modifier sniff tests.
  *
  * @group removedPCREModifiers
  * @group parameterValues
@@ -21,15 +21,13 @@ use PHPCompatibility\Tests\BaseSniffTest;
  *
  * @covers \PHPCompatibility\Sniffs\ParameterValues\RemovedPCREModifiersSniff
  *
- * @uses    \PHPCompatibility\Tests\BaseSniffTest
- * @package PHPCompatibility
- * @author  Jansen Price <jansen.price@gmail.com>
+ * @since 5.6
  */
 class RemovedPCREModifiersUnitTest extends BaseSniffTest
 {
 
     /**
-     * testDeprecatedEModifier
+     * testDeprecatedEModifier.
      *
      * @dataProvider dataDeprecatedEModifier
      *
@@ -48,7 +46,7 @@ class RemovedPCREModifiersUnitTest extends BaseSniffTest
     }
 
     /**
-     * dataDeprecatedEModifier
+     * Data provider.
      *
      * @see testDeprecatedEModifier()
      *
@@ -114,7 +112,7 @@ class RemovedPCREModifiersUnitTest extends BaseSniffTest
 
 
     /**
-     * testNoFalsePositives
+     * testNoFalsePositives.
      *
      * @dataProvider dataNoFalsePositives
      *
@@ -129,7 +127,7 @@ class RemovedPCREModifiersUnitTest extends BaseSniffTest
     }
 
     /**
-     * dataNoFalsePositives
+     * Data provider.
      *
      * @see testNoFalsePositives()
      *

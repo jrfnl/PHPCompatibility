@@ -20,9 +20,7 @@ use PHPCompatibility\Tests\BaseSniffTest;
  *
  * @covers \PHPCompatibility\Sniffs\FunctionDeclarations\ForbiddenParametersWithSameNameSniff
  *
- * @uses    \PHPCompatibility\Tests\BaseSniffTest
- * @package PHPCompatibility
- * @author  Wim Godden <wim@cu.be>
+ * @since 7.0.0
  */
 class ForbiddenParametersWithSameNameUnitTest extends BaseSniffTest
 {
@@ -43,7 +41,7 @@ class ForbiddenParametersWithSameNameUnitTest extends BaseSniffTest
     }
 
     /**
-     * dataFunctionParametersWithSameName
+     * Data provider.
      *
      * @see testFunctionParametersWithSameName()
      *
@@ -74,7 +72,7 @@ class ForbiddenParametersWithSameNameUnitTest extends BaseSniffTest
     }
 
     /**
-     * dataNoFalsePositives
+     * Data provider.
      *
      * @see testNoFalsePositives()
      *

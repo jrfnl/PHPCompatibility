@@ -13,7 +13,7 @@ namespace PHPCompatibility\Tests\ParameterValues;
 use PHPCompatibility\Tests\BaseSniffTest;
 
 /**
- * Removed hash algorithms sniff tests
+ * Removed hash algorithms sniff tests.
  *
  * @group removedHashAlgorithms
  * @group parameterValues
@@ -22,15 +22,13 @@ use PHPCompatibility\Tests\BaseSniffTest;
  * @covers \PHPCompatibility\Sniffs\ParameterValues\RemovedHashAlgorithmsSniff
  * @covers \PHPCompatibility\Sniff::getHashAlgorithmParameter
  *
- * @uses    \PHPCompatibility\Tests\BaseSniffTest
- * @package PHPCompatibility
- * @author  Jansen Price <jansen.price@gmail.com>
+ * @since 5.5
  */
 class RemovedHashAlgorithmsUnitTest extends BaseSniffTest
 {
 
     /**
-     * testRemovedHashAlgorithms
+     * testRemovedHashAlgorithms.
      *
      * @dataProvider dataRemovedHashAlgorithms
      *
@@ -75,7 +73,7 @@ class RemovedHashAlgorithmsUnitTest extends BaseSniffTest
 
 
     /**
-     * testNoFalsePositives
+     * testNoFalsePositives.
      *
      * @dataProvider dataNoFalsePositives
      *

@@ -15,17 +15,25 @@ use PHP_CodeSniffer_File as File;
 use PHP_CodeSniffer_Tokens as Tokens;
 
 /**
- * \PHPCompatibility\Sniffs\ParameterValues\RemovedPCREModifiersSniff.
+ * Check for usage of deprecated and removed regex modifiers for PCRE regex functions.
  *
- * Check for usage of the `e` modifier with PCRE functions which is deprecated since PHP 5.5
+ * Initially just checks for the `e` modifier, which was deprecated since PHP 5.5
  * and removed as of PHP 7.0.
  *
- * PHP version 5.5
+ * {@internal If and when this sniff would need to start checking for other modifiers, a minor
+ * refactor will be needed as all references to the `e` modifier are currently hard-coded.}}
  *
- * @category  PHP
- * @package   PHPCompatibility
- * @author    Wim Godden <wim.godden@cu.be>
- * @copyright 2014 Cu.be Solutions bvba
+ * PHP version 5.5
+ * PHP version 7.0
+ *
+ * @link https://wiki.php.net/rfc/remove_preg_replace_eval_modifier
+ * @link https://wiki.php.net/rfc/remove_deprecated_functionality_in_php7
+ *
+ * @since 5.6
+ * @since 7.0.8 This sniff now throws a warning (deprecated) or an error (removed) depending
+ *              on the testVersion set. Previously it would always throw an error.
+ * @since 8.2.0 Now extends the AbstractFunctionCallParameterSniff instead of the base Sniff class.
+ * @since 9.0.0 Renamed from `PregReplaceEModifierSniff` to `RemovedPCREModifiersSniff`.
  */
 class RemovedPCREModifiersSniff extends AbstractFunctionCallParameterSniff
 {

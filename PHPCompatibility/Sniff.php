@@ -39,7 +39,7 @@ abstract class Sniff implements PHPCS_Sniff
     /**
      * List of superglobals as an array of strings.
      *
-     * Used by the ParameterShadowSuperGlobals and ForbiddenClosureUseVariableNames sniffs.
+     * Used by the ForbiddenParameterShadowSuperGlobals and ForbiddenClosureUseVariableNames sniffs.
      *
      * @since 7.0.0
      * @since 7.1.4 Moved from the ForbiddenParameterShadowSuperGlobalsSniff to the base sniff class.
@@ -530,9 +530,11 @@ abstract class Sniff implements PHPCS_Sniff
             $parameters[$cnt]['end']   = $nextComma - 1;
             $parameters[$cnt]['raw']   = trim($phpcsFile->getTokensAsString($paramStart, ($nextComma - $paramStart)));
 
-            // Check if there are more tokens before the closing parenthesis.
-            // Prevents code like the following from setting a third parameter:
-            // functionCall( $param1, $param2, );
+            /*
+             * Check if there are more tokens before the closing parenthesis.
+             * Prevents code like the following from setting a third parameter:
+             * `functionCall( $param1, $param2, );`.
+             */
             $hasNextParam = $phpcsFile->findNext(Tokens::$emptyTokens, $nextComma + 1, $closer, true, null, true);
             if ($hasNextParam === false) {
                 break;
@@ -853,6 +855,8 @@ abstract class Sniff implements PHPCS_Sniff
      *                       I.e. should always start with a `\`.
      *
      * @return bool True if namespaced, false if global.
+     *
+     * @throws \PHP_CodeSniffer_Exception
      */
     public function isNamespaced($FQName)
     {
@@ -954,14 +958,16 @@ abstract class Sniff implements PHPCS_Sniff
         }
 
         if ($tokens[($stackPtr + 1)]['code'] === \T_NS_SEPARATOR) {
-            // Not a namespace declaration, but use of, i.e. namespace\someFunction();
+            // Not a namespace declaration, but use of, i.e. `namespace\someFunction();`.
             return false;
         }
 
         $nextToken = $phpcsFile->findNext(Tokens::$emptyTokens, ($stackPtr + 1), null, true, null, true);
         if ($tokens[$nextToken]['code'] === \T_OPEN_CURLY_BRACKET) {
-            // Declaration for global namespace when using multiple namespaces in a file.
-            // I.e.: namespace {}
+            /*
+             * Declaration for global namespace when using multiple namespaces in a file.
+             * I.e.: `namespace {}`.
+             */
             return '';
         }
 

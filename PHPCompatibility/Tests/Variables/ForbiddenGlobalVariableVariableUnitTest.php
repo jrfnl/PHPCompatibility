@@ -13,22 +13,20 @@ namespace PHPCompatibility\Tests\Variables;
 use PHPCompatibility\Tests\BaseSniffTest;
 
 /**
- * Global with variable variables have been removed in PHP 7.0 sniff test file
+ * Global with variable variables have been removed in PHP 7.0 sniff tests.
  *
  * @group forbiddenGlobalVariableVariable
  * @group variables
  *
  * @covers \PHPCompatibility\Sniffs\Variables\ForbiddenGlobalVariableVariableSniff
  *
- * @uses    \PHPCompatibility\Tests\BaseSniffTest
- * @package PHPCompatibility
- * @author  Wim Godden <wim@cu.be>
+ * @since 7.0.0
  */
 class ForbiddenGlobalVariableVariableUnitTest extends BaseSniffTest
 {
 
     /**
-     * testGlobalVariableVariable
+     * testGlobalVariableVariable.
      *
      * @dataProvider dataGlobalVariableVariable
      *
@@ -43,7 +41,7 @@ class ForbiddenGlobalVariableVariableUnitTest extends BaseSniffTest
     }
 
     /**
-     * Data provider dataGlobalVariableVariable.
+     * Data provider.
      *
      * @see testGlobalVariableVariable()
      *
@@ -64,7 +62,7 @@ class ForbiddenGlobalVariableVariableUnitTest extends BaseSniffTest
 
 
     /**
-     * testGlobalNonBareVariable
+     * testGlobalNonBareVariable.
      *
      * @dataProvider dataGlobalNonBareVariable
      *
@@ -79,7 +77,7 @@ class ForbiddenGlobalVariableVariableUnitTest extends BaseSniffTest
     }
 
     /**
-     * Data provider dataGlobalNonBareVariable.
+     * Data provider.
      *
      * @see testGlobalNonBareVariable()
      *
@@ -109,7 +107,7 @@ class ForbiddenGlobalVariableVariableUnitTest extends BaseSniffTest
 
 
     /**
-     * testNoFalsePositives
+     * testNoFalsePositives.
      *
      * @dataProvider dataNoFalsePositives
      *

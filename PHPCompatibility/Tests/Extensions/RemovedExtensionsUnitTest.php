@@ -14,22 +14,20 @@ use PHPCompatibility\Tests\BaseSniffTest;
 use PHPCompatibility\PHPCSHelper;
 
 /**
- * Removed extensions sniff tests
+ * Test the RemovedExtensions Sniff.
  *
  * @group removedExtensions
  * @group extensions
  *
  * @covers \PHPCompatibility\Sniffs\Extensions\RemovedExtensionsSniff
  *
- * @uses    \PHPCompatibility\Tests\BaseSniffTest
- * @package PHPCompatibility
- * @author  Jansen Price <jansen.price@gmail.com>
+ * @since 5.5
  */
 class RemovedExtensionsUnitTest extends BaseSniffTest
 {
 
     /**
-     * testRemovedExtension
+     * testRemovedExtension.
      *
      * @dataProvider dataRemovedExtension
      *
@@ -85,7 +83,7 @@ class RemovedExtensionsUnitTest extends BaseSniffTest
     }
 
     /**
-     * testRemovedExtensionWithAlternative
+     * testRemovedExtensionWithAlternative.
      *
      * @dataProvider dataRemovedExtensionWithAlternative
      *
@@ -144,7 +142,7 @@ class RemovedExtensionsUnitTest extends BaseSniffTest
 
 
     /**
-     * testDeprecatedRemovedExtensionWithAlternative
+     * testDeprecatedRemovedExtensionWithAlternative.
      *
      * @dataProvider dataDeprecatedRemovedExtensionWithAlternative
      *
@@ -201,7 +199,7 @@ class RemovedExtensionsUnitTest extends BaseSniffTest
 
 
     /**
-     * testNoFalsePositives
+     * testNoFalsePositives.
      *
      * @dataProvider dataNoFalsePositives
      *

@@ -13,7 +13,7 @@ namespace PHPCompatibility\Tests\Classes;
 use PHPCompatibility\Tests\BaseSniffTest;
 
 /**
- * New Classes Sniff tests
+ * Test the NewClasses Sniff.
  *
  * @group newClasses
  * @group classes
@@ -23,15 +23,13 @@ use PHPCompatibility\Tests\BaseSniffTest;
  * @covers \PHPCompatibility\Sniff::getReturnTypeHintToken
  * @covers \PHPCompatibility\Sniff::getTypeHintsFromFunctionDeclaration
  *
- * @uses    \PHPCompatibility\Tests\BaseSniffTest
- * @package PHPCompatibility
- * @author  Jansen Price <jansen.price@gmail.com>
+ * @since 5.5
  */
 class NewClassesUnitTest extends BaseSniffTest
 {
 
     /**
-     * testNewClass
+     * testNewClass.
      *
      * @dataProvider dataNewClass
      *
@@ -204,7 +202,7 @@ class NewClassesUnitTest extends BaseSniffTest
 
 
     /**
-     * testNoFalsePositives
+     * testNoFalsePositives.
      *
      * @dataProvider dataNoFalsePositives
      *

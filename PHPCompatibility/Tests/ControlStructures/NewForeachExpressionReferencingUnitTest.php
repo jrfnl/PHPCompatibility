@@ -13,7 +13,7 @@ namespace PHPCompatibility\Tests\ControlStructures;
 use PHPCompatibility\Tests\BaseSniffTest;
 
 /**
- * PHP 5.5 referencing expressions in foreach sniff test file.
+ * PHP 5.5 referencing expressions in foreach sniff tests.
  *
  * @group newForeachExpressionReferencing
  * @group controlStructures
@@ -21,15 +21,13 @@ use PHPCompatibility\Tests\BaseSniffTest;
  * @covers \PHPCompatibility\Sniffs\ControlStructures\NewForeachExpressionReferencingSniff
  * @covers \PHPCompatibility\Sniff::isVariable
  *
- * @uses    \PHPCompatibility\Tests\BaseSniffTest
- * @package PHPCompatibility
- * @author  Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * @since 9.0.0
  */
 class NewForeachExpressionReferencingUnitTest extends BaseSniffTest
 {
 
     /**
-     * testNewForeachExpressionReferencing
+     * testNewForeachExpressionReferencing.
      *
      * @dataProvider dataNewForeachExpressionReferencing
      *
@@ -44,7 +42,7 @@ class NewForeachExpressionReferencingUnitTest extends BaseSniffTest
     }
 
     /**
-     * dataNewForeachExpressionReferencing
+     * Data provider.
      *
      * @see testNewForeachExpressionReferencing()
      *
@@ -64,7 +62,7 @@ class NewForeachExpressionReferencingUnitTest extends BaseSniffTest
 
 
     /**
-     * testNoFalsePositives
+     * testNoFalsePositives.
      *
      * @dataProvider dataNoFalsePositives
      *
@@ -79,7 +77,7 @@ class NewForeachExpressionReferencingUnitTest extends BaseSniffTest
     }
 
     /**
-     * dataNoFalsePositives
+     * Data provider.
      *
      * @see testNoFalsePositives()
      *

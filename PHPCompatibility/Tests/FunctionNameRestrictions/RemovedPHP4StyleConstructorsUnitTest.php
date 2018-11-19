@@ -13,7 +13,7 @@ namespace PHPCompatibility\Tests\FunctionNameRestrictions;
 use PHPCompatibility\Tests\BaseSniffTest;
 
 /**
- * PHP4 style constructors sniff test
+ * PHP4 style constructors sniff tests.
  *
  * @group removedPHP4StyleConstructors
  * @group functionNameRestrictions
@@ -21,9 +21,7 @@ use PHPCompatibility\Tests\BaseSniffTest;
  * @covers \PHPCompatibility\Sniffs\FunctionNameRestrictions\RemovedPHP4StyleConstructorsSniff
  * @covers \PHPCompatibility\Sniff::determineNamespace
  *
- * @uses    \PHPCompatibility\Tests\BaseSniffTest
- * @package PHPCompatibility
- * @author  Koen Eelen <koen.eelen@cu.be>
+ * @since 7.0.0
  */
 class RemovedPHP4StyleConstructorsUnitTest extends BaseSniffTest
 {
@@ -44,7 +42,7 @@ class RemovedPHP4StyleConstructorsUnitTest extends BaseSniffTest
     }
 
     /**
-     * dataIsDeprecated
+     * Data provider.
      *
      * @see testIsDeprecated()
      *
@@ -78,7 +76,7 @@ class RemovedPHP4StyleConstructorsUnitTest extends BaseSniffTest
     }
 
     /**
-     * dataNoFalsePositives
+     * Data provider.
      *
      * @see testNoFalsePositives()
      *

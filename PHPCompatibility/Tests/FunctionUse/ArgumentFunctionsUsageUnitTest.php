@@ -20,15 +20,13 @@ use PHPCompatibility\Tests\BaseSniffTest;
  *
  * @covers \PHPCompatibility\Sniffs\FunctionUse\ArgumentFunctionsUsageSniff
  *
- * @uses    \PHPCompatibility\Tests\BaseSniffTest
- * @package PHPCompatibility
- * @author  Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * @since 8.2.0
  */
 class ArgumentFunctionsUsageUnitTest extends BaseSniffTest
 {
 
     /**
-     * testArgumentFunctionsUseAsParameter
+     * testArgumentFunctionsUseAsParameter.
      *
      * @dataProvider dataArgumentFunctionsUseAsParameter
      *
@@ -46,7 +44,7 @@ class ArgumentFunctionsUsageUnitTest extends BaseSniffTest
     }
 
     /**
-     * Data provider dataArgumentFunctionsUseAsParameter.
+     * Data provider.
      *
      * @see testArgumentFunctionsUseAsParameter()
      *
@@ -66,7 +64,7 @@ class ArgumentFunctionsUsageUnitTest extends BaseSniffTest
 
 
     /**
-     * testNoFalsePositivesUseAsParameter
+     * testNoFalsePositivesUseAsParameter.
      *
      * @dataProvider dataNoFalsePositivesUseAsParameter
      *
@@ -103,7 +101,7 @@ class ArgumentFunctionsUsageUnitTest extends BaseSniffTest
 
 
     /**
-     * testArgumentFunctionsUseOutsideFunctionScope
+     * testArgumentFunctionsUseOutsideFunctionScope.
      *
      * @dataProvider dataArgumentFunctionsUseOutsideFunctionScope
      *
@@ -121,7 +119,7 @@ class ArgumentFunctionsUsageUnitTest extends BaseSniffTest
     }
 
     /**
-     * Data provider dataArgumentFunctionsUseOutsideFunctionScope.
+     * Data provider.
      *
      * @see testArgumentFunctionsUseOutsideFunctionScope()
      *
@@ -138,7 +136,7 @@ class ArgumentFunctionsUsageUnitTest extends BaseSniffTest
 
 
     /**
-     * testNoFalsePositivesUseOutsideFunctionScope
+     * testNoFalsePositivesUseOutsideFunctionScope.
      *
      * @dataProvider dataNoFalsePositivesUseOutsideFunctionScope
      *

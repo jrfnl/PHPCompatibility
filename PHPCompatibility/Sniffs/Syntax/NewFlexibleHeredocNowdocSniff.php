@@ -15,7 +15,7 @@ use PHPCompatibility\PHPCSHelper;
 use PHP_CodeSniffer_File as File;
 
 /**
- * New Flexible Heredoc Nowdoc.
+ * Detect usage of flexible heredoc/nowdoc and related cross-version incompatibilities.
  *
  * As of PHP 7.3:
  * - The body and the closing marker of a Heredoc/nowdoc can be indented;
@@ -25,9 +25,9 @@ use PHP_CodeSniffer_File as File;
  *
  * PHP version 7.3
  *
- * @category PHP
- * @package  PHPCompatibility
- * @author   Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * @link https://wiki.php.net/rfc/flexible_heredoc_nowdoc_syntaxes
+ *
+ * @since 9.0.0
  */
 class NewFlexibleHeredocNowdocSniff extends Sniff
 {

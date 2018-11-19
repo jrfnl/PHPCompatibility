@@ -15,17 +15,17 @@ use PHP_CodeSniffer_File as File;
 use PHP_CodeSniffer_Tokens as Tokens;
 
 /**
- * \PHPCompatibility\Sniffs\Syntax\ForbiddenCallTimePassByReference.
+ * Detect the use of call time pass by references.
  *
- * Discourages the use of call time pass by references
+ * This behaviour has been deprecated in PHP 5.3 and removed in PHP 5.4.
  *
  * PHP version 5.4
  *
- * @category  PHP
- * @package   PHPCompatibility
- * @author    Gary Rogers <gmrwebde@gmail.com>
- * @author    Florian Grandel <jerico.dev@gmail.com>
- * @copyright 2009 Florian Grandel
+ * @link https://wiki.php.net/rfc/calltimebyref
+ *
+ * @since 5.5
+ * @since 7.0.8 This sniff now throws a warning (deprecated) or an error (removed) depending
+ *              on the testVersion set. Previously it would always throw an error.
  */
 class ForbiddenCallTimePassByReferenceSniff extends Sniff
 {

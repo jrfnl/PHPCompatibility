@@ -13,11 +13,11 @@ namespace PHPCompatibility;
 use PHP_CodeSniffer_File as File;
 
 /**
+ * TODO: write better description!!!
  * \PHPCompatibility\AbstractRemovedFeatureSniff.
  *
- * @category PHP
- * @package  PHPCompatibility
- * @author   Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ *
+ * @since 7.1.0
  */
 abstract class AbstractRemovedFeatureSniff extends AbstractComplexVersionSniff
 {

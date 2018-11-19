@@ -14,7 +14,7 @@ use PHPCompatibility\Tests\BaseSniffTest;
 use PHPCompatibility\PHPCSHelper;
 
 /**
- * __autoload deprecation for PHP 7.2 sniff test
+ * __autoload deprecation for PHP 7.2 sniff tests.
  *
  * @group removedMagicAutoload
  * @group functionNameRestrictions
@@ -22,9 +22,7 @@ use PHPCompatibility\PHPCSHelper;
  * @covers \PHPCompatibility\Sniffs\FunctionNameRestrictions\RemovedMagicAutoloadSniff
  * @covers \PHPCompatibility\Sniff::determineNamespace
  *
- * @uses    \PHPCompatibility\Tests\BaseSniffTest
- * @package PHPCompatibility
- * @author  Wim Godden <wim.godden@cu.be>
+ * @since 8.1.0
  */
 class RemovedMagicAutoloadUnitTest extends BaseSniffTest
 {
@@ -79,7 +77,7 @@ class RemovedMagicAutoloadUnitTest extends BaseSniffTest
     }
 
     /**
-     * dataIsDeprecated
+     * Data provider.
      *
      * @see testIsDeprecated()
      *
@@ -115,7 +113,7 @@ class RemovedMagicAutoloadUnitTest extends BaseSniffTest
     }
 
     /**
-     * dataIsNotAffected
+     * Data provider.
      *
      * @see testIsNotAffected()
      *

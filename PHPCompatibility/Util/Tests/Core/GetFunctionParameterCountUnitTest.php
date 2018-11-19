@@ -13,20 +13,18 @@ namespace PHPCompatibility\Util\Tests\Core;
 use PHPCompatibility\Util\Tests\CoreMethodTestFrame;
 
 /**
- * Function parameters count function tests
+ * Function parameters count function tests.
  *
  * @group utilityGetFunctionParameterCount
  * @group utilityFunctions
  *
- * @uses    \PHPCompatibility\Util\Tests\CoreMethodTestFrame
- * @package PHPCompatibility
- * @author  Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * @since 7.1.3 These tests were previously included in the GetFunctionParametersTest class.
  */
 class GetFunctionParameterCountUnitTest extends CoreMethodTestFrame
 {
 
     /**
-     * testGetFunctionCallParameterCount
+     * testGetFunctionCallParameterCount.
      *
      * @dataProvider dataGetFunctionCallParameterCount
      *
@@ -45,7 +43,7 @@ class GetFunctionParameterCountUnitTest extends CoreMethodTestFrame
     }
 
     /**
-     * dataGetFunctionCallParameterCount
+     * Data provider.
      *
      * @see testGetFunctionCallParameterCount()
      *

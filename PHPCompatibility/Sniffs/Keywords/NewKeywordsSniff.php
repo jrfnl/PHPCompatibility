@@ -17,10 +17,14 @@ use PHP_CodeSniffer_Tokens as Tokens;
 /**
  * \PHPCompatibility\Sniffs\Keywords\NewKeywordsSniff.
  *
- * @category  PHP
- * @package   PHPCompatibility
- * @author    Wim Godden <wim.godden@cu.be>
- * @copyright 2013 Cu.be Solutions bvba
+ * @link https://wiki.php.net/rfc/heredoc-with-double-quotes
+ * @link https://wiki.php.net/rfc/horizontalreuse (traits)
+ * @link https://wiki.php.net/rfc/generators
+ * @link https://wiki.php.net/rfc/finally
+ * @link https://wiki.php.net/rfc/generator-delegation
+ *
+ * @since 5.5
+ * @since 7.1.0 Now extends the AbstractNewFeatureSniff instead of the base Sniff class.
  */
 class NewKeywordsSniff extends AbstractNewFeatureSniff
 {

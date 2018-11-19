@@ -15,14 +15,12 @@ use PHPCompatibility\PHPCSHelper;
 use PHPCompatibility\Util\Tests\TestHelperPHPCompatibility;
 
 /**
- * Generic sniff functions sniff tests
+ * Generic sniff functions sniff tests.
  *
  * @group utilityMiscFunctions
  * @group utilityFunctions
  *
- * @uses    \PHPUnit_Framework_TestCase
- * @package PHPCompatibility
- * @author  Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * @since 7.0.6
  */
 class FunctionsUnitTest extends PHPUnit_TestCase
 {
@@ -62,7 +60,7 @@ class FunctionsUnitTest extends PHPUnit_TestCase
 
 
     /**
-     * testGetTestVersion
+     * testGetTestVersion.
      *
      * @dataProvider dataGetTestVersion
      *
@@ -91,7 +89,7 @@ class FunctionsUnitTest extends PHPUnit_TestCase
     }
 
     /**
-     * dataGetTestVersion
+     * Data provider.
      *
      * @see testGetTestVersion()
      *
@@ -123,7 +121,7 @@ class FunctionsUnitTest extends PHPUnit_TestCase
 
 
     /**
-     * testGetTestVersionInvalidRange
+     * testGetTestVersionInvalidRange.
      *
      * @dataProvider dataGetTestVersionInvalidRange
      *
@@ -154,7 +152,7 @@ class FunctionsUnitTest extends PHPUnit_TestCase
     }
 
     /**
-     * dataGetTestVersionInvalidRange
+     * Data provider.
      *
      * @see testGetTestVersionInvalidRange()
      *
@@ -171,7 +169,7 @@ class FunctionsUnitTest extends PHPUnit_TestCase
 
 
     /**
-     * testGetTestVersionInvalidVersion
+     * testGetTestVersionInvalidVersion.
      *
      * @dataProvider dataGetTestVersionInvalidVersion
      *
@@ -202,7 +200,7 @@ class FunctionsUnitTest extends PHPUnit_TestCase
     }
 
     /**
-     * dataGetTestVersionInvalidVersion
+     * Data provider.
      *
      * @see testGetTestVersionInvalidVersion()
      *
@@ -231,7 +229,7 @@ class FunctionsUnitTest extends PHPUnit_TestCase
 
 
     /**
-     * testSupportsAbove
+     * testSupportsAbove.
      *
      * @dataProvider dataSupportsAbove
      *
@@ -253,7 +251,7 @@ class FunctionsUnitTest extends PHPUnit_TestCase
     }
 
     /**
-     * dataSupportsAbove
+     * Data provider.
      *
      * @see testSupportsAbove()
      *
@@ -276,7 +274,7 @@ class FunctionsUnitTest extends PHPUnit_TestCase
 
 
     /**
-     * testSupportsBelow
+     * testSupportsBelow.
      *
      * @dataProvider dataSupportsBelow
      *
@@ -298,7 +296,7 @@ class FunctionsUnitTest extends PHPUnit_TestCase
     }
 
     /**
-     * dataSupportsBelow
+     * Data provider.
      *
      * @see testSupportsBelow()
      *
@@ -321,7 +319,7 @@ class FunctionsUnitTest extends PHPUnit_TestCase
 
 
     /**
-     * testStringToErrorCode
+     * testStringToErrorCode.
      *
      * @dataProvider dataStringToErrorCode
      *
@@ -338,7 +336,7 @@ class FunctionsUnitTest extends PHPUnit_TestCase
     }
 
     /**
-     * dataStringToErrorCode
+     * Data provider.
      *
      * @see testStringToErrorCode()
      *
@@ -356,7 +354,7 @@ class FunctionsUnitTest extends PHPUnit_TestCase
 
 
     /**
-     * testStripQuotes
+     * testStripQuotes.
      *
      * @dataProvider dataStripQuotes
      *
@@ -373,7 +371,7 @@ class FunctionsUnitTest extends PHPUnit_TestCase
     }
 
     /**
-     * dataStripQuotes
+     * Data provider.
      *
      * @see testStripQuotes()
      *
@@ -392,7 +390,7 @@ class FunctionsUnitTest extends PHPUnit_TestCase
 
 
     /**
-     * testArrayKeysToLowercase
+     * testArrayKeysToLowercase.
      *
      * @dataProvider dataArrayKeysToLowercase
      *
@@ -409,7 +407,7 @@ class FunctionsUnitTest extends PHPUnit_TestCase
     }
 
     /**
-     * dataArrayKeysToLowercase
+     * Data provider.
      *
      * @see testArrayKeysToLowercase()
      *
@@ -435,7 +433,7 @@ class FunctionsUnitTest extends PHPUnit_TestCase
 
 
     /**
-     * testStripVariables
+     * testStripVariables.
      *
      * @dataProvider dataStripVariables
      *
@@ -452,7 +450,7 @@ class FunctionsUnitTest extends PHPUnit_TestCase
     }
 
     /**
-     * dataStripVariables
+     * Data provider.
      *
      * @see testStripVariables()
      *

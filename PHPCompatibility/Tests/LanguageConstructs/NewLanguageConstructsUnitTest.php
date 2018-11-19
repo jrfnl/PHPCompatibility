@@ -13,22 +13,20 @@ namespace PHPCompatibility\Tests\LanguageConstructs;
 use PHPCompatibility\Tests\BaseSniffTest;
 
 /**
- * New language constructs sniff tests
+ * New language constructs sniff tests.
  *
  * @group newLanguageConstructs
  * @group languageConstructs
  *
  * @covers \PHPCompatibility\Sniffs\LanguageConstructs\NewLanguageConstructsSniff
  *
- * @uses    \PHPCompatibility\Tests\BaseSniffTest
- * @package PHPCompatibility
- * @author  Jansen Price <jansen.price@gmail.com>
+ * @since 5.6
  */
 class NewLanguageConstructsUnitTest extends BaseSniffTest
 {
 
     /**
-     * testNamespaceSeparator
+     * testNamespaceSeparator.
      *
      * @return void
      */

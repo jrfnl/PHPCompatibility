@@ -15,11 +15,13 @@ use PHP_CodeSniffer_File as File;
 use PHP_CodeSniffer_Tokens as Tokens;
 
 /**
- * \PHPCompatibility\Sniffs\FunctionUse\RequiredToOptionalFunctionParametersSniff.
+ * Detect missing required function parameters in calls to native PHP functions.
  *
- * @category PHP
- * @package  PHPCompatibility
- * @author   Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * Specifically when those function parameters are no longer required in more recent PHP versions.
+ *
+ * @since 7.0.3
+ * @since 7.1.0 Now extends the AbstractComplexVersionSniff instead of the base Sniff class.
+ * @since 9.0.0 Renamed from `RequiredOptionalFunctionParametersSniff` to `RequiredToOptionalFunctionParametersSniff`.
  */
 class RequiredToOptionalFunctionParametersSniff extends AbstractComplexVersionSniff
 {

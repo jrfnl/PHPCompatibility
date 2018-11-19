@@ -20,15 +20,13 @@ use PHPCompatibility\Tests\BaseSniffTest;
  *
  * @covers \PHPCompatibility\Sniffs\ControlStructures\DiscouragedSwitchContinueSniff
  *
- * @uses    \PHPCompatibility\Tests\BaseSniffTest
- * @package PHPCompatibility
- * @author  Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * @since 8.2.0
  */
 class DiscouragedSwitchContinueUnitTest extends BaseSniffTest
 {
 
     /**
-     * testDiscouragedSwitchContinue
+     * testDiscouragedSwitchContinue.
      *
      * @dataProvider dataDiscouragedSwitchContinue
      *
@@ -81,7 +79,7 @@ class DiscouragedSwitchContinueUnitTest extends BaseSniffTest
 
 
     /**
-     * testNoFalsePositives
+     * testNoFalsePositives.
      *
      * @dataProvider dataNoFalsePositives
      *

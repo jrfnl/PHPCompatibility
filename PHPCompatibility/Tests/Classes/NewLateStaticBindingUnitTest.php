@@ -13,22 +13,20 @@ namespace PHPCompatibility\Tests\Classes;
 use PHPCompatibility\Tests\BaseSniffTest;
 
 /**
- * Late static binding sniff test file
+ * Test the LateStaticBinding Sniff.
  *
  * @group newLateStaticBinding
  * @group classes
  *
  * @covers \PHPCompatibility\Sniffs\Classes\NewLateStaticBindingSniff
  *
- * @uses    \PHPCompatibility\Tests\BaseSniffTest
- * @package PHPCompatibility
- * @author  Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * @since 7.0.3
  */
 class NewLateStaticBindingUnitTest extends BaseSniffTest
 {
 
     /**
-     * testLateStaticBinding
+     * testLateStaticBinding.
      *
      * @dataProvider dataLateStaticBinding
      *
@@ -62,7 +60,7 @@ class NewLateStaticBindingUnitTest extends BaseSniffTest
 
 
     /**
-     * testLateStaticBindingOutsideClassScope
+     * testLateStaticBindingOutsideClassScope.
      *
      * @dataProvider dataLateStaticBindingOutsideClassScope
      *
@@ -92,7 +90,7 @@ class NewLateStaticBindingUnitTest extends BaseSniffTest
 
 
     /**
-     * testNoFalsePositives
+     * testNoFalsePositives.
      *
      * @dataProvider dataNoFalsePositives
      *

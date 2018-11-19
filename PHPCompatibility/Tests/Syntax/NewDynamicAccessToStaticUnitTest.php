@@ -13,22 +13,20 @@ namespace PHPCompatibility\Tests\Syntax;
 use PHPCompatibility\Tests\BaseSniffTest;
 
 /**
- * Dynamic access to static methods and properties sniff test file
+ * Dynamic access to static methods and properties sniff tests.
  *
  * @group newDynamicAccessToStatic
  * @group syntax
  *
  * @covers \PHPCompatibility\Sniffs\Syntax\NewDynamicAccessToStaticSniff
  *
- * @uses    \PHPCompatibility\Tests\BaseSniffTest
- * @package PHPCompatibility
- * @author  Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * @since 8.1.0
  */
 class NewDynamicAccessToStaticUnitTest extends BaseSniffTest
 {
 
     /**
-     * testDynamicAccessToStatic
+     * testDynamicAccessToStatic.
      *
      * @dataProvider dataDynamicAccessToStatic
      *
@@ -71,7 +69,7 @@ class NewDynamicAccessToStaticUnitTest extends BaseSniffTest
 
 
     /**
-     * testNoFalsePositives
+     * testNoFalsePositives.
      *
      * @dataProvider dataNoFalsePositives
      *

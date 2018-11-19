@@ -13,22 +13,20 @@ namespace PHPCompatibility\Tests\Generators;
 use PHPCompatibility\Tests\BaseSniffTest;
 
 /**
- * New generator return expressions in PHP 7.0 sniff test file
+ * New generator return expressions in PHP 7.0 sniff tests.
  *
  * @group newGeneratorReturn
  * @group generators
  *
  * @covers \PHPCompatibility\Sniffs\Generators\NewGeneratorReturnSniff
  *
- * @uses    \PHPCompatibility\Tests\BaseSniffTest
- * @package PHPCompatibility
- * @author  Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * @since 8.2.0
  */
 class NewGeneratorReturnUnitTest extends BaseSniffTest
 {
 
     /**
-     * testNewGeneratorReturn
+     * testNewGeneratorReturn.
      *
      * @dataProvider dataNewGeneratorReturn
      *
@@ -43,7 +41,7 @@ class NewGeneratorReturnUnitTest extends BaseSniffTest
     }
 
     /**
-     * Data provider dataNewGeneratorReturn.
+     * Data provider.
      *
      * @see testNewGeneratorReturn()
      *
@@ -63,7 +61,7 @@ class NewGeneratorReturnUnitTest extends BaseSniffTest
 
 
     /**
-     * testNoFalsePositives
+     * testNoFalsePositives.
      *
      * @dataProvider dataNoFalsePositives
      *

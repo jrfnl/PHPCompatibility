@@ -14,13 +14,11 @@ use PHPCompatibility\AbstractFunctionCallParameterSniff;
 use PHP_CodeSniffer_File as File;
 
 /**
- * \PHPCompatibility\Sniffs\ParameterValues\NewPackFormatSniff.
+ * Check for valid values for the $format passed to pack().
  *
- * Detect: Changes in the allowed values for $format passed to pack().
+ * @link http://php.net/manual/en/function.pack.php#refsect1-function.pack-changelog
  *
- * @category PHP
- * @package  PHPCompatibility
- * @author   Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * @since 9.0.0
  */
 class NewPackFormatSniff extends AbstractFunctionCallParameterSniff
 {

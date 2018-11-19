@@ -14,11 +14,9 @@ use PHPCompatibility\AbstractNewFeatureSniff;
 use PHP_CodeSniffer_File as File;
 
 /**
- * \PHPCompatibility\Sniffs\Constants\NewConstantsSniff.
+ * Detect usage of new PHP native global constants.
  *
- * @category PHP
- * @package  PHPCompatibility
- * @author   Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * @since 8.1.0
  */
 class NewConstantsSniff extends AbstractNewFeatureSniff
 {

@@ -20,15 +20,13 @@ use PHPCompatibility\Tests\BaseSniffTest;
  *
  * @covers \PHPCompatibility\Sniffs\ParameterValues\RemovedIconvEncodingSniff
  *
- * @uses    \PHPCompatibility\Tests\BaseSniffTest
- * @package PHPCompatibility
- * @author  Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * @since 9.0.0
  */
 class RemovedIconvEncodingUnitTest extends BaseSniffTest
 {
 
     /**
-     * testIconvEncoding
+     * testIconvEncoding.
      *
      * @dataProvider dataIconvEncoding
      *
@@ -43,7 +41,7 @@ class RemovedIconvEncodingUnitTest extends BaseSniffTest
     }
 
     /**
-     * dataIconvEncoding
+     * Data provider.
      *
      * @see testIconvEncoding()
      *
@@ -62,7 +60,7 @@ class RemovedIconvEncodingUnitTest extends BaseSniffTest
 
 
     /**
-     * testNoFalsePositives
+     * testNoFalsePositives.
      *
      * @return void
      */

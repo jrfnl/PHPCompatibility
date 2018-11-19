@@ -15,15 +15,11 @@ use PHP_CodeSniffer_File as File;
 use PHP_CodeSniffer_Tokens as Tokens;
 
 /**
- * \PHPCompatibility\Sniffs\Lists\ForbiddenEmptyListAssignmentSniff.
- *
- * Empty list() assignments have been removed in PHP 7.0
+ * Empty list() assignments have been removed in PHP 7.0.
  *
  * PHP version 7.0
  *
- * @category PHP
- * @package  PHPCompatibility
- * @author   Wim Godden <wim@cu.be>
+ * @since 7.0.0
  */
 class ForbiddenEmptyListAssignmentSniff extends Sniff
 {

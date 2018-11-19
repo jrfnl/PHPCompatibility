@@ -13,20 +13,18 @@ namespace PHPCompatibility\Util\Tests\Core;
 use PHPCompatibility\Util\Tests\CoreMethodTestFrame;
 
 /**
- * Classname determination function tests
+ * Classname determination based on a new token function tests.
  *
  * @group utilityGetFQClassNameFromNewToken
  * @group utilityFunctions
  *
- * @uses    \PHPCompatibility\Util\Tests\CoreMethodTestFrame
- * @package PHPCompatibility
- * @author  Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * @since 7.0.3
  */
 class GetFQClassNameFromNewTokenUnitTest extends CoreMethodTestFrame
 {
 
     /**
-     * testGetFQClassNameFromNewToken
+     * testGetFQClassNameFromNewToken.
      *
      * @dataProvider dataGetFQClassNameFromNewToken
      *
@@ -45,7 +43,7 @@ class GetFQClassNameFromNewTokenUnitTest extends CoreMethodTestFrame
     }
 
     /**
-     * dataGetFQClassNameFromNewToken
+     * Data provider.
      *
      * @see testGetFQClassNameFromNewToken()
      *

@@ -13,7 +13,7 @@ namespace PHPCompatibility\Tests\FunctionDeclarations;
 use PHPCompatibility\Tests\BaseSniffTest;
 
 /**
- * New nullable type hints / return types sniff test file
+ * New nullable type hints / return types sniff tests.
  *
  * @group nullableTypes
  * @group functionDeclarations
@@ -22,15 +22,13 @@ use PHPCompatibility\Tests\BaseSniffTest;
  * @covers \PHPCompatibility\Sniffs\FunctionDeclarations\NewNullableTypesSniff
  * @covers \PHPCompatibility\Sniff::getReturnTypeHintToken
  *
- * @uses    \PHPCompatibility\Tests\BaseSniffTest
- * @package PHPCompatibility
- * @author  Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * @since 7.0.7
  */
 class NewNullableTypesUnitTest extends BaseSniffTest
 {
 
     /**
-     * testNewNullableReturnTypes
+     * testNewNullableReturnTypes.
      *
      * @dataProvider dataNewNullableReturnTypes
      *
@@ -71,7 +69,7 @@ class NewNullableTypesUnitTest extends BaseSniffTest
 
 
     /**
-     * testNewNullableTypeHints
+     * testNewNullableTypeHints.
      *
      * @dataProvider dataNewNullableTypeHints
      *
@@ -115,7 +113,7 @@ class NewNullableTypesUnitTest extends BaseSniffTest
 
 
     /**
-     * testNoFalsePositives
+     * testNoFalsePositives.
      *
      * @dataProvider dataNoFalsePositives
      *

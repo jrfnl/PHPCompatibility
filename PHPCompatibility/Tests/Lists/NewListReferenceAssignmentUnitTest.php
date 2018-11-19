@@ -13,22 +13,20 @@ namespace PHPCompatibility\Tests\Lists;
 use PHPCompatibility\Tests\BaseSniffTest;
 
 /**
- * PHP 7.3 list reference assignments sniff test file.
+ * PHP 7.3 list reference assignments sniff tests.
  *
  * @group newListReferenceAssignment
  * @group lists
  *
  * @covers \PHPCompatibility\Sniffs\Lists\NewListReferenceAssignmentSniff
  *
- * @uses    \PHPCompatibility\Tests\BaseSniffTest
- * @package PHPCompatibility
- * @author  Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * @since 9.0.0
  */
 class NewListReferenceAssignmentUnitTest extends BaseSniffTest
 {
 
     /**
-     * testNewListReferenceAssignment
+     * testNewListReferenceAssignment.
      *
      * @dataProvider dataNewListReferenceAssignment
      *
@@ -43,7 +41,7 @@ class NewListReferenceAssignmentUnitTest extends BaseSniffTest
     }
 
     /**
-     * dataNewListReferenceAssignment
+     * Data provider.
      *
      * @see testNewListReferenceAssignment()
      *
@@ -65,7 +63,7 @@ class NewListReferenceAssignmentUnitTest extends BaseSniffTest
 
 
     /**
-     * testNoFalsePositives
+     * testNoFalsePositives.
      *
      * @dataProvider dataNoFalsePositives
      *
@@ -80,7 +78,7 @@ class NewListReferenceAssignmentUnitTest extends BaseSniffTest
     }
 
     /**
-     * dataNoFalsePositives
+     * Data provider.
      *
      * @see testNoFalsePositives()
      *

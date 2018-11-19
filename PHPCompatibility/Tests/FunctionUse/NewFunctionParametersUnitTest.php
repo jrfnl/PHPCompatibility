@@ -13,22 +13,20 @@ namespace PHPCompatibility\Tests\FunctionUse;
 use PHPCompatibility\Tests\BaseSniffTest;
 
 /**
- * New Functions Parameter Sniff tests
+ * New Function Parameter Sniff tests.
  *
  * @group newFunctionParameters
  * @group functionUse
  *
  * @covers \PHPCompatibility\Sniffs\FunctionUse\NewFunctionParametersSniff
  *
- * @uses    \PHPCompatibility\Tests\BaseSniffTest
- * @package PHPCompatibility
- * @author  Wim Godden <wim@cu.be>
+ * @since 7.0.0
  */
 class NewFunctionParametersUnitTest extends BaseSniffTest
 {
 
     /**
-     * testInvalidParameter
+     * testInvalidParameter.
      *
      * @dataProvider dataInvalidParameter
      *
@@ -206,7 +204,7 @@ class NewFunctionParametersUnitTest extends BaseSniffTest
 
 
     /**
-     * testNoFalsePositives
+     * testNoFalsePositives.
      *
      * @dataProvider dataNoFalsePositives
      *

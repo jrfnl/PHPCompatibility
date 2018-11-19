@@ -13,20 +13,18 @@ namespace PHPCompatibility\Util\Tests\Core;
 use PHPCompatibility\Util\Tests\CoreMethodTestFrame;
 
 /**
- * Extended class name determination function tests
+ * Extended class name determination function tests.
  *
  * @group utilityGetFQExtendedClassName
  * @group utilityFunctions
  *
- * @uses    \PHPCompatibility\Util\Tests\CoreMethodTestFrame
- * @package PHPCompatibility
- * @author  Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * @since 7.0.3
  */
 class GetFQExtendedClassNameUnitTest extends CoreMethodTestFrame
 {
 
     /**
-     * testGetFQExtendedClassName
+     * testGetFQExtendedClassName.
      *
      * @dataProvider dataGetFQExtendedClassName
      *
@@ -45,7 +43,7 @@ class GetFQExtendedClassNameUnitTest extends CoreMethodTestFrame
     }
 
     /**
-     * dataGetFQExtendedClassName
+     * Data provider.
      *
      * @see testGetFQExtendedClassName()
      *

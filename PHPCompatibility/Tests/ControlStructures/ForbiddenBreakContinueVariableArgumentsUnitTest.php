@@ -13,20 +13,14 @@ namespace PHPCompatibility\Tests\ControlStructures;
 use PHPCompatibility\Tests\BaseSniffTest;
 
 /**
- * Forbidden break and continue variable arguments sniff test
- *
- * Checks for using break and continue with a variable afterwards
- *     break $varname
- *     continue $varname
+ * Forbidden break and continue variable arguments sniff test.
  *
  * @group forbiddenBreakContinueVariableArguments
  * @group controlStructures
  *
  * @covers \PHPCompatibility\Sniffs\ControlStructures\ForbiddenBreakContinueVariableArgumentsSniff
  *
- * @uses    \PHPCompatibility\Tests\BaseSniffTest
- * @package PHPCompatibility
- * @author  Jansen Price <jansen.price@gmail.com>
+ * @since 5.5
  */
 class ForbiddenBreakContinueVariableArgumentsUnitTest extends BaseSniffTest
 {
@@ -35,7 +29,7 @@ class ForbiddenBreakContinueVariableArgumentsUnitTest extends BaseSniffTest
     const ERROR_TYPE_ZERO     = '0 as an argument';
 
     /**
-     * testBreakAndContinueVariableArgument
+     * testBreakAndContinueVariableArgument.
      *
      * @dataProvider dataBreakAndContinueVariableArgument
      *
@@ -81,7 +75,7 @@ class ForbiddenBreakContinueVariableArgumentsUnitTest extends BaseSniffTest
 
 
     /**
-     * testNoFalsePositives
+     * testNoFalsePositives.
      *
      * @dataProvider dataNoFalsePositives
      *

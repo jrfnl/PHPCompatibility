@@ -15,7 +15,7 @@ use PHP_CodeSniffer_File as File;
 use PHP_CodeSniffer_Tokens as Tokens;
 
 /**
- * \PHPCompatibility\Sniffs\InitialValue\NewHeredocSniff.
+ * Detect a heredoc being used to set an initial value.
  *
  * As of PHP 5.3.0, it's possible to initialize static variables, class properties
  * and constants declared using the `const` keyword, using the Heredoc syntax.
@@ -27,9 +27,9 @@ use PHP_CodeSniffer_Tokens as Tokens;
  *
  * PHP version 5.3
  *
- * @category PHP
- * @package  PHPCompatibility
- * @author   Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * @since 7.1.4
+ * @since 8.2.0 Now extends the NewConstantScalarExpressionsSniff instead of the base Sniff class.
+ * @since 9.0.0 Renamed from `NewHeredocInitializeSniff` to `NewHeredocSniff`.
  */
 class NewHeredocSniff extends NewConstantScalarExpressionsSniff
 {

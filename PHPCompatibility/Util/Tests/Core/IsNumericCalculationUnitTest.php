@@ -13,20 +13,20 @@ namespace PHPCompatibility\Util\Tests\Core;
 use PHPCompatibility\Util\Tests\CoreMethodTestFrame;
 
 /**
- * isNumericCalculation() function tests
+ * Will a certain token combination be recognized as a numeric calculation by PHP ?
+ *
+ * isNumericCalculation() function tests.
  *
  * @group utilityIsNumericCalculation
  * @group utilityFunctions
  *
- * @uses    \PHPCompatibility\Util\Tests\CoreMethodTestFrame
- * @package PHPCompatibility
- * @author  Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * @since 9.0.0
  */
 class IsNumericCalculationUnitTest extends CoreMethodTestFrame
 {
 
     /**
-     * testIsNumericCalculation
+     * testIsNumericCalculation.
      *
      * @dataProvider dataIsNumericCalculation
      *
@@ -47,7 +47,7 @@ class IsNumericCalculationUnitTest extends CoreMethodTestFrame
     }
 
     /**
-     * dataIsNumericCalculation
+     * Data provider.
      *
      * @see testIsNumericCalculation()
      *

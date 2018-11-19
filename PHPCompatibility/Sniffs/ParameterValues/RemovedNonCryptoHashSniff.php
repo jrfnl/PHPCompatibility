@@ -14,16 +14,16 @@ use PHPCompatibility\AbstractFunctionCallParameterSniff;
 use PHP_CodeSniffer_File as File;
 
 /**
- * \PHPCompatibility\Sniffs\ParameterValues\RemovedNonCryptoHashSniff.
+ * Detect usage of non-cryptographic hashes.
  *
- * Detect: "The hash_hmac(), hash_hmac_file(), hash_pbkdf2(), and hash_init()
+ * "The hash_hmac(), hash_hmac_file(), hash_pbkdf2(), and hash_init()
  * (with HASH_HMAC) functions no longer accept non-cryptographic hashes."
  *
  * PHP version 7.2
  *
- * @category PHP
- * @package  PHPCompatibility
- * @author   Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * @link http://php.net/manual/en/migration72.incompatible.php#migration72.incompatible.hash-functions
+ *
+ * @since 9.0.0
  */
 class RemovedNonCryptoHashSniff extends AbstractFunctionCallParameterSniff
 {

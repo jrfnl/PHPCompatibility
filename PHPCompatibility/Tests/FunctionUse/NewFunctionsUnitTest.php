@@ -13,22 +13,20 @@ namespace PHPCompatibility\Tests\FunctionUse;
 use PHPCompatibility\Tests\BaseSniffTest;
 
 /**
- * New Functions Sniff tests
+ * New Functions Sniff tests.
  *
  * @group newFunctions
  * @group functionUse
  *
  * @covers \PHPCompatibility\Sniffs\FunctionUse\NewFunctionsSniff
  *
- * @uses    \PHPCompatibility\Tests\BaseSniffTest
- * @package PHPCompatibility
- * @author  Jansen Price <jansen.price@gmail.com>
+ * @since 5.5
  */
 class NewFunctionsUnitTest extends BaseSniffTest
 {
 
     /**
-     * testNewFunction
+     * testNewFunction.
      *
      * @dataProvider dataNewFunction
      *

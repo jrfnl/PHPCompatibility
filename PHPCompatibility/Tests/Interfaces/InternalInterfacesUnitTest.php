@@ -13,22 +13,20 @@ namespace PHPCompatibility\Tests\Interfaces;
 use PHPCompatibility\Tests\BaseSniffTest;
 
 /**
- * Internal Interfaces Sniff tests
+ * Internal Interfaces Sniff tests.
  *
  * @group internalInterfaces
  * @group interfaces
  *
  * @covers \PHPCompatibility\Sniffs\Interfaces\InternalInterfacesSniff
  *
- * @uses    \PHPCompatibility\Tests\BaseSniffTest
- * @package PHPCompatibility
- * @author  Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * @since 7.0.3
  */
 class InternalInterfacesUnitTest extends BaseSniffTest
 {
 
     /**
-     * Sniffed file
+     * Sniffed file.
      *
      * @var \PHP_CodeSniffer_File
      */
@@ -59,7 +57,7 @@ class InternalInterfacesUnitTest extends BaseSniffTest
     }
 
     /**
-     * Test InternalInterfaces
+     * Test InternalInterfaces.
      *
      * @dataProvider dataInternalInterfaces
      *
@@ -110,7 +108,7 @@ class InternalInterfacesUnitTest extends BaseSniffTest
     }
 
     /**
-     * testNoFalsePositives
+     * testNoFalsePositives.
      *
      * @dataProvider dataNoFalsePositives
      *

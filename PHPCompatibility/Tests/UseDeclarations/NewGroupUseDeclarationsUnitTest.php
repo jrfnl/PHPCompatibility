@@ -13,22 +13,20 @@ namespace PHPCompatibility\Tests\UseDeclarations;
 use PHPCompatibility\Tests\BaseSniffTest;
 
 /**
- * New use group declaration sniff tests
+ * New use group declaration sniff tests.
  *
  * @group newGroupUseDeclarations
  * @group useDeclarations
  *
  * @covers \PHPCompatibility\Sniffs\UseDeclarations\NewGroupUseDeclarationsSniff
  *
- * @uses    \PHPCompatibility\Tests\BaseSniffTest
- * @package PHPCompatibility
- * @author  Wim Godden <wim@cu.be>
+ * @since 7.0.0
  */
 class NewGroupUseDeclarationsUnitTest extends BaseSniffTest
 {
 
     /**
-     * testGroupUseDeclaration
+     * testGroupUseDeclaration.
      *
      * @dataProvider dataGroupUseDeclaration
      *
@@ -65,7 +63,7 @@ class NewGroupUseDeclarationsUnitTest extends BaseSniffTest
 
 
     /**
-     * testGroupUseTrailingComma
+     * testGroupUseTrailingComma.
      *
      * @dataProvider dataGroupUseTrailingComma
      *
@@ -98,7 +96,7 @@ class NewGroupUseDeclarationsUnitTest extends BaseSniffTest
 
 
     /**
-     * testNoFalsePositivesTrailingComma
+     * testNoFalsePositivesTrailingComma.
      *
      * @dataProvider dataNoFalsePositivesTrailingComma
      *
@@ -131,7 +129,7 @@ class NewGroupUseDeclarationsUnitTest extends BaseSniffTest
 
 
     /**
-     * testNoFalsePositives
+     * testNoFalsePositives.
      *
      * @dataProvider dataNoFalsePositives
      *

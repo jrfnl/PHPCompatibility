@@ -14,11 +14,15 @@ use PHPCompatibility\AbstractRemovedFeatureSniff;
 use PHP_CodeSniffer_File as File;
 
 /**
- * \PHPCompatibility\Sniffs\TypeCasts\RemovedTypeCastsSniff.
+ * Detect deprecated/removed type casts.
  *
- * @category PHP
- * @package  PHPCompatibility
- * @author   Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * Initially sniffs for the PHP 7.2 deprecated `(unset)` type cast.
+ *
+ * @link http://php.net/manual/en/language.types.type-juggling.php#language.types.typecasting
+ * @link https://wiki.php.net/rfc/deprecations_php_7_2#unset_cast
+ *
+ * @since 8.0.1
+ * @since 9.0.0 Renamed from `DeprecatedTypeCastsSniff` to `RemovedTypeCastsSniff`.
  */
 class RemovedTypeCastsSniff extends AbstractRemovedFeatureSniff
 {

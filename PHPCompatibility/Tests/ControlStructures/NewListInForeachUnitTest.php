@@ -13,22 +13,20 @@ namespace PHPCompatibility\Tests\ControlStructures;
 use PHPCompatibility\Tests\BaseSniffTest;
 
 /**
- * PHP 5.5 list() in foreach sniff test file.
+ * PHP 5.5 list() in foreach sniff tests.
  *
  * @group newListInForeach
  * @group controlStructures
  *
  * @covers \PHPCompatibility\Sniffs\ControlStructures\NewListInForeachSniff
  *
- * @uses    \PHPCompatibility\Tests\BaseSniffTest
- * @package PHPCompatibility
- * @author  Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * @since 9.0.0
  */
 class NewListInForeachUnitTest extends BaseSniffTest
 {
 
     /**
-     * testNewListInForeach
+     * testNewListInForeach.
      *
      * @dataProvider dataNewListInForeach
      *
@@ -43,7 +41,7 @@ class NewListInForeachUnitTest extends BaseSniffTest
     }
 
     /**
-     * dataNewListInForeach
+     * Data provider.
      *
      * @see testNewListInForeach()
      *
@@ -61,7 +59,7 @@ class NewListInForeachUnitTest extends BaseSniffTest
 
 
     /**
-     * testNoFalsePositives
+     * testNoFalsePositives.
      *
      * @dataProvider dataNoFalsePositives
      *
@@ -76,7 +74,7 @@ class NewListInForeachUnitTest extends BaseSniffTest
     }
 
     /**
-     * dataNoFalsePositives
+     * Data provider.
      *
      * @see testNoFalsePositives()
      *

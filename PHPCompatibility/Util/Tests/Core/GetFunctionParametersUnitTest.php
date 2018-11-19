@@ -13,20 +13,18 @@ namespace PHPCompatibility\Util\Tests\Core;
 use PHPCompatibility\Util\Tests\CoreMethodTestFrame;
 
 /**
- * Function parameters retrieval function tests
+ * Function parameters retrieval function tests.
  *
  * @group utilityGetFunctionParameters
  * @group utilityFunctions
  *
- * @uses    \PHPCompatibility\Util\Tests\CoreMethodTestFrame
- * @package PHPCompatibility
- * @author  Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * @since 7.0.5
  */
 class GetFunctionParametersUnitTest extends CoreMethodTestFrame
 {
 
     /**
-     * testGetFunctionCallParameters
+     * testGetFunctionCallParameters.
      *
      * @dataProvider dataGetFunctionCallParameters
      *
@@ -67,7 +65,7 @@ class GetFunctionParametersUnitTest extends CoreMethodTestFrame
     }
 
     /**
-     * dataGetFunctionCallParameters
+     * Data provider.
      *
      * @see testGetFunctionCallParameters()
      *
@@ -342,7 +340,7 @@ class GetFunctionParametersUnitTest extends CoreMethodTestFrame
 
 
     /**
-     * testGetFunctionCallParameter
+     * testGetFunctionCallParameter.
      *
      * @dataProvider dataGetFunctionCallParameter
      *
@@ -371,7 +369,7 @@ class GetFunctionParametersUnitTest extends CoreMethodTestFrame
     }
 
     /**
-     * dataGetFunctionCallParameter
+     * Data provider.
      *
      * @see testGetFunctionCallParameter()
      *

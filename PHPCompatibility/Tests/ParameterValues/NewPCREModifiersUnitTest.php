@@ -21,15 +21,13 @@ use PHPCompatibility\Tests\BaseSniffTest;
  *
  * @covers \PHPCompatibility\Sniffs\ParameterValues\NewPCREModifiersSniff
  *
- * @uses    \PHPCompatibility\Tests\BaseSniffTest
- * @package PHPCompatibility
- * @author  Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * @since 8.2.0
  */
 class NewPCREModifiersUnitTest extends BaseSniffTest
 {
 
     /**
-     * testPCRENewModifier
+     * testPCRENewModifier.
      *
      * @dataProvider dataPCRENewModifier
      *
@@ -57,7 +55,7 @@ class NewPCREModifiersUnitTest extends BaseSniffTest
     }
 
     /**
-     * dataPCRENewModifier
+     * Data provider.
      *
      * @see testPCRENewModifier()
      *
@@ -72,7 +70,7 @@ class NewPCREModifiersUnitTest extends BaseSniffTest
 
 
     /**
-     * testNoFalsePositives
+     * testNoFalsePositives.
      *
      * @dataProvider dataNoFalsePositives
      *
@@ -87,7 +85,7 @@ class NewPCREModifiersUnitTest extends BaseSniffTest
     }
 
     /**
-     * dataNoFalsePositives
+     * Data provider.
      *
      * @see testNoFalsePositives()
      *

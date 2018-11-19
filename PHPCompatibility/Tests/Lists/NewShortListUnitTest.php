@@ -13,22 +13,20 @@ namespace PHPCompatibility\Tests\Lists;
 use PHPCompatibility\Tests\BaseSniffTest;
 
 /**
- * PHP 7.1 symmetric array destructuring sniff test file.
+ * PHP 7.1 symmetric array destructuring sniff tests.
  *
  * @group newShortList
  * @group lists
  *
  * @covers \PHPCompatibility\Sniffs\Lists\NewShortListSniff
  *
- * @uses    \PHPCompatibility\Tests\BaseSniffTest
- * @package PHPCompatibility
- * @author  Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * @since 9.0.0
  */
 class NewShortListUnitTest extends BaseSniffTest
 {
 
     /**
-     * testShortList
+     * testShortList.
      *
      * @dataProvider dataShortList
      *
@@ -43,7 +41,7 @@ class NewShortListUnitTest extends BaseSniffTest
     }
 
     /**
-     * dataShortList
+     * Data provider.
      *
      * @see testShortList()
      *
@@ -64,7 +62,7 @@ class NewShortListUnitTest extends BaseSniffTest
 
 
     /**
-     * testNoFalsePositives
+     * testNoFalsePositives.
      *
      * @dataProvider dataNoFalsePositives
      *
@@ -79,7 +77,7 @@ class NewShortListUnitTest extends BaseSniffTest
     }
 
     /**
-     * dataNoFalsePositives
+     * Data provider.
      *
      * @see testNoFalsePositives()
      *

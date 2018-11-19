@@ -13,22 +13,20 @@ namespace PHPCompatibility\Tests\Syntax;
 use PHPCompatibility\Tests\BaseSniffTest;
 
 /**
- * Forbidden call time pass by reference sniff test
+ * Forbidden call time pass by reference sniff tests.
  *
  * @group forbiddenCallTimePassByReference
  * @group syntax
  *
  * @covers \PHPCompatibility\Sniffs\Syntax\ForbiddenCallTimePassByReferenceSniff
  *
- * @uses    \PHPCompatibility\Tests\BaseSniffTest
- * @package PHPCompatibility
- * @author  Jansen Price <jansen.price@gmail.com>
+ * @since 5.5
  */
 class ForbiddenCallTimePassByReferenceUnitTest extends BaseSniffTest
 {
 
     /**
-     * testForbiddenCallTimePassByReference
+     * testForbiddenCallTimePassByReference.
      *
      * @dataProvider dataForbiddenCallTimePassByReference
      *
@@ -46,7 +44,7 @@ class ForbiddenCallTimePassByReferenceUnitTest extends BaseSniffTest
     }
 
     /**
-     * dataForbiddenCallTimePassByReference
+     * Data provider.
      *
      * @see testForbiddenCallTimePassByReference()
      *
@@ -69,7 +67,7 @@ class ForbiddenCallTimePassByReferenceUnitTest extends BaseSniffTest
 
 
     /**
-     * testNoFalsePositives
+     * testNoFalsePositives.
      *
      * @dataProvider dataNoFalsePositives
      *

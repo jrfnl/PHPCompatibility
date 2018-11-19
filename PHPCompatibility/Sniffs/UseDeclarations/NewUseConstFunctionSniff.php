@@ -15,17 +15,17 @@ use PHP_CodeSniffer_File as File;
 use PHP_CodeSniffer_Tokens as Tokens;
 
 /**
- * \PHPCompatibility\Sniffs\UseDeclarations\NewUseConstFunctionSniff.
+ * Detect importing constants and functions via a use statement.
  *
  * The use operator has been extended to support importing functions and
- * constants in addition to classes. This is achieved via the use function
- * and use const constructs, respectively.
+ * constants in addition to classes. This is achieved via the `use function`
+ * and `use const` constructs, respectively.
  *
  * PHP version 5.6
  *
- * @category PHP
- * @package  PHPCompatibility
- * @author   Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * @link https://wiki.php.net/rfc/use_function
+ *
+ * @since 7.1.4
  */
 class NewUseConstFunctionSniff extends Sniff
 {

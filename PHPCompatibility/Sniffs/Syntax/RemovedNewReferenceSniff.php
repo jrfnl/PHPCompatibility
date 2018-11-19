@@ -15,16 +15,17 @@ use PHP_CodeSniffer_File as File;
 use PHP_CodeSniffer_Tokens as Tokens;
 
 /**
- * \PHPCompatibility\Sniffs\Syntax\RemovedNewReferenceSniff.
+ * Detect the use of assigning the return value of new by reference.
  *
- * Discourages the use of assigning the return value of new by reference
+ * This syntax has been deprecated since PHP 5.3 and removed in PHP 7.0.
  *
- * PHP version 5.4
+ * PHP version 5.3
+ * PHP version 7.0
  *
- * @category  PHP
- * @package   PHPCompatibility
- * @author    Wim Godden <wim.godden@cu.be>
- * @copyright 2012 Cu.be Solutions bvba
+ * @link https://wiki.php.net/rfc/remove_deprecated_functionality_in_php7
+ *
+ * @since 5.5
+ * @since 9.0.0 Renamed from `DeprecatedNewReferenceSniff` to `RemovedNewReferenceSniff`.
  */
 class RemovedNewReferenceSniff extends Sniff
 {

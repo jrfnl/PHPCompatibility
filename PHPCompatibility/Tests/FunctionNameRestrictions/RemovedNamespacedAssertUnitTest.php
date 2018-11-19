@@ -22,9 +22,7 @@ use PHPCompatibility\PHPCSHelper;
  * @covers \PHPCompatibility\Sniffs\FunctionNameRestrictions\RemovedNamespacedAssertSniff
  * @covers \PHPCompatibility\Sniff::determineNamespace
  *
- * @uses    \PHPCompatibility\Tests\BaseSniffTest
- * @package PHPCompatibility
- * @author  Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * @since 9.0.0
  */
 class RemovedNamespacedAssertUnitTest extends BaseSniffTest
 {
@@ -70,7 +68,7 @@ class RemovedNamespacedAssertUnitTest extends BaseSniffTest
     }
 
     /**
-     * dataIsDeprecated
+     * Data provider.
      *
      * @see testIsDeprecated()
      *

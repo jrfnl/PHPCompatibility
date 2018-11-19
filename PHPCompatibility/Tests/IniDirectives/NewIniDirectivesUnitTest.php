@@ -20,15 +20,13 @@ use PHPCompatibility\Tests\BaseSniffTest;
  *
  * @covers \PHPCompatibility\Sniffs\IniDirectives\NewIniDirectivesSniff
  *
- * @uses    \PHPCompatibility\Tests\BaseSniffTest
- * @package PHPCompatibility
- * @author  Jansen Price <jansen.price@gmail.com>
+ * @since 5.5
  */
 class NewIniDirectivesUnitTest extends BaseSniffTest
 {
 
     /**
-     * testNewIniDirectives
+     * testNewIniDirectives.
      *
      * @dataProvider dataNewIniDirectives
      *
@@ -241,7 +239,7 @@ class NewIniDirectivesUnitTest extends BaseSniffTest
 
 
     /**
-     * testNewIniDirectivesWithAlternative
+     * testNewIniDirectivesWithAlternative.
      *
      * @dataProvider dataNewIniDirectivesWithAlternative
      *
@@ -286,7 +284,7 @@ class NewIniDirectivesUnitTest extends BaseSniffTest
 
 
     /**
-     * testNoFalsePositives
+     * testNoFalsePositives.
      *
      * @dataProvider dataNoFalsePositives
      *

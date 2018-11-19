@@ -16,11 +16,21 @@ use PHP_CodeSniffer_File as File;
 use PHP_CodeSniffer_Tokens as Tokens;
 
 /**
- * \PHPCompatibility\Sniffs\ControlStructures\NewExecutionDirectivesSniff.
+ * Check for valid execution directives set with `declare()`.
  *
- * @category PHP
- * @package  PHPCompatibility
- * @author   Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * The sniff contains three distinct checks:
+ * - Check if the execution directive used is valid. PHP currently only supports
+ *   three execution directives.
+ * - Check if the execution directive used is available in the PHP versions
+ *   for which support is being checked.
+ *   In the case of the `encoding` directive on PHP 5.3, support is conditional
+ *   on the `--enable-zend-multibyte` compilation option. This will be indicated as such.
+ * - Check whether the value for the directive is valid.
+ *
+ * @link http://php.net/manual/en/control-structures.declare.php
+ *
+ * @since 7.0.3
+ * @since 7.1.0 Now extends the AbstractNewFeatureSniff instead of the base Sniff class.
  */
 class NewExecutionDirectivesSniff extends AbstractNewFeatureSniff
 {

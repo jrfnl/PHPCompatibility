@@ -13,22 +13,20 @@ namespace PHPCompatibility\Tests\Keywords;
 use PHPCompatibility\Tests\BaseSniffTest;
 
 /**
- * Forbidden names sniff test
+ * Forbidden names sniff test.
  *
  * @group forbiddenNames
  * @group keywords
  *
  * @covers \PHPCompatibility\Sniffs\Keywords\ForbiddenNamesSniff
  *
- * @uses    \PHPCompatibility\Tests\BaseSniffTest
- * @package PHPCompatibility
- * @author  Jansen Price <jansen.price@gmail.com>
+ * @since 5.5
  */
 class ForbiddenNamesUnitTest extends BaseSniffTest
 {
 
     /**
-     * testForbiddenNames
+     * testForbiddenNames.
      *
      * @dataProvider usecaseProvider
      *
@@ -94,7 +92,7 @@ class ForbiddenNamesUnitTest extends BaseSniffTest
 
 
     /**
-     * testCorrectUsageOfKeywords
+     * testCorrectUsageOfKeywords.
      *
      * @return void
      */
@@ -106,7 +104,7 @@ class ForbiddenNamesUnitTest extends BaseSniffTest
 
 
     /**
-     * testNotForbiddenInPHP7
+     * testNotForbiddenInPHP7.
      *
      * @dataProvider usecaseProviderPHP7
      *
@@ -136,7 +134,7 @@ class ForbiddenNamesUnitTest extends BaseSniffTest
 
 
     /**
-     * testNoFalsePositives
+     * testNoFalsePositives.
      *
      * @return void
      */

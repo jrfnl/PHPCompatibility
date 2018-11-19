@@ -14,15 +14,11 @@ use PHPCompatibility\Sniff;
 use PHP_CodeSniffer_File as File;
 
 /**
- * \PHPCompatibility\Sniffs\ControlStructures\ForbiddenBreakContinueOutsideLoop.
- *
- * Forbids use of break or continue statements outside of looping structures.
+ * Detect using break and/or continue statements outside of a looping structure.
  *
  * PHP version 7.0
  *
- * @category PHP
- * @package  PHPCompatibility
- * @author   Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * @since 7.0.7
  */
 class ForbiddenBreakContinueOutsideLoopSniff extends Sniff
 {

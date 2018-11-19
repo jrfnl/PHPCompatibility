@@ -13,7 +13,7 @@ namespace PHPCompatibility\Tests\Interfaces;
 use PHPCompatibility\Tests\BaseSniffTest;
 
 /**
- * New Interfaces Sniff tests
+ * New Interfaces Sniff tests.
  *
  * @group newInterfaces
  * @group interfaces
@@ -23,15 +23,13 @@ use PHPCompatibility\Tests\BaseSniffTest;
  * @covers \PHPCompatibility\Sniff::getReturnTypeHintToken
  * @covers \PHPCompatibility\Sniff::getTypeHintsFromFunctionDeclaration
  *
- * @uses    \PHPCompatibility\Tests\BaseSniffTest
- * @package PHPCompatibility
- * @author  Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * @since 7.0.3
  */
 class NewInterfacesUnitTest extends BaseSniffTest
 {
 
     /**
-     * testNewInterface
+     * testNewInterface.
      *
      * @dataProvider dataNewInterface
      *
@@ -88,7 +86,7 @@ class NewInterfacesUnitTest extends BaseSniffTest
     }
 
     /**
-     * Test unsupported methods
+     * Test unsupported methods.
      *
      * @dataProvider dataUnsupportedMethods
      *
@@ -137,7 +135,7 @@ class NewInterfacesUnitTest extends BaseSniffTest
 
 
     /**
-     * testNoFalsePositives
+     * testNoFalsePositives.
      *
      * @dataProvider dataNoFalsePositives
      *

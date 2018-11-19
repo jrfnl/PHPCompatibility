@@ -14,14 +14,14 @@ use PHPCompatibility\PHPCSHelper;
 use PHPCompatibility\Util\Tests\CoreMethodTestFrame;
 
 /**
+ * Is class property ? tests.
+ *
  * isClassProperty() function tests
  *
  * @group utilityIsClassProperty
  * @group utilityFunctions
  *
- * @uses    \PHPCompatibility\Util\Tests\CoreMethodTestFrame
- * @package PHPCompatibility
- * @author  Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * @since 7.1.4
  */
 class IsClassPropertyUnitTest extends CoreMethodTestFrame
 {
@@ -51,7 +51,7 @@ class IsClassPropertyUnitTest extends CoreMethodTestFrame
 
 
     /**
-     * testIsClassProperty
+     * testIsClassProperty.
      *
      * @dataProvider dataIsClassProperty
      *
@@ -77,7 +77,7 @@ class IsClassPropertyUnitTest extends CoreMethodTestFrame
     }
 
     /**
-     * dataIsClassProperty
+     * Data provider.
      *
      * @see testIsClassProperty()
      *

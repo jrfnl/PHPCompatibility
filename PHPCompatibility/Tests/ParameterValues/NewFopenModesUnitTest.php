@@ -20,15 +20,13 @@ use PHPCompatibility\Tests\BaseSniffTest;
  *
  * @covers \PHPCompatibility\Sniffs\ParameterValues\NewFopenModesSniff
  *
- * @uses    \PHPCompatibility\Tests\BaseSniffTest
- * @package PHPCompatibility
- * @author  Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * @since 9.0.0
  */
 class NewFopenModesUnitTest extends BaseSniffTest
 {
 
     /**
-     * testFopenMode
+     * testFopenMode.
      *
      * @dataProvider dataFopenMode
      *
@@ -56,7 +54,7 @@ class NewFopenModesUnitTest extends BaseSniffTest
     }
 
     /**
-     * dataFopenMode
+     * Data provider.
      *
      * @see testFopenMode()
      *
@@ -75,7 +73,7 @@ class NewFopenModesUnitTest extends BaseSniffTest
 
 
     /**
-     * testNoFalsePositives
+     * testNoFalsePositives.
      *
      * @dataProvider dataNoFalsePositives
      *

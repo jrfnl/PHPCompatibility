@@ -13,22 +13,20 @@ namespace PHPCompatibility\Tests\FunctionUse;
 use PHPCompatibility\Tests\BaseSniffTest;
 
 /**
- * Removed Functions Parameter Sniff test file
+ * Removed Function Parameters Sniff tests.
  *
  * @group removedFunctionParameters
  * @group functionUse
  *
  * @covers \PHPCompatibility\Sniffs\FunctionUse\RemovedFunctionParametersSniff
  *
- * @uses    \PHPCompatibility\Tests\BaseSniffTest
- * @package PHPCompatibility
- * @author  Wim Godden <wim@cu.be>
+ * @since 7.0.0
  */
 class RemovedFunctionParametersUnitTest extends BaseSniffTest
 {
 
     /**
-     * testRemovedParameter
+     * testRemovedParameter.
      *
      * @dataProvider dataRemovedParameter
      *
@@ -73,7 +71,7 @@ class RemovedFunctionParametersUnitTest extends BaseSniffTest
 
 
     /**
-     * testDeprecatedRemovedParameter
+     * testDeprecatedRemovedParameter.
      *
      * @dataProvider dataDeprecatedRemovedParameter
      *
@@ -123,7 +121,7 @@ class RemovedFunctionParametersUnitTest extends BaseSniffTest
 
 
     /**
-     * testDeprecatedParameter
+     * testDeprecatedParameter.
      *
      * @dataProvider dataDeprecatedParameter
      *
@@ -175,7 +173,7 @@ class RemovedFunctionParametersUnitTest extends BaseSniffTest
 
 
     /**
-     * testNoFalsePositives
+     * testNoFalsePositives.
      *
      * @dataProvider dataNoFalsePositives
      *

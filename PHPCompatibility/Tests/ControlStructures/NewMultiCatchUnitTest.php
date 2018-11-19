@@ -13,7 +13,7 @@ namespace PHPCompatibility\Tests\ControlStructures;
 use PHPCompatibility\Tests\BaseSniffTest;
 
 /**
- * New catching multiple exception types sniff test file
+ * New catching multiple exception types sniff tests.
  *
  * @group newMultiCatch
  * @group controlStructures
@@ -21,15 +21,13 @@ use PHPCompatibility\Tests\BaseSniffTest;
  *
  * @covers \PHPCompatibility\Sniffs\ControlStructures\NewMultiCatchSniff
  *
- * @uses    \PHPCompatibility\Tests\BaseSniffTest
- * @package PHPCompatibility
- * @author  Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * @since 7.0.7
  */
 class NewMultiCatchUnitTest extends BaseSniffTest
 {
 
     /**
-     * testNewMultiCatch
+     * testNewMultiCatch.
      *
      * @dataProvider dataNewMultiCatch
      *
@@ -59,7 +57,7 @@ class NewMultiCatchUnitTest extends BaseSniffTest
 
 
     /**
-     * testNoFalsePositives
+     * testNoFalsePositives.
      *
      * @dataProvider dataNoFalsePositives
      *

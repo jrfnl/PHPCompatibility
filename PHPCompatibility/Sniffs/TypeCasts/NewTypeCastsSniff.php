@@ -15,11 +15,13 @@ use PHPCompatibility\PHPCSHelper;
 use PHP_CodeSniffer_File as File;
 
 /**
- * \PHPCompatibility\Sniffs\TypeCasts\NewTypeCastsSniff.
+ * Detect use of newly introduced type casts.
  *
- * @category PHP
- * @package  PHPCompatibility
- * @author   Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * Initially sniffs for the `(unset)` and `(binary)` type casts.
+ *
+ * @link http://php.net/manual/en/language.types.type-juggling.php#language.types.typecasting
+ *
+ * @since 8.0.1
  */
 class NewTypeCastsSniff extends AbstractNewFeatureSniff
 {

@@ -13,22 +13,20 @@ namespace PHPCompatibility\Tests\Syntax;
 use PHPCompatibility\Tests\BaseSniffTest;
 
 /**
- * New class member access on instantiation in PHP 5.4 and on cloning in PHP 7.0 sniff test file
+ * New class member access on instantiation in PHP 5.4 and on cloning in PHP 7.0 sniff tests.
  *
  * @group newClassMemberAccess
  * @group syntax
  *
  * @covers \PHPCompatibility\Sniffs\Syntax\NewClassMemberAccessSniff
  *
- * @uses    \PHPCompatibility\Tests\BaseSniffTest
- * @package PHPCompatibility
- * @author  Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * @since 8.2.0
  */
 class NewClassMemberAccessUnitTest extends BaseSniffTest
 {
 
     /**
-     * testNewClassMemberAccess
+     * testNewClassMemberAccess.
      *
      * @dataProvider dataNewClassMemberAccess
      *
@@ -50,7 +48,7 @@ class NewClassMemberAccessUnitTest extends BaseSniffTest
     }
 
     /**
-     * Data provider dataNewClassMemberAccess.
+     * Data provider.
      *
      * @see testNewClassMemberAccess()
      *
@@ -119,7 +117,7 @@ class NewClassMemberAccessUnitTest extends BaseSniffTest
 
 
     /**
-     * testCloneClassMemberAccess
+     * testCloneClassMemberAccess.
      *
      * @dataProvider dataCloneClassMemberAccess
      *
@@ -134,7 +132,7 @@ class NewClassMemberAccessUnitTest extends BaseSniffTest
     }
 
     /**
-     * Data provider dataCloneClassMemberAccess.
+     * Data provider.
      *
      * @see testCloneClassMemberAccess()
      *
@@ -153,7 +151,7 @@ class NewClassMemberAccessUnitTest extends BaseSniffTest
 
 
     /**
-     * testNoFalsePositives
+     * testNoFalsePositives.
      *
      * @return void
      */

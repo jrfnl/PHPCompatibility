@@ -14,16 +14,14 @@ use PHPCompatibility\Tests\BaseSniffTest;
 use PHPCompatibility\PHPCSHelper;
 
 /**
- * New initialize with heredoc in PHP 5.3 sniff test file
+ * New initialize with heredoc in PHP 5.3 sniff tests.
  *
  * @group newHeredoc
  * @group initialValue
  *
  * @covers \PHPCompatibility\Sniffs\InitialValue\NewHeredocSniff
  *
- * @uses    \PHPCompatibility\Tests\BaseSniffTest
- * @package PHPCompatibility
- * @author  Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * @since 7.1.4
  */
 class NewHeredocUnitTest extends BaseSniffTest
 {
@@ -63,7 +61,7 @@ class NewHeredocUnitTest extends BaseSniffTest
 
 
     /**
-     * testHeredocInitialize
+     * testHeredocInitialize.
      *
      * @dataProvider dataHeredocInitialize
      *
@@ -90,7 +88,7 @@ class NewHeredocUnitTest extends BaseSniffTest
     }
 
     /**
-     * Data provider dataHeredocInitialize.
+     * Data provider.
      *
      * @see testHeredocInitialize()
      *
@@ -122,7 +120,7 @@ class NewHeredocUnitTest extends BaseSniffTest
 
 
     /**
-     * testNoFalsePositives
+     * testNoFalsePositives.
      *
      * @dataProvider dataNoFalsePositives
      *

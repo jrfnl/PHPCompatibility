@@ -20,15 +20,13 @@ use PHPCompatibility\Tests\BaseSniffTest;
  *
  * @covers \PHPCompatibility\Sniffs\IniDirectives\RemovedIniDirectivesSniff
  *
- * @uses    \PHPCompatibility\Tests\BaseSniffTest
- * @package PHPCompatibility
- * @author  Jansen Price <jansen.price@gmail.com>
+ * @since 5.5
  */
 class RemovedIniDirectivesUnitTest extends BaseSniffTest
 {
 
     /**
-     * testDeprecatedRemovedDirectives
+     * testDeprecatedRemovedDirectives.
      *
      * @dataProvider dataDeprecatedRemovedDirectives
      *
@@ -104,7 +102,7 @@ class RemovedIniDirectivesUnitTest extends BaseSniffTest
 
 
     /**
-     * testDeprecatedDirectives
+     * testDeprecatedDirectives.
      *
      * @dataProvider dataDeprecatedDirectives
      *
@@ -162,7 +160,7 @@ class RemovedIniDirectivesUnitTest extends BaseSniffTest
 
 
     /**
-     * testRemovedWithAlternative
+     * testRemovedWithAlternative.
      *
      * @dataProvider dataRemovedWithAlternative
      *
@@ -208,7 +206,7 @@ class RemovedIniDirectivesUnitTest extends BaseSniffTest
 
 
     /**
-     * testRemovedDirectives
+     * testRemovedDirectives.
      *
      * @dataProvider dataRemovedDirectives
      *
@@ -296,7 +294,7 @@ class RemovedIniDirectivesUnitTest extends BaseSniffTest
 
 
     /**
-     * testNoFalsePositives
+     * testNoFalsePositives.
      *
      * @dataProvider dataNoFalsePositives
      *

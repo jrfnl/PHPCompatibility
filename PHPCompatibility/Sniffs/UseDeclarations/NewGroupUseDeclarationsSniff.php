@@ -15,13 +15,20 @@ use PHP_CodeSniffer_File as File;
 use PHP_CodeSniffer_Tokens as Tokens;
 
 /**
- * \PHPCompatibility\Sniffs\UseDeclarations\NewGroupUseDeclarationsSniff.
+ * Detect use of group use declarations.
+ *
+ * Checks for:
+ * - Group use statements as introduced in PHP 7.0.
+ * - Trailing comma's in group use statements as allowed since PHP 7.2.
  *
  * PHP version 7.0
+ * PHP version 7.2
  *
- * @category PHP
- * @package  PHPCompatibility
- * @author   Wim Godden <wim.godden@cu.be>
+ * @link https://wiki.php.net/rfc/group_use_declarations
+ * @link https://wiki.php.net/rfc/list-syntax-trailing-commas
+ *
+ * @since 7.0.0
+ * @since 8.0.1 Now also checks for trailing comma's in group use declarations.
  */
 class NewGroupUseDeclarationsSniff extends Sniff
 {

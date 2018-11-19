@@ -13,22 +13,20 @@ namespace PHPCompatibility\Tests\FunctionNameRestrictions;
 use PHPCompatibility\Tests\BaseSniffTest;
 
 /**
- * Reserved function names sniff test.
+ * Reserved function names sniff tests.
  *
  * @group reservedFunctionNames
  * @group functionNameRestrictions
  *
  * @covers \PHPCompatibility\Sniffs\FunctionNameRestrictions\ReservedFunctionNamesSniff
  *
- * @uses    \PHPCompatibility\Tests\BaseSniffTest
- * @package PHPCompatibility
- * @author  Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * @since 8.2.0
  */
 class ReservedFunctionNamesUnitTest extends BaseSniffTest
 {
 
     /**
-     * testReservedFunctionNames
+     * testReservedFunctionNames.
      *
      * @dataProvider dataReservedFunctionNames
      *
@@ -84,7 +82,7 @@ class ReservedFunctionNamesUnitTest extends BaseSniffTest
 
 
     /**
-     * testNoFalsePositives
+     * testNoFalsePositives.
      *
      * @dataProvider dataNoFalsePositives
      *

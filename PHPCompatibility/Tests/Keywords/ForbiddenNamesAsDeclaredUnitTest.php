@@ -13,7 +13,7 @@ namespace PHPCompatibility\Tests\Keywords;
 use PHPCompatibility\Tests\BaseSniffTest;
 
 /**
- * Forbidden names as declared name for class, interface, trait or namespace.
+ * Test the ForbiddenNamesAsDeclared Sniff.
  *
  * @group forbiddenNamesAsDeclared
  * @group keywords
@@ -21,15 +21,13 @@ use PHPCompatibility\Tests\BaseSniffTest;
  * @covers \PHPCompatibility\Sniffs\Keywords\ForbiddenNamesAsDeclaredSniff
  * @covers \PHPCompatibility\Sniff::getDeclaredNamespaceName
  *
- * @uses    \PHPCompatibility\Tests\BaseSniffTest
- * @package PHPCompatibility
- * @author  Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * @since 7.0.8
  */
 class ForbiddenNamesAsDeclaredUnitTest extends BaseSniffTest
 {
 
     /**
-     * testReservedKeyword
+     * testReservedKeyword.
      *
      * @dataProvider dataReservedKeyword
      *
@@ -78,7 +76,7 @@ class ForbiddenNamesAsDeclaredUnitTest extends BaseSniffTest
 
 
     /**
-     * testSoftReservedKeyword
+     * testSoftReservedKeyword.
      *
      * @dataProvider dataSoftReservedKeyword
      *
@@ -121,7 +119,7 @@ class ForbiddenNamesAsDeclaredUnitTest extends BaseSniffTest
 
 
     /**
-     * testSoftHardReservedKeyword
+     * testSoftHardReservedKeyword.
      *
      * @dataProvider dataSoftHardReservedKeyword
      *
@@ -163,7 +161,7 @@ class ForbiddenNamesAsDeclaredUnitTest extends BaseSniffTest
 
 
     /**
-     * testNoFalsePositives
+     * testNoFalsePositives.
      *
      * @dataProvider dataNoFalsePositives
      *

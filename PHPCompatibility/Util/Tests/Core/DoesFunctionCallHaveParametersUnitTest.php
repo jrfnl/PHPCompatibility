@@ -13,20 +13,18 @@ namespace PHPCompatibility\Util\Tests\Core;
 use PHPCompatibility\Util\Tests\CoreMethodTestFrame;
 
 /**
- * Function parameters function tests
+ * Tests for the function parameters utility functions.
  *
  * @group utilityDoesFunctionCallHaveParameters
  * @group utilityFunctions
  *
- * @uses    \PHPCompatibility\Util\Tests\CoreMethodTestFrame
- * @package PHPCompatibility
- * @author  Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * @since 7.0.3
  */
 class DoesFunctionCallHaveParametersUnitTest extends CoreMethodTestFrame
 {
 
     /**
-     * testDoesFunctionCallHaveParameters
+     * testDoesFunctionCallHaveParameters.
      *
      * @dataProvider dataDoesFunctionCallHaveParameters
      *
@@ -45,7 +43,7 @@ class DoesFunctionCallHaveParametersUnitTest extends CoreMethodTestFrame
     }
 
     /**
-     * dataDoesFunctionCallHaveParameters
+     * Data provider.
      *
      * @see testDoesFunctionCallHaveParameters()
      *

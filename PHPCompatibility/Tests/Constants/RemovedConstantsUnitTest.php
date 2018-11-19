@@ -13,22 +13,20 @@ namespace PHPCompatibility\Tests\Constants;
 use PHPCompatibility\Tests\BaseSniffTest;
 
 /**
- * Removed Constants Sniff tests
+ * Test the RemovedConstants Sniff.
  *
  * @group removedConstants
  * @group constants
  *
  * @covers \PHPCompatibility\Sniffs\Constants\RemovedConstantsSniff
  *
- * @uses    \PHPCompatibility\Tests\BaseSniffTest
- * @package PHPCompatibility
- * @author  Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * @since 8.1.0
  */
 class RemovedConstantsUnitTest extends BaseSniffTest
 {
 
     /**
-     * testDeprecatedConstant
+     * testDeprecatedConstant.
      *
      * @dataProvider dataDeprecatedConstant
      *
@@ -120,7 +118,7 @@ class RemovedConstantsUnitTest extends BaseSniffTest
 
 
     /**
-     * testRemovedConstant
+     * testRemovedConstant.
      *
      * @dataProvider dataRemovedConstant
      *
@@ -240,7 +238,7 @@ class RemovedConstantsUnitTest extends BaseSniffTest
 
 
     /**
-     * testDeprecatedRemovedConstant
+     * testDeprecatedRemovedConstant.
      *
      * @dataProvider dataDeprecatedRemovedConstant
      *

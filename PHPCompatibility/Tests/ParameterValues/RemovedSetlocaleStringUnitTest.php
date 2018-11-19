@@ -20,15 +20,13 @@ use PHPCompatibility\Tests\BaseSniffTest;
  *
  * @covers \PHPCompatibility\Sniffs\ParameterValues\RemovedSetlocaleStringSniff
  *
- * @uses    \PHPCompatibility\Tests\BaseSniffTest
- * @package PHPCompatibility
- * @author  Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * @since 9.0.0
  */
 class RemovedSetlocaleStringUnitTest extends BaseSniffTest
 {
 
     /**
-     * testSetlocaleString
+     * testSetlocaleString.
      *
      * @dataProvider dataSetlocaleString
      *
@@ -46,7 +44,7 @@ class RemovedSetlocaleStringUnitTest extends BaseSniffTest
     }
 
     /**
-     * dataSetlocaleString
+     * Data provider.
      *
      * @see testSetlocaleString()
      *
@@ -62,7 +60,7 @@ class RemovedSetlocaleStringUnitTest extends BaseSniffTest
 
 
     /**
-     * testNoFalsePositives
+     * testNoFalsePositives.
      *
      * @return void
      */

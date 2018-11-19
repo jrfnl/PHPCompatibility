@@ -13,7 +13,7 @@ namespace PHPCompatibility\Tests\FunctionDeclarations;
 use PHPCompatibility\Tests\BaseSniffTest;
 
 /**
- * New type declarations test file
+ * New type declarations tests.
  *
  * @group newParamTypeDeclarations
  * @group functionDeclarations
@@ -21,15 +21,13 @@ use PHPCompatibility\Tests\BaseSniffTest;
  *
  * @covers \PHPCompatibility\Sniffs\FunctionDeclarations\NewParamTypeDeclarationsSniff
  *
- * @uses    \PHPCompatibility\Tests\BaseSniffTest
- * @package PHPCompatibility
- * @author  Wim Godden <wim@cu.be>
+ * @since 7.0.0
  */
 class NewParamTypeDeclarationsUnitTest extends BaseSniffTest
 {
 
     /**
-     * testNewTypeDeclaration
+     * testNewTypeDeclaration.
      *
      * @dataProvider dataNewTypeDeclaration
      *
@@ -88,7 +86,7 @@ class NewParamTypeDeclarationsUnitTest extends BaseSniffTest
 
 
     /**
-     * testInvalidTypeDeclaration
+     * testInvalidTypeDeclaration.
      *
      * @dataProvider dataInvalidTypeDeclaration
      *
@@ -122,7 +120,7 @@ class NewParamTypeDeclarationsUnitTest extends BaseSniffTest
 
 
     /**
-     * testInvalidSelfTypeDeclaration
+     * testInvalidSelfTypeDeclaration.
      *
      * @dataProvider dataInvalidSelfTypeDeclaration
      *
@@ -156,7 +154,7 @@ class NewParamTypeDeclarationsUnitTest extends BaseSniffTest
 
 
     /**
-     * testTypeDeclaration
+     * testTypeDeclaration.
      *
      * @dataProvider dataTypeDeclaration
      *
@@ -218,7 +216,7 @@ class NewParamTypeDeclarationsUnitTest extends BaseSniffTest
 
 
     /**
-     * testNoFalsePositives
+     * testNoFalsePositives.
      *
      * @dataProvider dataNoFalsePositives
      *

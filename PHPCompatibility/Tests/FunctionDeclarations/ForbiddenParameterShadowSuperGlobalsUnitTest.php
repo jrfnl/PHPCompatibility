@@ -21,9 +21,7 @@ use PHPCompatibility\Tests\BaseSniffTest;
  *
  * @covers \PHPCompatibility\Sniffs\FunctionDeclarations\ForbiddenParameterShadowSuperGlobalsSniff
  *
- * @uses    \PHPCompatibility\Tests\BaseSniffTest
- * @package PHPCompatibility
- * @author  Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * @since 7.0.3
  */
 class ForbiddenParameterShadowSuperGlobalsUnitTest extends BaseSniffTest
 {
@@ -45,7 +43,7 @@ class ForbiddenParameterShadowSuperGlobalsUnitTest extends BaseSniffTest
     }
 
     /**
-     * dataParameterShadowSuperGlobals
+     * Data provider.
      *
      * @see testParameterShadowSuperGlobals()
      *

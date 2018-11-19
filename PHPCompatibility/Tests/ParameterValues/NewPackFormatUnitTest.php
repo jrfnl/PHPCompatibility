@@ -20,15 +20,13 @@ use PHPCompatibility\Tests\BaseSniffTest;
  *
  * @covers \PHPCompatibility\Sniffs\ParameterValues\NewPackFormatSniff
  *
- * @uses    \PHPCompatibility\Tests\BaseSniffTest
- * @package PHPCompatibility
- * @author  Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * @since 9.0.0
  */
 class NewPackFormatUnitTest extends BaseSniffTest
 {
 
     /**
-     * testNewPackFormat
+     * testNewPackFormat.
      *
      * @dataProvider dataNewPackFormat
      *
@@ -56,7 +54,7 @@ class NewPackFormatUnitTest extends BaseSniffTest
     }
 
     /**
-     * dataNewPackFormat
+     * Data provider.
      *
      * @see testNewPackFormat()
      *
@@ -82,7 +80,7 @@ class NewPackFormatUnitTest extends BaseSniffTest
 
 
     /**
-     * testNoFalsePositives
+     * testNoFalsePositives.
      *
      * @return void
      */

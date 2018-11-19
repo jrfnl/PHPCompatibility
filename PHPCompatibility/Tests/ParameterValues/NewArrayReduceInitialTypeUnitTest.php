@@ -20,15 +20,13 @@ use PHPCompatibility\Tests\BaseSniffTest;
  *
  * @covers \PHPCompatibility\Sniffs\ParameterValues\NewArrayReduceInitialTypeSniff
  *
- * @uses    \PHPCompatibility\Tests\BaseSniffTest
- * @package PHPCompatibility
- * @author  Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * @since 9.0.0
  */
 class NewArrayReduceInitialTypeUnitTest extends BaseSniffTest
 {
 
     /**
-     * testArrayReduceInitialType
+     * testArrayReduceInitialType.
      *
      * @dataProvider dataArrayReduceInitialType
      *
@@ -51,7 +49,7 @@ class NewArrayReduceInitialTypeUnitTest extends BaseSniffTest
     }
 
     /**
-     * dataArrayReduceInitialType
+     * Data provider.
      *
      * @see testArrayReduceInitialType()
      *
@@ -72,7 +70,7 @@ class NewArrayReduceInitialTypeUnitTest extends BaseSniffTest
 
 
     /**
-     * testNoFalsePositives
+     * testNoFalsePositives.
      *
      * @return void
      */

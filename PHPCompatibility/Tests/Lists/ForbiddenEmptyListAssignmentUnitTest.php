@@ -13,22 +13,20 @@ namespace PHPCompatibility\Tests\Lists;
 use PHPCompatibility\Tests\BaseSniffTest;
 
 /**
- * Empty list() assignments have been removed in PHP 7.0 sniff test file
+ * Empty list() assignments have been removed in PHP 7.0 sniff tests.
  *
  * @group forbiddenEmptyListAssignment
  * @group lists
  *
  * @covers \PHPCompatibility\Sniffs\Lists\ForbiddenEmptyListAssignmentSniff
  *
- * @uses    \PHPCompatibility\Tests\BaseSniffTest
- * @package PHPCompatibility
- * @author  Wim Godden <wim@cu.be>
+ * @since 7.0.0
  */
 class ForbiddenEmptyListAssignmentUnitTest extends BaseSniffTest
 {
 
     /**
-     * testEmptyListAssignment
+     * testEmptyListAssignment.
      *
      * @dataProvider dataEmptyListAssignment
      *
@@ -43,7 +41,7 @@ class ForbiddenEmptyListAssignmentUnitTest extends BaseSniffTest
     }
 
     /**
-     * dataEmptyListAssignment
+     * Data provider.
      *
      * @see testEmptyListAssignment()
      *
@@ -69,7 +67,7 @@ class ForbiddenEmptyListAssignmentUnitTest extends BaseSniffTest
 
 
     /**
-     * testNoFalsePositives
+     * testNoFalsePositives.
      *
      * @dataProvider dataNoFalsePositives
      *
@@ -84,7 +82,7 @@ class ForbiddenEmptyListAssignmentUnitTest extends BaseSniffTest
     }
 
     /**
-     * dataNoFalsePositives
+     * Data provider.
      *
      * @see testNoFalsePositives()
      *

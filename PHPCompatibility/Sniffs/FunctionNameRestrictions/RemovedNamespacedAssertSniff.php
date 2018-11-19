@@ -14,7 +14,7 @@ use PHPCompatibility\Sniff;
 use PHP_CodeSniffer_File as File;
 
 /**
- * Removed Namespaced Assert.
+ * Detect declaration of namespaced function called assert().
  *
  * As of PHP 7.3, a compile-time deprecation warning will be thrown when a function
  * called `assert()` is declared. In PHP 8 this will become a compile-error.
@@ -25,9 +25,9 @@ use PHP_CodeSniffer_File as File;
  *
  * PHP version 7.3
  *
- * @category PHP
- * @package  PHPCompatibility
- * @author   Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * @link https://wiki.php.net/rfc/deprecations_php_7_3#defining_a_free-standing_assert_function
+ *
+ * @since 9.0.0
  */
 class RemovedNamespacedAssertSniff extends Sniff
 {

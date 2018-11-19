@@ -22,15 +22,13 @@ use PHPCompatibility\Tests\BaseSniffTest;
  * @covers \PHPCompatibility\Sniffs\ParameterValues\NewHashAlgorithmsSniff
  * @covers \PHPCompatibility\Sniff::getHashAlgorithmParameter
  *
- * @uses    \PHPCompatibility\Tests\BaseSniffTest
- * @package PHPCompatibility
- * @author  Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * @since 7.0.7
  */
 class NewHashAlgorithmsUnitTest extends BaseSniffTest
 {
 
     /**
-     * testNewHashAlgorithms
+     * testNewHashAlgorithms.
      *
      * @dataProvider dataNewHashAlgorithms
      *
@@ -83,7 +81,7 @@ class NewHashAlgorithmsUnitTest extends BaseSniffTest
 
 
     /**
-     * testNoFalsePositives
+     * testNoFalsePositives.
      *
      * @dataProvider dataNoFalsePositives
      *

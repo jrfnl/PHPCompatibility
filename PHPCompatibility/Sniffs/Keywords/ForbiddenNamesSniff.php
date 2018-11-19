@@ -15,14 +15,9 @@ use PHP_CodeSniffer_File as File;
 use PHP_CodeSniffer_Tokens as Tokens;
 
 /**
- * \PHPCompatibility\Sniffs\Keywords\ForbiddenNamesSniff.
+ * Detects the use of reserved keywords as class, function, namespace or constant names.
  *
- * Prohibits the use of reserved keywords as class, function, namespace or constant names.
- *
- * @category  PHP
- * @package   PHPCompatibility
- * @author    Wim Godden <wim.godden@cu.be>
- * @copyright 2012 Cu.be Solutions bvba
+ * @since 5.5
  */
 class ForbiddenNamesSniff extends Sniff
 {
@@ -265,7 +260,7 @@ class ForbiddenNamesSniff extends Sniff
          */
         elseif ($tokens[$stackPtr]['type'] === 'T_NAMESPACE') {
             if ($tokens[$stackPtr + 1]['code'] === \T_NS_SEPARATOR) {
-                // Not a namespace declaration, but use of, i.e. namespace\someFunction();
+                // Not a namespace declaration, but use of, i.e. `namespace\someFunction();`.
                 return;
             }
 

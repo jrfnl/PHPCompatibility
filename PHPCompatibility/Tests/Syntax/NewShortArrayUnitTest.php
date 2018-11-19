@@ -20,15 +20,13 @@ use PHPCompatibility\Tests\BaseSniffTest;
  *
  * @covers \PHPCompatibility\Sniffs\Syntax\NewShortArraySniff
  *
- * @uses    \PHPCompatibility\Tests\BaseSniffTest
- * @package PHPCompatibility
- * @author  Alex Miroshnikov <unknown@example.com>
+ * @since 7.0.0
  */
 class NewShortArrayUnitTest extends BaseSniffTest
 {
 
     /**
-     * testViolation
+     * testViolation.
      *
      * @dataProvider dataViolation
      *
@@ -63,7 +61,7 @@ class NewShortArrayUnitTest extends BaseSniffTest
 
 
     /**
-     * testNoFalsePositives
+     * testNoFalsePositives.
      *
      * @dataProvider dataNoFalsePositives
      *

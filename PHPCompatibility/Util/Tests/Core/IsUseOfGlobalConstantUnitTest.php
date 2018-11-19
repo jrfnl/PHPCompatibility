@@ -13,20 +13,20 @@ namespace PHPCompatibility\Util\Tests\Core;
 use PHPCompatibility\Util\Tests\CoreMethodTestFrame;
 
 /**
- * isUseOfGlobalConstant() function tests
+ * Is use of global constant ? tests.
+ *
+ * isUseOfGlobalConstant() function tests.
  *
  * @group utilityIsUseOfGlobalConstant
  * @group utilityFunctions
  *
- * @uses    \PHPCompatibility\Util\Tests\CoreMethodTestFrame
- * @package PHPCompatibility
- * @author  Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * @since 8.1.0
  */
 class IsUseOfGlobalConstantUnitTest extends CoreMethodTestFrame
 {
 
     /**
-     * testIsUseOfGlobalConstant
+     * testIsUseOfGlobalConstant.
      *
      * @dataProvider dataIsUseOfGlobalConstant
      *
@@ -45,7 +45,7 @@ class IsUseOfGlobalConstantUnitTest extends CoreMethodTestFrame
     }
 
     /**
-     * dataIsUseOfGlobalConstant
+     * Data provider.
      *
      * @see testIsUseOfGlobalConstant()
      *

@@ -15,6 +15,8 @@ use PHP_CodeSniffer_File as File;
 use PHP_CodeSniffer_Tokens as Tokens;
 
 /**
+ * Detect array and string literal dereferencing.
+ *
  * As of PHP 5.5, array and string literals can now be dereferenced directly to
  * access individual elements and characters.
  *
@@ -26,10 +28,12 @@ use PHP_CodeSniffer_Tokens as Tokens;
  *
  * @link https://wiki.php.net/rfc/constdereference
  * @link https://wiki.php.net/rfc/uniform_variable_syntax
+ * @link http://php.net/manual/en/migration55.new-features.php#migration55.new-features.const-dereferencing
  *
  * @internal The reason for splitting the logic of this sniff into different methods is
  *           to allow re-use of the logic by the PHP 7.4 RemovedCurlyBraceArrayAccess sniff.
  *
+ * @since 7.1.4
  * @since 9.3.0 Now also detects dereferencing using curly braces.
  */
 class NewArrayStringDereferencingSniff extends Sniff

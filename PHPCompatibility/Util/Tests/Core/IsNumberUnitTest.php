@@ -13,20 +13,20 @@ namespace PHPCompatibility\Util\Tests\Core;
 use PHPCompatibility\Util\Tests\CoreMethodTestFrame;
 
 /**
- * isNumber(), isPositiveNumber() and isNegativeNumber() function tests
+ * Will a certain token combination be recognized as a number by PHP ?
+ *
+ * isNumber(), isPositiveNumber() and isNegativeNumber() function tests.
  *
  * @group utilityIsNumber
  * @group utilityFunctions
  *
- * @uses    \PHPCompatibility\Util\Tests\CoreMethodTestFrame
- * @package PHPCompatibility
- * @author  Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * @since 8.2.0
  */
 class IsNumberUnitTest extends CoreMethodTestFrame
 {
 
     /**
-     * testIsNumber
+     * testIsNumber.
      *
      * @dataProvider dataIsNumber
      *
@@ -58,7 +58,7 @@ class IsNumberUnitTest extends CoreMethodTestFrame
     }
 
     /**
-     * dataIsNumber
+     * Data provider.
      *
      * @see testIsNumber()
      *

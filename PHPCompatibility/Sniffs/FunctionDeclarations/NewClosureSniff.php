@@ -15,15 +15,26 @@ use PHP_CodeSniffer_File as File;
 use PHP_CodeSniffer_Tokens as Tokens;
 
 /**
- * \PHPCompatibility\Sniffs\FunctionDeclarations\NewClosure.
+ * Detect closures and verify that features used within the closure are supported.
  *
- * Closures are available since PHP 5.3
+ * Version based checks:
+ * - Closures are available since PHP 5.3.
+ * - Closures can be declared as `static` since PHP 5.4.
+ * - Closures can use the `$this` variable within a class context since PHP 5.4.
+ * - Closures can use self/parent/static since PHP 5.4.
+ *
+ * Version independent checks:
+ * - Static closures don't have access to the $this variable.
+ * - Closures declared outside of a class context don't have access to the $this
+ *   variable unless bound to an object.
  *
  * PHP version 5.3
+ * PHP version 5.4
  *
- * @category PHP
- * @package  PHPCompatibility
- * @author   Wim Godden <wim@cu.be>
+ * @link https://wiki.php.net/rfc/closures
+ * @link https://wiki.php.net/rfc/closures/object-extension
+ *
+ * @since 7.0.0
  */
 class NewClosureSniff extends Sniff
 {

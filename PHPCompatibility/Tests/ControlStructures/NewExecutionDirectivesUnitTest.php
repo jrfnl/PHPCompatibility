@@ -13,22 +13,20 @@ namespace PHPCompatibility\Tests\ControlStructures;
 use PHPCompatibility\Tests\BaseSniffTest;
 
 /**
- * New execution directives test file
+ * Test the NewExecutionDirectives Sniff.
  *
  * @group newExecutionDirectives
  * @group controlStructures
  *
  * @covers \PHPCompatibility\Sniffs\ControlStructures\NewExecutionDirectivesSniff
  *
- * @uses    \PHPCompatibility\Tests\BaseSniffTest
- * @package PHPCompatibility
- * @author  Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * @since 7.0.3
  */
 class NewExecutionDirectivesUnitTest extends BaseSniffTest
 {
 
     /**
-     * Sniffed file
+     * Sniffed file.
      *
      * @var \PHP_CodeSniffer_File
      */
@@ -48,7 +46,7 @@ class NewExecutionDirectivesUnitTest extends BaseSniffTest
     }
 
     /**
-     * testNewExecutionDirective
+     * testNewExecutionDirective.
      *
      * @dataProvider dataNewExecutionDirective
      *
@@ -101,7 +99,7 @@ class NewExecutionDirectivesUnitTest extends BaseSniffTest
 
 
     /**
-     * testInvalidDirectiveValue
+     * testInvalidDirectiveValue.
      *
      * @dataProvider dataInvalidDirectiveValue
      *
@@ -118,7 +116,7 @@ class NewExecutionDirectivesUnitTest extends BaseSniffTest
     }
 
     /**
-     * dataInvalidDirectiveValue
+     * Data provider.
      *
      * @see testInvalidDirectiveValue()
      *
@@ -134,7 +132,7 @@ class NewExecutionDirectivesUnitTest extends BaseSniffTest
 
 
     /**
-     * testInvalidEncodingDirectiveValue
+     * testInvalidEncodingDirectiveValue.
      *
      * @requires function mb_list_encodings
      *
@@ -153,7 +151,7 @@ class NewExecutionDirectivesUnitTest extends BaseSniffTest
     }
 
     /**
-     * dataInvalidEncodingDirectiveValue
+     * Data provider.
      *
      * @see testInvalidEncodingDirectiveValue()
      *
@@ -168,7 +166,7 @@ class NewExecutionDirectivesUnitTest extends BaseSniffTest
 
 
     /**
-     * testInvalidDirective
+     * testInvalidDirective.
      *
      * @return void
      */
@@ -180,7 +178,7 @@ class NewExecutionDirectivesUnitTest extends BaseSniffTest
 
 
     /**
-     * testIncompleteDirective
+     * testIncompleteDirective.
      *
      * @return void
      */

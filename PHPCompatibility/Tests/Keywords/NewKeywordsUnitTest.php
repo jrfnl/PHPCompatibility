@@ -13,22 +13,20 @@ namespace PHPCompatibility\Tests\Keywords;
 use PHPCompatibility\Tests\BaseSniffTest;
 
 /**
- * New keywords sniff tests
+ * New keywords sniff tests.
  *
  * @group newKeywords
  * @group keywords
  *
  * @covers \PHPCompatibility\Sniffs\Keywords\NewKeywordsSniff
  *
- * @uses    \PHPCompatibility\Tests\BaseSniffTest
- * @package PHPCompatibility
- * @author  Jansen Price <jansen.price@gmail.com>
+ * @since 5.5
  */
 class NewKeywordsUnitTest extends BaseSniffTest
 {
 
     /**
-     * Test allow_url_include
+     * Test allow_url_include.
      *
      * @return void
      */
@@ -44,7 +42,7 @@ class NewKeywordsUnitTest extends BaseSniffTest
     }
 
     /**
-     * Test insteadof
+     * Test insteadof.
      *
      * @return void
      */
@@ -60,7 +58,7 @@ class NewKeywordsUnitTest extends BaseSniffTest
     }
 
     /**
-     * Test namespace keyword
+     * Test namespace keyword.
      *
      * @return void
      */
@@ -85,7 +83,7 @@ class NewKeywordsUnitTest extends BaseSniffTest
     }
 
     /**
-     * testNamespaceConstant
+     * testNamespaceConstant.
      *
      * @return void
      */
@@ -99,7 +97,7 @@ class NewKeywordsUnitTest extends BaseSniffTest
     }
 
     /**
-     * Test trait keyword
+     * Test trait keyword.
      *
      * @return void
      */
@@ -115,7 +113,7 @@ class NewKeywordsUnitTest extends BaseSniffTest
     }
 
     /**
-     * Test trait magic constant
+     * Test trait magic constant.
      *
      * @return void
      */
@@ -129,7 +127,7 @@ class NewKeywordsUnitTest extends BaseSniffTest
     }
 
     /**
-     * Test the use keyword
+     * Test the use keyword.
      *
      * @return void
      */
@@ -143,7 +141,7 @@ class NewKeywordsUnitTest extends BaseSniffTest
     }
 
     /**
-     * Test yield
+     * Test yield.
      *
      * @dataProvider dataYield
      *
@@ -187,7 +185,7 @@ class NewKeywordsUnitTest extends BaseSniffTest
     }
 
     /**
-     * Test yield from
+     * Test yield from.
      *
      * @dataProvider dataYieldFrom
      *
@@ -220,7 +218,7 @@ class NewKeywordsUnitTest extends BaseSniffTest
     }
 
     /**
-     * testFinally
+     * testFinally.
      *
      * @return void
      */
@@ -236,7 +234,7 @@ class NewKeywordsUnitTest extends BaseSniffTest
     }
 
     /**
-     * testConst
+     * testConst.
      *
      * @dataProvider dataConst
      *
@@ -272,7 +270,7 @@ class NewKeywordsUnitTest extends BaseSniffTest
 
 
     /**
-     * testConstNoFalsePositives
+     * testConstNoFalsePositives.
      *
      * @dataProvider dataConstNoFalsePositives
      *
@@ -307,7 +305,7 @@ class NewKeywordsUnitTest extends BaseSniffTest
 
 
     /**
-     * testCallable
+     * testCallable.
      *
      * @return void
      */
@@ -321,7 +319,7 @@ class NewKeywordsUnitTest extends BaseSniffTest
     }
 
     /**
-     * testGoto
+     * testGoto.
      *
      * @return void
      */
@@ -335,7 +333,7 @@ class NewKeywordsUnitTest extends BaseSniffTest
     }
 
     /**
-     * testNowdoc
+     * testNowdoc.
      *
      * @return void
      */
@@ -351,7 +349,7 @@ class NewKeywordsUnitTest extends BaseSniffTest
     }
 
     /**
-     * testQuotedHeredoc
+     * testQuotedHeredoc.
      *
      * @return void
      */
@@ -365,7 +363,7 @@ class NewKeywordsUnitTest extends BaseSniffTest
     }
 
     /**
-     * testQuotedHeredocNoFalsePositives
+     * testQuotedHeredocNoFalsePositives.
      *
      * @return void
      */
@@ -376,7 +374,7 @@ class NewKeywordsUnitTest extends BaseSniffTest
     }
 
     /**
-     * testHaltCompiler
+     * testHaltCompiler.
      *
      * @return void
      */

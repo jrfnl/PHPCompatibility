@@ -143,27 +143,63 @@
     </rule>
 
     <!-- No need to be as strict about comment punctuation for the unit tests. -->
+<!--
     <rule ref="Generic.Commenting.DocComment.ShortNotCapital">
         <exclude-pattern>*/PHPCompatibility/Tests/*\.php</exclude-pattern>
         <exclude-pattern>*/PHPCompatibility/Util/Tests/*\.php</exclude-pattern>
     </rule>
-
+-->
 
     <rule ref="PEAR.Commenting">
         <!-- Exclude some PEAR specific tag requirements. -->
         <exclude name="PEAR.Commenting.FileComment.MissingAuthorTag" />
         <exclude name="PEAR.Commenting.FileComment.MissingCategoryTag" />
         <exclude name="PEAR.Commenting.FileComment.MissingVersion" />
-        <exclude name="PEAR.Commenting.ClassComment.MissingLicenseTag" />
-        <exclude name="PEAR.Commenting.ClassComment.MissingLinkTag" />
+<!-- TEMP !!!! -->
+        <exclude name="PEAR.Commenting.FileComment.MissingSinceTag" />
 
+        <exclude name="PEAR.Commenting.ClassComment.MissingAuthorTag" />
+        <exclude name="PEAR.Commenting.ClassComment.MissingCategoryTag" />
+        <exclude name="PEAR.Commenting.ClassComment.MissingPackageTag" />
+<!--
+        <exclude name="PEAR.Commenting.ClassComment.MissingVersion" />
+-->
+        <exclude name="PEAR.Commenting.ClassComment.MissingLicenseTag" />
+<!--
+        <exclude name="PEAR.Commenting.ClassComment.MissingLinkTag" />
+-->
         <!-- Having a @see or @internal tag before the @category tag is fine. -->
+<!--
         <exclude name="PEAR.Commenting.ClassComment.CategoryTagOrder"/>
+-->
+   		<exclude name="PEAR.Commenting.ClassComment.DuplicateSinceTag"/>
+    </rule>
+<!--    <rule ref="Squiz.Commenting.ClassComment"/>-->
+    <rule ref="Squiz.Commenting.DocCommentAlignment"/>
+    <rule ref="Squiz.Commenting.InlineComment"/>
+    <rule ref="Squiz.Commenting.FunctionComment">
+        <exclude name="Squiz.Commenting.FunctionComment.ScalarTypeHintMissing"/>
+        <exclude name="Squiz.Commenting.FunctionComment.TypeHintMissing"/>
+        <exclude name="Squiz.Commenting.FunctionComment.IncorrectParamVarName"/>
+        <exclude name="Squiz.Commenting.FunctionComment.InvalidReturn"/>
+    </rule>
+    <rule ref="Squiz.Commenting.FunctionCommentThrowTag"/>
+    <rule ref="Squiz.Commenting.VariableComment">
+        <exclude name="Squiz.Commenting.VariableComment.VarOrder"/>
+        <exclude name="Squiz.Commenting.VariableComment.TagNotAllowed"/>
     </rule>
 
     <!-- No need to be as strict about file and class comment tags for the unit tests. -->
-    <rule ref="PEAR.Commenting.ClassComment.MissingCategoryTag">
+
+    <rule ref="PEAR.Commenting.ClassComment.MissingLinkTag">
+<!--
+33
+        <include-pattern>*/PHPCompatibility/Sniffs*\.php</include-pattern>
+-->
+<!--
+40 -->
         <exclude-pattern>*/phpunit-bootstrap\.php</exclude-pattern>
+        <exclude-pattern>*/PHPCompatibility/[^/]+\.php</exclude-pattern>
         <exclude-pattern>*/PHPCompatibility/Tests/*\.php</exclude-pattern>
         <exclude-pattern>*/PHPCompatibility/Util/Tests/*\.php</exclude-pattern>
     </rule>

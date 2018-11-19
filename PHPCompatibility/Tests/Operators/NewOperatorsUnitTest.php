@@ -13,22 +13,21 @@ namespace PHPCompatibility\Tests\Operators;
 use PHPCompatibility\Tests\BaseSniffTest;
 
 /**
- * New operators sniff tests
+ * New operators sniff tests.
  *
  * @group newOperators
  * @group operators
  *
  * @covers \PHPCompatibility\Sniffs\Operators\NewOperatorsSniff
  *
- * @uses    \PHPCompatibility\Tests\BaseSniffTest
- * @package PHPCompatibility
- * @author  Jansen Price <jansen.price@gmail.com>
+ * @since 9.0.0 Detection of new operators was originally included in the
+ *              NewLanguageConstructSniff (since 5.6).
  */
 class NewOperatorsUnitTest extends BaseSniffTest
 {
 
     /**
-     * testPow
+     * testPow.
      *
      * @return void
      */
@@ -42,7 +41,7 @@ class NewOperatorsUnitTest extends BaseSniffTest
     }
 
     /**
-     * testPowEquals
+     * testPowEquals.
      *
      * @return void
      */
@@ -56,7 +55,7 @@ class NewOperatorsUnitTest extends BaseSniffTest
     }
 
     /**
-     * testSpaceship
+     * testSpaceship.
      *
      * @return void
      */
@@ -70,7 +69,7 @@ class NewOperatorsUnitTest extends BaseSniffTest
     }
 
     /**
-     * Coalescing operator
+     * Coalescing operator.
      *
      * @return void
      */
@@ -84,7 +83,7 @@ class NewOperatorsUnitTest extends BaseSniffTest
     }
 
     /**
-     * Coalesce equal operator
+     * Coalesce equal operator.
      *
      * @return void
      */

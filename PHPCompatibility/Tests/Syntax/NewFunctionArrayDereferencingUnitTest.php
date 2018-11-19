@@ -13,22 +13,20 @@ namespace PHPCompatibility\Tests\Syntax;
 use PHPCompatibility\Tests\BaseSniffTest;
 
 /**
- * New function array dereferencing sniff tests
+ * New function array dereferencing sniff tests.
  *
  * @group newFunctionArrayDereferencing
  * @group syntax
  *
  * @covers \PHPCompatibility\Sniffs\Syntax\NewFunctionArrayDereferencingSniff
  *
- * @uses    \PHPCompatibility\Tests\BaseSniffTest
- * @package PHPCompatibility
- * @author  Wim Godden <wim@cu.be>
+ * @since 7.0.0
  */
 class NewFunctionArrayDereferencingUnitTest extends BaseSniffTest
 {
 
     /**
-     * testArrayDereferencing
+     * testArrayDereferencing.
      *
      * @dataProvider dataArrayDereferencing
      *
@@ -50,7 +48,7 @@ class NewFunctionArrayDereferencingUnitTest extends BaseSniffTest
     }
 
     /**
-     * dataArrayDereferencing
+     * Data provider.
      *
      * @see testArrayDereferencing()
      *
@@ -105,7 +103,7 @@ class NewFunctionArrayDereferencingUnitTest extends BaseSniffTest
 
 
     /**
-     * testNoFalsePositives
+     * testNoFalsePositives.
      *
      * @dataProvider dataNoFalsePositives
      *
@@ -120,7 +118,7 @@ class NewFunctionArrayDereferencingUnitTest extends BaseSniffTest
     }
 
     /**
-     * dataNoFalsePositives
+     * Data provider.
      *
      * @see testNoFalsePositives()
      *

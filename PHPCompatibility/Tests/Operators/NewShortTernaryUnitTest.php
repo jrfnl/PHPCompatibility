@@ -13,22 +13,20 @@ namespace PHPCompatibility\Tests\Operators;
 use PHPCompatibility\Tests\BaseSniffTest;
 
 /**
- * New Short Ternary Sniff tests
+ * New Short Ternary Sniff tests.
  *
  * @group newShortTernary
  * @group operators
  *
  * @covers \PHPCompatibility\Sniffs\Operators\NewShortTernarySniff
  *
- * @uses    \PHPCompatibility\Tests\BaseSniffTest
- * @package PHPCompatibility
- * @author  Jansen Price <jansen.price@gmail.com>
+ * @since 7.0.0
  */
 class NewShortTernaryUnitTest extends BaseSniffTest
 {
 
     /**
-     * testElvisOperator
+     * testElvisOperator.
      *
      * @dataProvider dataElvisOperator
      *
@@ -44,7 +42,7 @@ class NewShortTernaryUnitTest extends BaseSniffTest
 
 
     /**
-     * dataElvisOperator
+     * Data provider.
      *
      * @see testElvisOperator()
      *

@@ -23,9 +23,9 @@ use PHP_CodeSniffer_Tokens as Tokens;
  *
  * PHP version 7.1
  *
- * @category PHP
- * @package  PHPCompatibility
- * @author   Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * @link http://php.net/manual/en/migration71.incompatible.php#migration71.incompatible.lexical-names
+ *
+ * @since 7.1.4
  */
 class ForbiddenVariableNamesInClosureUseSniff extends Sniff
 {

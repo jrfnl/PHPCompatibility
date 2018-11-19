@@ -13,16 +13,14 @@ namespace PHPCompatibility\Tests\Miscellaneous;
 use PHPCompatibility\Tests\BaseSniffTest;
 
 /**
- * Removed alternative PHP tags sniff test file
+ * Removed alternative PHP tags sniff tests.
  *
  * @group removedAlternativePHPTags
  * @group miscellaneous
  *
  * @covers \PHPCompatibility\Sniffs\Miscellaneous\RemovedAlternativePHPTagsSniff
  *
- * @uses    \PHPCompatibility\Tests\BaseSniffTest
- * @package PHPCompatibility
- * @author  Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * @since 7.0.4
  */
 class RemovedAlternativePHPTagsUnitTest extends BaseSniffTest
 {
@@ -52,7 +50,7 @@ class RemovedAlternativePHPTagsUnitTest extends BaseSniffTest
 
 
     /**
-     * testAlternativePHPTags
+     * testAlternativePHPTags.
      *
      * @dataProvider dataAlternativePHPTags
      *
@@ -96,7 +94,7 @@ class RemovedAlternativePHPTagsUnitTest extends BaseSniffTest
 
 
     /**
-     * testMaybeASPOpenTag
+     * testMaybeASPOpenTag.
      *
      * @dataProvider dataMaybeASPOpenTag
      *
@@ -136,7 +134,7 @@ class RemovedAlternativePHPTagsUnitTest extends BaseSniffTest
 
 
     /**
-     * testNoFalsePositives
+     * testNoFalsePositives.
      *
      * @dataProvider dataNoFalsePositives
      *

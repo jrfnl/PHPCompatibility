@@ -13,20 +13,20 @@ namespace PHPCompatibility\Util\Tests\Core;
 use PHPCompatibility\Util\Tests\CoreMethodTestFrame;
 
 /**
+ * Is class constant ? tests.
+ *
  * isClassConstant() function tests
  *
  * @group utilityIsClassConstant
  * @group utilityFunctions
  *
- * @uses    \PHPCompatibility\Util\Tests\CoreMethodTestFrame
- * @package PHPCompatibility
- * @author  Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * @since 7.1.4
  */
 class IsClassConstantUnitTest extends CoreMethodTestFrame
 {
 
     /**
-     * testIsClassConstant
+     * testIsClassConstant.
      *
      * @dataProvider dataIsClassConstant
      *
@@ -46,7 +46,7 @@ class IsClassConstantUnitTest extends CoreMethodTestFrame
     }
 
     /**
-     * dataIsClassConstant
+     * Data provider.
      *
      * @see testIsClassConstant()
      *

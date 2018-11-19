@@ -14,13 +14,14 @@ use PHPCompatibility\AbstractFunctionCallParameterSniff;
 use PHP_CodeSniffer_File as File;
 
 /**
- * \PHPCompatibility\Sniffs\ParameterValues\NewArrayReduceInitialTypeSniff.
+ * In PHP 5.2 and lower, the $initial parameter for array_reduce() had to be an integer.
  *
- * Detect: In PHP 5.2 and lower, the $initial parameter had to be an integer.
+ * PHP version 5.3
  *
- * @category PHP
- * @package  PHPCompatibility
- * @author   Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * @link http://php.net/manual/en/function.array-reduce.php#refsect1-function.array-reduce-changelog
+ * @link http://php.net/manual/en/migration53.other.php#migration53.other
+ *
+ * @since 9.0.0
  */
 class NewArrayReduceInitialTypeSniff extends AbstractFunctionCallParameterSniff
 {

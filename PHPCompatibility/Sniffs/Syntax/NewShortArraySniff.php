@@ -14,15 +14,14 @@ use PHPCompatibility\Sniff;
 use PHP_CodeSniffer_File as File;
 
 /**
- * \PHPCompatibility\Sniffs\Syntax\NewShortArray.
- *
- * Short array syntax is available since PHP 5.4
+ * Detect use of short array syntax which is available since PHP 5.4.
  *
  * PHP version 5.4
  *
- * @category PHP
- * @package  PHPCompatibility
- * @author   Alex Miroshnikov <unknown@example.com>
+ * @link https://wiki.php.net/rfc/shortsyntaxforarrays
+ *
+ * @since 7.0.0
+ * @since 9.0.0 Renamed from `ShortArraySniff` to `NewShortArraySniff`.
  */
 class NewShortArraySniff extends Sniff
 {

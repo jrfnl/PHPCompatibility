@@ -13,22 +13,20 @@ namespace PHPCompatibility\Tests\Lists;
 use PHPCompatibility\Tests\BaseSniffTest;
 
 /**
- * PHP 7.1 keyed lists sniff test file.
+ * PHP 7.1 keyed lists sniff tests.
  *
  * @group newKeyedList
  * @group lists
  *
  * @covers \PHPCompatibility\Sniffs\Lists\NewKeyedListSniff
  *
- * @uses    \PHPCompatibility\Tests\BaseSniffTest
- * @package PHPCompatibility
- * @author  Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * @since 9.0.0
  */
 class NewKeyedListUnitTest extends BaseSniffTest
 {
 
     /**
-     * testNewKeyedList
+     * testNewKeyedList.
      *
      * @dataProvider dataNewKeyedList
      *
@@ -43,7 +41,7 @@ class NewKeyedListUnitTest extends BaseSniffTest
     }
 
     /**
-     * dataNewKeyedList
+     * Data provider.
      *
      * @see testNewKeyedList()
      *
@@ -77,7 +75,7 @@ class NewKeyedListUnitTest extends BaseSniffTest
 
 
     /**
-     * testNoFalsePositives
+     * testNoFalsePositives.
      *
      * @dataProvider dataNoFalsePositives
      *
@@ -92,7 +90,7 @@ class NewKeyedListUnitTest extends BaseSniffTest
     }
 
     /**
-     * dataNoFalsePositives
+     * Data provider.
      *
      * @see testNoFalsePositives()
      *

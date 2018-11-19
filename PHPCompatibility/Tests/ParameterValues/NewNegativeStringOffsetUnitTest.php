@@ -20,15 +20,13 @@ use PHPCompatibility\Tests\BaseSniffTest;
  *
  * @covers \PHPCompatibility\Sniffs\ParameterValues\NewNegativeStringOffsetSniff
  *
- * @uses    \PHPCompatibility\Tests\BaseSniffTest
- * @package PHPCompatibility
- * @author  Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * @since 9.0.0
  */
 class NewNegativeStringOffsetUnitTest extends BaseSniffTest
 {
 
     /**
-     * testNegativeStringOffset
+     * testNegativeStringOffset.
      *
      * @dataProvider dataNegativeStringOffset
      *
@@ -50,7 +48,7 @@ class NewNegativeStringOffsetUnitTest extends BaseSniffTest
     }
 
     /**
-     * dataNegativeStringOffset
+     * Data provider.
      *
      * @see testNegativeStringOffset()
      *
@@ -81,7 +79,7 @@ class NewNegativeStringOffsetUnitTest extends BaseSniffTest
 
 
     /**
-     * testNoFalsePositives
+     * testNoFalsePositives.
      *
      * @return void
      */

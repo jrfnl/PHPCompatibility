@@ -13,22 +13,20 @@ namespace PHPCompatibility\Tests\Syntax;
 use PHPCompatibility\Tests\BaseSniffTest;
 
 /**
- * Removed new reference sniff tests
+ * Removed new reference sniff tests.
  *
  * @group removedNewReference
  * @group syntax
  *
  * @covers \PHPCompatibility\Sniffs\Syntax\RemovedNewReferenceSniff
  *
- * @uses    \PHPCompatibility\Tests\BaseSniffTest
- * @package PHPCompatibility
- * @author  Jansen Price <jansen.price@gmail.com>
+ * @since 5.5
  */
 class RemovedNewReferenceUnitTest extends BaseSniffTest
 {
 
     /**
-     * testDeprecatedNewReference
+     * testDeprecatedNewReference.
      *
      * @dataProvider dataDeprecatedNewReference
      *
@@ -64,7 +62,7 @@ class RemovedNewReferenceUnitTest extends BaseSniffTest
 
 
     /**
-     * testNoFalsePositives
+     * testNoFalsePositives.
      *
      * @return void
      */

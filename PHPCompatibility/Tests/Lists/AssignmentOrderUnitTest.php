@@ -13,22 +13,20 @@ namespace PHPCompatibility\Tests\Lists;
 use PHPCompatibility\Tests\BaseSniffTest;
 
 /**
- * PHP 7.0 assignment order change sniff test file.
+ * PHP 7.0 list assignment order change sniff tests.
  *
  * @group assignmentOrder
  * @group lists
  *
  * @covers \PHPCompatibility\Sniffs\Lists\AssignmentOrderSniff
  *
- * @uses    \PHPCompatibility\Tests\BaseSniffTest
- * @package PHPCompatibility
- * @author  Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * @since 9.0.0
  */
 class AssignmentOrderUnitTest extends BaseSniffTest
 {
 
     /**
-     * testAssignmentOrder
+     * testAssignmentOrder.
      *
      * @dataProvider dataAssignmentOrder
      *
@@ -43,7 +41,7 @@ class AssignmentOrderUnitTest extends BaseSniffTest
     }
 
     /**
-     * dataAssignmentOrder
+     * Data provider.
      *
      * @see testAssignmentOrder()
      *
@@ -72,7 +70,7 @@ class AssignmentOrderUnitTest extends BaseSniffTest
 
 
     /**
-     * testNoFalsePositives
+     * testNoFalsePositives.
      *
      * @dataProvider dataNoFalsePositives
      *
@@ -87,7 +85,7 @@ class AssignmentOrderUnitTest extends BaseSniffTest
     }
 
     /**
-     * dataNoFalsePositives
+     * Data provider.
      *
      * @see testNoFalsePositives()
      *

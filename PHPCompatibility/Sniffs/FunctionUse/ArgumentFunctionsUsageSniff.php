@@ -15,10 +15,10 @@ use PHP_CodeSniffer_File as File;
 use PHP_CodeSniffer_Tokens as Tokens;
 
 /**
- * \PHPCompatibility\Sniffs\FunctionUse\ArgumentFunctionsUsageSniff.
+ * Detect usage of func_get_args(), func_get_arg() and func_num_args().
  *
+ * Checks for:
  * - Prior to PHP 5.3, these functions could not be used as a function call parameter.
- *
  * - Calling these functions from the outermost scope of a file which has been included by
  *   calling `include` or `require` from within a function in the calling file, worked
  *   prior to PHP 5.3. As of PHP 5.3, this will generate a warning and will always return false/-1.
@@ -27,9 +27,9 @@ use PHP_CodeSniffer_Tokens as Tokens;
  *
  * PHP version 5.3
  *
- * @category PHP
- * @package  PHPCompatibility
- * @author   Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * @link http://php.net/manual/en/migration53.incompatible.php
+ *
+ * @since 8.2.0
  */
 class ArgumentFunctionsUsageSniff extends Sniff
 {

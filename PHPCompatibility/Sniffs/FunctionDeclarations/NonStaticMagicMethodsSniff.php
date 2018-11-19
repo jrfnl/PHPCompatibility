@@ -14,16 +14,17 @@ use PHPCompatibility\Sniff;
 use PHP_CodeSniffer_File as File;
 
 /**
- * \PHPCompatibility\Sniffs\FunctionDeclarations\NonStaticMagicMethodsSniff.
- *
  * Verifies the use of the correct visibility and static properties of magic methods.
+ *
+ * The requirements have always existed, but as of PHP 5.3, a warning will be thrown
+ * when magic method have the wrong properties.
  *
  * PHP version 5.3
  *
- * @category  PHP
- * @package   PHPCompatibility
- * @author    Wim Godden <wim.godden@cu.be>
- * @copyright 2012 Cu.be Solutions bvba
+ * @link http://php.net/manual/en/language.oop5.magic.php
+ *
+ * @since 5.5
+ * @since 5.6 Now extends the base Sniff class.
  */
 class NonStaticMagicMethodsSniff extends Sniff
 {

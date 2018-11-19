@@ -57,7 +57,7 @@ class PHPCSHelper
     /**
      * Pass config data to PHPCS.
      *
-     * PHPCS cross-version compatibility helper.
+     * @since 8.0.0
      *
      * @param string      $key   The name of the config value.
      * @param string|null $value The value to set. If null, the config entry
