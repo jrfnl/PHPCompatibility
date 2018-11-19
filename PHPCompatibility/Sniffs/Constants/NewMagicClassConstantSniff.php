@@ -15,16 +15,17 @@ use PHP_CodeSniffer_File as File;
 use PHP_CodeSniffer_Tokens as Tokens;
 
 /**
- * \PHPCompatibility\Sniffs\Constants\NewMagicClassConstantSniff.
+ * Detect usage of the magic ::class constant introduced in PHP 5.5.
  *
  * The special ClassName::class constant is available as of PHP 5.5.0, and allows for
- * fully qualified class name resolution at compile.
+ * fully qualified class name resolution at compile time.
  *
  * PHP version 5.5
  *
- * @category PHP
- * @package  PHPCompatibility
- * @author   Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * @link https://wiki.php.net/rfc/class_name_scalars
+ *
+ * @since 7.1.4
+ * @since 7.1.5 Removed the incorrect checks against invalid usage of the constant.
  */
 class NewMagicClassConstantSniff extends Sniff
 {

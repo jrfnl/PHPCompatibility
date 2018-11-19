@@ -14,13 +14,16 @@ use PHPCompatibility\Sniff;
 use PHP_CodeSniffer_File as File;
 
 /**
- * \PHPCompatibility\Sniffs\FunctionNameRestrictions\RemovedMagicAutoloadSniff.
+ * Detect declaration of the magic __autoload() method.
+ *
+ * This method has been deprecated in PHP 7.2 in favour of spl_autoload_register().
  *
  * PHP version 7.2
  *
- * @category PHP
- * @package  PHPCompatibility
- * @author   Wim Godden <wim.godden@cu.be>
+ * @link https://wiki.php.net/rfc/deprecations_php_7_2#autoload
+ *
+ * @since 8.1.0
+ * @since 9.0.0 Renamed from `DeprecatedMagicAutoloadSniff` to `RemovedMagicAutoloadSniff`.
  */
 class RemovedMagicAutoloadSniff extends Sniff
 {

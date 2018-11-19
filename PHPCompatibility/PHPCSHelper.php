@@ -15,8 +15,6 @@ use PHP_CodeSniffer_File as File;
 use PHP_CodeSniffer_Tokens as Tokens;
 
 /**
- * \PHPCompatibility\PHPCSHelper
- *
  * PHPCS cross-version compatibility helper class.
  *
  * A number of PHPCS classes were split up into several classes in PHPCS 3.x
@@ -24,9 +22,15 @@ use PHP_CodeSniffer_Tokens as Tokens;
  * This class provides helper methods for functions which were contained in
  * one of these classes and which are used within the PHPCompatibility library.
  *
- * @category PHP
- * @package  PHPCompatibility
- * @author   Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * Additionally, this class contains some duplicates of PHPCS native methods.
+ * These methods have received bug fixes or improved functionality between the
+ * lowest supported PHPCS version and the latest PHPCS stable version and
+ * to provide the same results cross-version, PHPCompatibility needs to use
+ * the up-to-date versions of these methods.
+ *
+ * @since 8.0.0
+ * @since 8.2.0 The duplicate PHPCS methods have been moved from the `Sniff`
+ *              base class to this class.
  */
 class PHPCSHelper
 {

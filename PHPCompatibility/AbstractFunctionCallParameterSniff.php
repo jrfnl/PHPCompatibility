@@ -15,13 +15,9 @@ use PHP_CodeSniffer_File as File;
 use PHP_CodeSniffer_Tokens as Tokens;
 
 /**
- * \PHPCompatibility\AbstractFunctionCallParameterSniff.
- *
  * Abstract class to use as a base for examining the parameter values passed to function calls.
  *
- * @category PHP
- * @package  PHPCompatibility
- * @author   Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * @since 8.2.0
  */
 abstract class AbstractFunctionCallParameterSniff extends Sniff
 {

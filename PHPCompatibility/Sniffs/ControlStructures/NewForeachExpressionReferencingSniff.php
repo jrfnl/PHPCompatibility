@@ -14,16 +14,16 @@ use PHPCompatibility\Sniff;
 use PHP_CodeSniffer_File as File;
 
 /**
- * New `foreach` Expression Referencing.
+ * Detect `foreach` expression referencing.
  *
- * Before PHP 5.5.0, referencing $value is only possible if the iterated array
- * can be referenced (i.e. if it is a variable).
+ * Before PHP 5.5.0, referencing $value in a foreach was only possible
+ * if the iterated array could be referenced (i.e. if it is a variable).
  *
  * PHP version 5.5
  *
- * @category PHP
- * @package  PHPCompatibility
- * @author   Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * @link http://php.net/manual/en/control-structures.foreach.php
+ *
+ * @since 9.0.0
  */
 class NewForeachExpressionReferencingSniff extends Sniff
 {

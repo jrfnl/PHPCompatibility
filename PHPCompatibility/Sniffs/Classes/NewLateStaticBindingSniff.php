@@ -15,13 +15,19 @@ use PHP_CodeSniffer_File as File;
 use PHP_CodeSniffer_Tokens as Tokens;
 
 /**
- * \PHPCompatibility\Sniffs\Classes\NewLateStaticBindingSniff.
+ * Detect usage of late static binding as introduced in PHP 5.3.
+ *
+ * Checks for:
+ * - Late static binding as introduced in PHP 5.3.
+ * - Late static binding being used outside of class scope (unsupported).
  *
  * PHP version 5.3
  *
- * @category PHP
- * @package  PHPCompatibility
- * @author   Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * @link https://wiki.php.net/rfc/lsb_parentself_forwarding
+ * @link http://php.net/manual/en/language.oop5.late-static-bindings.php
+ *
+ * @since 7.0.3
+ * @since 9.0.0 Renamed from `LateStaticBindingSniff` to `NewLateStaticBindingSniff`.
  */
 class NewLateStaticBindingSniff extends Sniff
 {

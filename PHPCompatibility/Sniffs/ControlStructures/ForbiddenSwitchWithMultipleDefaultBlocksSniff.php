@@ -14,15 +14,13 @@ use PHPCompatibility\Sniff;
 use PHP_CodeSniffer_File as File;
 
 /**
- * \PHPCompatibility\Sniffs\ControlStructures\ForbiddenSwitchWithMultipleDefaultBlocksSniff.
- *
- * Switch statements can not have multiple default blocks since PHP 7.0
+ * Switch statements can not have multiple default blocks since PHP 7.0.
  *
  * PHP version 7.0
  *
- * @category PHP
- * @package  PHPCompatibility
- * @author   Wim Godden <wim@cu.be>
+ * @link https://wiki.php.net/rfc/switch.default.multiple
+ *
+ * @since 7.0.0
  */
 class ForbiddenSwitchWithMultipleDefaultBlocksSniff extends Sniff
 {

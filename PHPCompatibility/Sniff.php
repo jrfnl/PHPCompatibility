@@ -17,12 +17,9 @@ use PHP_CodeSniffer_Sniff as PHPCS_Sniff;
 use PHP_CodeSniffer_Tokens as Tokens;
 
 /**
- * \PHPCompatibility\Sniff.
+ * Base class from which all PHPCompatibility sniffs extend.
  *
- * @category  PHP
- * @package   PHPCompatibility
- * @author    Wim Godden <wim.godden@cu.be>
- * @copyright 2014 Cu.be Solutions bvba
+ * @since 5.6
  */
 abstract class Sniff implements PHPCS_Sniff
 {
