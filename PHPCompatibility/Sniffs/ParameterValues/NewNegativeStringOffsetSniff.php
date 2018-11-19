@@ -31,6 +31,8 @@ class NewNegativeStringOffsetSniff extends AbstractFunctionCallParameterSniff
     /**
      * Functions to check for.
      *
+     * @since 9.0.0
+     *
      * @var array Function name => 1-based parameter offset of the affected parameters => parameter name.
      */
     protected $targetFunctions = array(
@@ -78,6 +80,8 @@ class NewNegativeStringOffsetSniff extends AbstractFunctionCallParameterSniff
     /**
      * Do a version check to determine if this sniff needs to run at all.
      *
+     * @since 9.0.0
+     *
      * @return bool
      */
     protected function bowOutEarly()
@@ -87,6 +91,8 @@ class NewNegativeStringOffsetSniff extends AbstractFunctionCallParameterSniff
 
     /**
      * Process the parameters of a matched function.
+     *
+     * @since 9.0.0
      *
      * @param \PHP_CodeSniffer_File $phpcsFile    The file being scanned.
      * @param int                   $stackPtr     The position of the current token in the stack.

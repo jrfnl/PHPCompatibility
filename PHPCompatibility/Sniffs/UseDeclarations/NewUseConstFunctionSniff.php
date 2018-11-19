@@ -33,6 +33,8 @@ class NewUseConstFunctionSniff extends Sniff
     /**
      * A list of keywords that can follow use statements.
      *
+     * @since 7.1.4
+     *
      * @var array(string => string)
      */
     protected $validUseNames = array(
@@ -42,6 +44,8 @@ class NewUseConstFunctionSniff extends Sniff
 
     /**
      * Returns an array of tokens this test wants to listen for.
+     *
+     * @since 7.1.4
      *
      * @return array
      */
@@ -53,6 +57,8 @@ class NewUseConstFunctionSniff extends Sniff
 
     /**
      * Processes this test, when one of its tokens is encountered.
+     *
+     * @since 7.1.4
      *
      * @param \PHP_CodeSniffer_File $phpcsFile The file being scanned.
      * @param int                   $stackPtr  The position of the current token in the

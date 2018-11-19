@@ -31,6 +31,9 @@ class RemovedMbstringModifiersSniff extends AbstractFunctionCallParameterSniff
      *
      * Key is the function name, value the parameter position of the options parameter.
      *
+     * @since 7.0.5
+     * @since 8.2.0 Renamed from `$functions` to `$targetFunctions`.
+     *
      * @var array
      */
     protected $targetFunctions = array(
@@ -44,6 +47,8 @@ class RemovedMbstringModifiersSniff extends AbstractFunctionCallParameterSniff
 
     /**
      * Do a version check to determine if this sniff needs to run at all.
+     *
+     * @since 8.2.0
      *
      * @return bool
      */

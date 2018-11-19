@@ -26,12 +26,16 @@ class ValidIntegersSniff extends Sniff
     /**
      * Whether PHPCS is run on a PHP < 5.4.
      *
+     * @since 7.0.3
+     *
      * @var bool
      */
     protected $isLowPHPVersion = false;
 
     /**
      * Returns an array of tokens this test wants to listen for.
+     *
+     * @since 7.0.3
      *
      * @return array
      */
@@ -48,6 +52,8 @@ class ValidIntegersSniff extends Sniff
 
     /**
      * Processes this test, when one of its tokens is encountered.
+     *
+     * @since 7.0.3
      *
      * @param \PHP_CodeSniffer_File $phpcsFile The file being scanned.
      * @param int                   $stackPtr  The position of the current token in
@@ -111,6 +117,8 @@ class ValidIntegersSniff extends Sniff
     /**
      * Could the current token potentially be a binary integer ?
      *
+     * @since 7.0.3
+     *
      * @param array $tokens   Token stack.
      * @param int   $stackPtr The current position in the token stack.
      *
@@ -137,6 +145,8 @@ class ValidIntegersSniff extends Sniff
     /**
      * Is the current token an invalid binary integer ?
      *
+     * @since 7.0.3
+     *
      * @param array $tokens   Token stack.
      * @param int   $stackPtr The current position in the token stack.
      *
@@ -158,6 +168,8 @@ class ValidIntegersSniff extends Sniff
 
     /**
      * Retrieve the content of the tokens which together look like a binary integer.
+     *
+     * @since 7.0.3
      *
      * @param \PHP_CodeSniffer_File $phpcsFile The file being scanned.
      * @param array                 $tokens    Token stack.
@@ -184,6 +196,8 @@ class ValidIntegersSniff extends Sniff
     /**
      * Is the current token an invalid octal integer ?
      *
+     * @since 7.0.3
+     *
      * @param array $tokens   Token stack.
      * @param int   $stackPtr The current position in the token stack.
      *
@@ -202,6 +216,8 @@ class ValidIntegersSniff extends Sniff
 
     /**
      * Is the current token a hexidecimal numeric string ?
+     *
+     * @since 7.0.3
      *
      * @param array $tokens   Token stack.
      * @param int   $stackPtr The current position in the token stack.
