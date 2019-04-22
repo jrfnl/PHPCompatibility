@@ -377,7 +377,7 @@ var_dump($tokens[$variableToken]);
                         break;
                     }
 
-                    if ($tokens[$beforeVar]['code'] === T_BITWISE_AND
+                    if ($tokens[$beforeVar]['code'] === \T_BITWISE_AND
                         && $phpcsFile->isReference($beforeVar)
                     ) {
                         // Variable is used/passed by reference. This is definitely danger territory.
