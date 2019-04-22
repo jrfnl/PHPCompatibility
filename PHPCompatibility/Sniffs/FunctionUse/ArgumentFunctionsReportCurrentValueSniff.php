@@ -366,6 +366,7 @@ class ArgumentFunctionsReportCurrentValueSniff extends Sniff
                 if (isset($variableToken) === false) {
                     $variableToken = $j;
                 }
+var_dump($tokens[$variableToken]);
 
                 $beforeVar = $phpcsFile->findPrevious(Tokens::$emptyTokens, ($j - 1), null, true);
                 if ($beforeVar !== false) {
@@ -418,6 +419,33 @@ class ArgumentFunctionsReportCurrentValueSniff extends Sniff
                     $variableToken = $j;
                     break;
                 }
+
+				// Check if we are in a long list assignment.
+				if (isset($tokens[$j]['nested_parenthesis'])) {
+					$parens = $tokens[$j]['nested_parenthesis'];
+					foreach ( $parens as $open => $close ) {
+						// PHPCS 3.5.0+
+						if (isset($tokens[$open]['parenthesis_owner'])) {
+							if ($tokens[$tokens[$open]['parenthesis_owner']]['code'] === T_LIST) {
+			                    // Variable assignment via list().
+			                    $scanResult = 'error';
+			                    break 2;
+							}
+/*						} else {
+							// PHPCS < 3.5.0.
+							$beforeOpen = $phpcsFile->findPrevious(Tokens::$emptyTokens, ($open - 1), null, true);
+							if ($tokens[$beforeOpen]['code'] === T_LIST) {
+			                    // Variable assignment via list().
+			                    $scanResult = 'error';
+			                    break 2;
+							}
+						}*/
+					}
+				}
+
+
+                // Check if it's used in a list()/short list assignment => error
+
             }
 
             unset($argNumber, $paramNamesSubset);
