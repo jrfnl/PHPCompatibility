@@ -167,6 +167,11 @@ function author_can( $post, $capability ) {
 		}
 	}
 
+function useParamByRef($value) {
+	$array = array(&$value);
+	func_get_args(); // Error, $value has been used (assigned) by reference.
+}
+
 // Parse error on purpose (missing closing scope brace). This has to be the last test in the file.
 function foo($x) {
     $x = function_call($x);

@@ -368,11 +368,22 @@ class ArgumentFunctionsReportCurrentValueSniff extends Sniff
                 }
 
                 $beforeVar = $phpcsFile->findPrevious(Tokens::$emptyTokens, ($j - 1), null, true);
-                if ($beforeVar !== false && isset($this->plusPlusMinusMinus[$tokens[$beforeVar]['code']])) {
-                    // Variable is being (pre-)incremented/decremented.
-                    $scanResult    = 'error';
-                    $variableToken = $j;
-                    break;
+                if ($beforeVar !== false) {
+                    if (isset($this->plusPlusMinusMinus[$tokens[$beforeVar]['code']])) {
+                        // Variable is being (pre-)incremented/decremented.
+                        $scanResult    = 'error';
+                        $variableToken = $j;
+                        break;
+                    }
+
+                    if ($tokens[$beforeVar]['code'] === T_BITWISE_AND
+                        && $phpcsFile->isReference($beforeVar)
+                    ) {
+                        // Variable is used/passed by reference. This is definitely danger territory.
+                        $scanResult    = 'error-ref';
+                        $variableToken = $j;
+                        break;
+                    }
                 }
 
                 $afterVar = $phpcsFile->findNext(Tokens::$emptyTokens, ($j + 1), null, true);
@@ -425,7 +436,9 @@ class ArgumentFunctionsReportCurrentValueSniff extends Sniff
             if ($scanResult === 'error') {
                 $data[] = 'changed';
                 $phpcsFile->addError($error, $i, 'Changed', $data);
-
+            } elseif ($scanResult === 'error-ref') {
+                $data[] = 'used/passed by reference and possibly changed';
+                $phpcsFile->addError($error, $i, 'Referenced', $data);
             } elseif ($scanResult === 'warning') {
                 $data[] = 'used, and possibly changed (by reference),';
                 $phpcsFile->addWarning($error, $i, 'NeedsInspection', $data);

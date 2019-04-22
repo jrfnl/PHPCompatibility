@@ -73,6 +73,38 @@ class ArgumentFunctionsReportCurrentValueUnitTest extends BaseSniffTest
 
 
     /**
+     * testUsedByReference.
+     *
+     * @dataProvider dataUsedByReference
+     *
+     * @param array  $line         The line number where an error is expected.
+     * @param string $functionName The name of the function to which the error applies.
+     * @param string $variableName The variable which was detected as having been changed.
+     *
+     * @return void
+     */
+    public function testValueChanged($line, $functionName, $variableName)
+    {
+        $file = $this->sniffFile(__FILE__, '7.0');
+        $this->assertError($file, $line, "Since PHP 7.0, functions inspecting arguments, like {$functionName}(), no longer report the original value as passed to a parameter, but will instead provide the current value. The parameter \"{$variableName}\" was used/passed by reference and possibly changed on line");
+    }
+
+    /**
+     * Data provider.
+     *
+     * @see testUsedByReference()
+     *
+     * @return array
+     */
+    public function dataUsedByReference()
+    {
+        return array(
+            array(172, 'func_get_arg', '$value'),
+        );
+    }
+
+
+    /**
      * testNeedsInspection.
      *
      * @dataProvider dataNeedsInspection
@@ -148,7 +180,7 @@ class ArgumentFunctionsReportCurrentValueUnitTest extends BaseSniffTest
         $cases[] = array(152);
         $cases[] = array(162);
         $cases[] = array(164);
-        $cases[] = array(173);
+        $cases[] = array(178);
 
         return $cases;
     }
