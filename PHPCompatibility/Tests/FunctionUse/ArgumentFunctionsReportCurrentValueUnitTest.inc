@@ -172,6 +172,42 @@ function useParamByRef($value) {
 	func_get_args(); // Error, $value has been used (assigned) by reference.
 }
 
+function author_can( $post, $capability ) {
+	if ( $post === 'abc' ) {}
+	if ( 'abc' !== (string) $post ) {}
+	if ( $post > 10 ) {}
+	if ( 20 <= (int) $post ) {}
+	if ( intval( $post ) > 10 ) {}
+	if ( false != boolval( $post ) ) {}
+
+	$args = array_slice( func_get_args(), 0 ); // OK, variable accessed is only being compared.
+}
+
+function foo($x) {
+    list($x) = function_call();
+    debug_backtrace(); // Error, $x has been assigned a new value via list.
+}
+
+function foo($y) {
+    [$y] = function_call();
+    debug_backtrace(); // Error, $x has been assigned a new value via short list.
+}
+
+function bar($value) {
+	$array = [$value];
+	func_get_args(); // OK, $value has only been used in an array assignment, not changed.
+}
+
+function bar($value) {
+	$array = array($value);
+	func_get_args(); // OK, $value has only been used in an array assignment, not changed.
+}
+
+function bar($value) {
+	end($value);
+	func_get_args(); // Warning.
+}
+
 // Parse error on purpose (missing closing scope brace). This has to be the last test in the file.
 function foo($x) {
     $x = function_call($x);
