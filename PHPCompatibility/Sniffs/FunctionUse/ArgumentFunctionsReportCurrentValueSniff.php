@@ -326,13 +326,28 @@ class ArgumentFunctionsReportCurrentValueSniff extends Sniff
              * Ok, so we've found one of the target functions in the right scope.
              * Now, let's check if any of the passed parameters were touched.
              */
-            $scanResult = 'clean';
+            $scanResult       = 'clean';
+            $shortListCounter = 0;
             for ($j = ($scopeOpener + 1); $j < $startOfStatement; $j++) {
                 if (isset($this->skipPastNested[$tokens[$j]['type']])
                     && isset($tokens[$j]['scope_closer'])
                 ) {
                     // Skip past nested structures.
                     $j = $tokens[$j]['scope_closer'];
+                    continue;
+                }
+
+                // Keep track of whether we are in a short list.
+                if ($tokens[$j]['code'] === \T_OPEN_SHORT_ARRAY
+                    && $this->isShortList($phpcsFile, $j) === true
+                ) {
+                    ++$shortListCounter;
+                    continue;
+                }
+                if ($tokens[$j]['code'] === \T_CLOSE_SHORT_ARRAY
+                    && $this->isShortList($phpcsFile, $j) === true
+                ) {
+                    --$shortListCounter;
                     continue;
                 }
 
@@ -367,6 +382,12 @@ class ArgumentFunctionsReportCurrentValueSniff extends Sniff
                     $variableToken = $j;
                 }
 var_dump($tokens[$variableToken]);
+
+                if ($shortListCounter > 0) {
+                    $scanResult    = 'error';
+                    $variableToken = $j;
+                    break;
+                }
 
                 $beforeVar = $phpcsFile->findPrevious(Tokens::$emptyTokens, ($j - 1), null, true);
                 if ($beforeVar !== false) {
@@ -420,32 +441,28 @@ var_dump($tokens[$variableToken]);
                     break;
                 }
 
-				// Check if we are in a long list assignment.
-				if (isset($tokens[$j]['nested_parenthesis'])) {
-					$parens = $tokens[$j]['nested_parenthesis'];
-					foreach ( $parens as $open => $close ) {
-						// PHPCS 3.5.0+
-						if (isset($tokens[$open]['parenthesis_owner'])) {
-							if ($tokens[$tokens[$open]['parenthesis_owner']]['code'] === T_LIST) {
-			                    // Variable assignment via list().
-			                    $scanResult = 'error';
-			                    break 2;
-							}
-/*						} else {
-							// PHPCS < 3.5.0.
-							$beforeOpen = $phpcsFile->findPrevious(Tokens::$emptyTokens, ($open - 1), null, true);
-							if ($tokens[$beforeOpen]['code'] === T_LIST) {
-			                    // Variable assignment via list().
-			                    $scanResult = 'error';
-			                    break 2;
-							}
-						}*/
-					}
-				}
-
-
-                // Check if it's used in a list()/short list assignment => error
-
+                // Check if we are in a long list assignment.
+                if (isset($tokens[$j]['nested_parenthesis'])) {
+                    $parens = $tokens[$j]['nested_parenthesis'];
+                    foreach ($parens as $open => $close) {
+                        // PHPCS 3.5.0+
+                        if (isset($tokens[$open]['parenthesis_owner'])) {
+                            if ($tokens[$tokens[$open]['parenthesis_owner']]['code'] === \T_LIST) {
+                                // Variable assignment via list().
+                                $scanResult = 'error';
+                                break 2;
+                            }
+                        } else {
+                            // PHPCS < 3.5.0.
+                            $beforeOpen = $phpcsFile->findPrevious(Tokens::$emptyTokens, ($open - 1), null, true);
+                            if ($tokens[$beforeOpen]['code'] === \T_LIST) {
+                                // Variable assignment via list().
+                                $scanResult = 'error';
+                                break 2;
+                            }
+                        }
+                    }
+                }
             }
 
             unset($argNumber, $paramNamesSubset);

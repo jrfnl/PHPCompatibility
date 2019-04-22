@@ -172,6 +172,27 @@ function useParamByRef($value) {
 	func_get_args(); // Error, $value has been used (assigned) by reference.
 }
 
+function assignedNewValueInList($x) {
+    list($x) = function_call();
+    debug_backtrace(); // Error, $x has been assigned a new value via list.
+}
+
+function assignedNewValueInShortList($y) {
+    [$y] = function_call();
+    debug_backtrace(); // Error, $y has been assigned a new value via short list.
+}
+
+function assignedNewValueInNestedShortList($y) {
+    [$x, [$y]] = function_call();
+    debug_backtrace(); // Error, $y has been assigned a new value via short list.
+}
+
+function assignedToOtherVar($z) {
+    [$x, [$y]] = $z;
+    debug_backtrace(); // Warning, $z may have been changed by reference.
+}
+
+
 function author_can( $post, $capability ) {
 	if ( $post === 'abc' ) {}
 	if ( 'abc' !== (string) $post ) {}
@@ -181,16 +202,6 @@ function author_can( $post, $capability ) {
 	if ( false != boolval( $post ) ) {}
 
 	$args = array_slice( func_get_args(), 0 ); // OK, variable accessed is only being compared.
-}
-
-function foo($x) {
-    list($x) = function_call();
-    debug_backtrace(); // Error, $x has been assigned a new value via list.
-}
-
-function foo($y) {
-    [$y] = function_call();
-    debug_backtrace(); // Error, $x has been assigned a new value via short list.
 }
 
 function bar($value) {
