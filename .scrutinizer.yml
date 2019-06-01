@@ -16,6 +16,7 @@ filter:
         - 'PHPCompatibility/Util/Tests/*'
     dependency_paths:
         - 'vendor/'
+        - 'PHPCSAliases.php'
 
 tools:
     php_sim: true
