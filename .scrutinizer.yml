@@ -3,6 +3,9 @@
 build:
   nodes:
     analysis:
+      dependencies:
+        before:
+          - composer install --no-dev --no-interaction
       tests:
         override:
           - php-scrutinizer-run
