@@ -1,12 +1,11 @@
 # language: php
 
 build:
-    nodes:
-        analysis:
-            project_setup:
-                override: true
-            tests:
-                override: [php-scrutinizer-run]
+  nodes:
+    analysis:
+      tests:
+        override:
+          - php-scrutinizer-run
 
 filter:
     excluded_paths:
