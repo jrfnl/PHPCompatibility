@@ -2,12 +2,12 @@ name: Quicktest
 
 on:
   # Run on pushes, including merges, to all branches except `master` and `develop`.
-  push:
-    branches-ignore:
-      - master
-      - develop
-    paths-ignore:
-      - '**.md'
+#  push:
+#    branches-ignore:
+#      - master
+#      - develop
+#    paths-ignore:
+#      - '**.md'
   # Allow manually triggering the workflow.
   workflow_dispatch:
 

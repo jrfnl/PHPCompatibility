@@ -3,9 +3,9 @@ name: Test
 on:
   # Run on pushes to `master` and on all pull requests.
   push:
-    branches:
-      - master
-      - develop
+#    branches:
+#      - master
+#      - develop
   pull_request:
   # Allow manually triggering the workflow.
   workflow_dispatch:
@@ -21,7 +21,7 @@ jobs:
   # Linting against high/low of each PHP major should catch everything.
   # If needs be, we can always add interim versions back at a later point in time.
   lint:
-    if: ${{ github.ref != 'refs/heads/develop' }}
+    if: ${{ github.ref == 'refs/heads/develop' }}
     runs-on: ubuntu-latest
 
     strategy:
@@ -62,7 +62,7 @@ jobs:
 
   #### TEST STAGE ####
   test:
-    if: ${{ github.ref != 'refs/heads/develop' }}
+    if: ${{ github.ref == 'refs/heads/develop' }}
     # No use running the tests if there is a linting error somewhere as they would fail anyway.
     needs: lint
 
@@ -224,9 +224,9 @@ jobs:
   # and low/high of each major for PHPCS.
   coverage:
     # No use running the coverage builds if there are failing test builds.
-    needs: test
+    #needs: test
     # The default condition is success(), but this is false when one of the previous jobs is skipped (but don't run on forks).
-    if: always() && github.repository_owner == 'PHPCompatibility' && (needs.test.result == 'success' || needs.test.result == 'skipped')
+    #if: always() && github.repository_owner == 'PHPCompatibility' && (needs.test.result == 'success' || needs.test.result == 'skipped')
 
     runs-on: ubuntu-latest
 
@@ -234,6 +234,7 @@ jobs:
       # Keys:
       # - custom_ini: Whether to run with specific custom ini settings to hit very specific
       #   code conditions.
+      fail-fast: false
       matrix:
         include:
           - php: '8.0'
