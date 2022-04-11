@@ -96,12 +96,12 @@ jobs:
         include:
           # Complement the builds run in code coverage to complete the matrix.
           - php: '8.1'
-            phpcs_version: 'dev-master'
-            experimental: false
-          - php: '8.1'
             phpcs_version: '3.6.1'
             experimental: false
 
+          - php: '8.0'
+            phpcs_version: 'dev-master'
+            experimental: false
           - php: '8.0'
             phpcs_version: '~3.5.7'
             experimental: false
@@ -231,21 +231,32 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - php: '8.0'
+          - php: '8.1'
             phpcs_version: 'dev-master'
             custom_ini: true
+          - php: '8.1'
+            phpcs_version: '3.6.2'
+          - php: '8.0'
+            phpcs_version: '3.6.0'
+
+          # Problem visible on:
           - php: '7.3'
-            phpcs_version: '2.6.0'
-          - php: '7.2'
+            phpcs_version: '2.6.0' # null coalesce + nullsafe operator
+          - php: '7.3'
+            phpcs_version: '3.3.1' # nullsafe only
+          - php: '7.4'
+            phpcs_version: '3.5.0' # nullsafe only
+
+          - php: '7.2'  # can't run 3.1.0 on 7.3, not problematic on 7.2 as PHPUnit 8 is used
             phpcs_version: '3.1.0'
 
-          - php: '5.4'
-            phpcs_version: 'dev-master'
-          - php: '5.4'
-            phpcs_version: '>=2.6,<3.0'
-            custom_ini: true
-          - php: '5.4'
-            phpcs_version: '2.6.0'
+#          - php: '5.4'
+#            phpcs_version: 'dev-master'
+#          - php: '5.4'
+#            phpcs_version: '>=2.6,<3.0'
+#            custom_ini: true
+#          - php: '5.4'
+#            phpcs_version: '2.6.0'
 
     name: "Coverage: PHP ${{ matrix.php }}${{ matrix.custom_ini && ' (ini)' || '' }} - PHPCS ${{ matrix.phpcs_version }}"
 
