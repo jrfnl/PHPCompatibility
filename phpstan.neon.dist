@@ -1,0 +1,83 @@
+includes:
+#    - phar://phpstan.phar/conf/bleedingEdge.neon
+#    - phpstan-baseline.neon
+parameters:
+    #phpVersion: 50400 # Needs to be 70100 or higher... sigh...
+    level: 6
+    paths:
+        - PHPCSAliases.php
+        - PHPCompatibility
+        - bin/generate-forbidden-names-test-files
+    bootstrapFiles:
+        - phpunit-bootstrap.php
+    treatPhpDocTypesAsCertain: false
+#    checkMissingIterableValueType: false
+
+    ignoreErrors:
+        # Level 0
+        # Ignoring this as availability depends on which PHPUnit/Polyfills version is loaded/installed. This is 100% okay.
+        -
+            message: '`^Call to an undefined method \S+UnitTest::setExpectedException\(\)\.$`'
+            path: PHPCompatibility/Util/Tests
+
+        # Level 4
+        # PHPStan doesn't seem to like uninitialized properties...
+        -
+            message: '`^Static property \S+ScannedCode::\$testVersion[s]? \([^\)]+\) in isset\(\) is not nullable\.$`'
+            path: PHPCompatibility/Helpers/ScannedCode.php
+            count: 2
+        -
+            message: '`^Static property \S+NewFlexibleHeredocNowdocUnitTest::\$php73plus \(bool\) in isset\(\) is not nullable\.$`'
+            path: PHPCompatibility/Tests/Syntax/NewFlexibleHeredocNowdocUnitTest.php
+            count: 1
+        -
+            message: '`^Property \S+RemovedIndirectModificationOfGlobalsSniff::\$phpNativeFunctions \([^\)]+\) in isset\(\) is not nullable\.$`'
+            path: PHPCompatibility/Sniffs/Variables/RemovedIndirectModificationOfGlobalsSniff.php
+            count: 1
+        -
+            message: '`^Property \S+RemovedSerializableSniff::\$lastSeenSerializableInterfaces \([^\)]+\) in isset\(\) is not nullable\.$`'
+            path: PHPCompatibility/Sniffs/Interfaces/RemovedSerializableSniff.php
+            count: 1
+        -
+            message: '`^Strict comparison using === between true and false will always evaluate to false\.$`'
+            paths:
+              - PHPCompatibility/Helpers/ScannedCode.php
+              - PHPCompatibility/Tests/Syntax/NewFlexibleHeredocNowdocUnitTest.php
+              - PHPCompatibility/Sniffs/Variables/RemovedIndirectModificationOfGlobalsSniff.php
+
+        # Level 5
+        # Ignoring as this is fine. Can't be fixed anyway while PHP 5.4 is still supported.
+        -
+            message: '`^Parameter #1 \$exception of method PHPUnit\\Framework\\TestCase::expectException\(\) expects class-string<Throwable>, string given\.$`'
+            paths:
+              - PHPCompatibility/Util/Tests/Helpers/ComplexVersionDeprecatedRemovedFeatureTraitUnitTest.php
+              - PHPCompatibility/Util/Tests/Helpers/ComplexVersionNewFeatureTraitUnitTest.php
+
+        # Passing invalid types on purpose for testing type handling.
+        -
+            message: '`^Parameter #[1-3] \$\S+ of method \S+ComplexVersion(DeprecatedRemoved|New)FeatureTraitUnitTest::get(Version|Message)Info\(\) expects .+?, null given\.$`'
+            paths:
+              - PHPCompatibility/Util/Tests/Helpers/ComplexVersionDeprecatedRemovedFeatureTraitUnitTest.php
+              - PHPCompatibility/Util/Tests/Helpers/ComplexVersionNewFeatureTraitUnitTest.php
+
+
+
+
+        # Level 0
+#        - '#^Result of method \S+ \(void\) is used\.$#'
+
+        # Level 4
+#        - '#^Property \S+::\$\S+ \([^)]+\) in isset\(\) is not nullable\.$#'
+#        -
+#            count: 1
+#            message: '#^Result of && is always true\.$#'
+#            path: WordPress/Sniffs/Security/EscapeOutputSniff.php
+#        -
+#            count: 1
+#            message: '#^Strict comparison using === between true and false will always evaluate to false\.$#'
+#            path: WordPress/Sniffs/Utils/I18nTextDomainFixerSniff.php
+
+        # Level 5
+#        - '#^Parameter \#3 \$value of method \S+File::recordMetric\(\) expects string, \(?(float|int|bool)(\|(float|int|bool))*\)? given\.$#'
+
+
