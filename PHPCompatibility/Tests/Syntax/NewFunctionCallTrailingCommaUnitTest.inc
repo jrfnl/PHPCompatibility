@@ -110,3 +110,13 @@ function bar() {}
 
 // Document how trailing comma's in PHP 8.1+ first class callables are handled.
 register_callback(strtolower(...,)); // Parse error, but throw an error anyway as the calllable is by rights a function call.
+
+// OK cross-version.
+exit;
+die;
+exit($status);
+die($status);
+
+// Only allowed since PHP 8.4.
+exit($status,); // Error with PHP < 8.4.
+die /*comment*/  ( 2, /*comment*/ ); // Error with PHP < 8.4.
