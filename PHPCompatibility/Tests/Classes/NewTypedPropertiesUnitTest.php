@@ -114,6 +114,8 @@ class NewTypedPropertiesUnitTest extends BaseSniffTestCase
             [198],
             [206, true],
             [209],
+            [215, true],
+            [216, true],
         ];
     }
 
@@ -156,6 +158,7 @@ class NewTypedPropertiesUnitTest extends BaseSniffTestCase
         $cases[] = [153];
         $cases[] = [154];
         $cases[] = [205];
+        $cases[] = [214];
 
         return $cases;
     }
